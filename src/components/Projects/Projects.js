@@ -55,7 +55,21 @@ import Shreyansh from "../../Assets/Projects/ShreyanshPC.png"
 import ShreyaPC from "../../Assets/Projects/ShreyaPC.png"
 import Siddhant from "../../Assets/Projects/SiddhantPC.png"
 import VaibhavPC from "../../Assets/Projects/VaibhavPC.png"
-
+import AchalPC from "../../Assets/Projects/AchalPC.jpg"
+import AnchalPC from "../../Assets/Projects/AnchalPC.jpg"
+import AnubhavPC from "../../Assets/Projects/AnubhavPC.jpg"
+import Ayush2PC from "../../Assets/Projects/Ayush2PC.jpg"
+import AkagraPC from "../../Assets/Projects/AkagraPC.jpg"
+import ArthPC from "../../Assets/Projects/ArthPC.jpg"
+import HarshPC from "../../Assets/Projects/HarshPC.jpg"
+import MeetPC from "../../Assets/Projects/MeetPC.jpg"
+import Rachit2PC from "../../Assets/Projects/rachit2PC..jpg"
+import RitikPC from "../../Assets/Projects/RitikPC.jpg"
+import ShreyaaPC from "../../Assets/Projects/ShreyaaPC.jpg"
+import SachiPC from "../../Assets/Projects/SachiPC.jpg"
+import ShwetaPC from "../../Assets/Projects/ShwetaPC.jpg"
+import Siddharth2PC from "../../Assets/Projects/Siddharth2PC.jpg"
+import TanishaPC from "../../Assets/Projects/TanishaPC.jpg"
 
 import { useTransition } from "react";
 
@@ -553,6 +567,184 @@ function Projects() {
               imgPath={VaibhavPC}
               isBlog={false}
               title="Vaibhav"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+        </Row>
+      </Container>
+
+      
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <Container>
+        <h1 className="project-heading">
+           <strong className="purple">2nd  </strong> Year Members
+        </h1>
+        <p style={{ color: "white" }}>
+          
+        </p>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+        <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={AchalPC}
+              isBlog={false}
+              title="Achal"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={AkagraPC}
+              isBlog={false}
+              title="Akagra"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={AnchalPC}
+              isBlog={false}
+              title="Anchal"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={AnubhavPC}
+              isBlog={false}
+              title="Anubhav"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+       
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={ArthPC}
+              isBlog={false}
+              title="Arth"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={Ayush2PC}
+              isBlog={false}
+              title="Ayush"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={HarshPC}
+              isBlog={false}
+              title="Harsh"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={MeetPC}
+              isBlog={false}
+              title="Meet"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+          
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={Rachit2PC}
+              isBlog={false}
+              title="Rachit"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={RitikPC}
+              isBlog={false}
+              title="Ritik"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={SachiPC}
+              isBlog={false}
+              title="Sachi"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+         <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard 
+              imgPath={ShreyaaPC} 
+              isBlog={false}
+              title="Shreyaa"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+
+          {/* not an square image  */}
+
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={ShwetaPC}
+              isBlog={false}
+              title="Shweta"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={Siddharth2PC}
+              isBlog={false}
+              title="Siddharth"
+              description=""
+              ghLink=""
+              demoLink=""
+            />
+          </Col>
+          <Col lg = {2} md={4} sm={6} xs={12} className="project-card">
+            <ProjectCard
+              imgPath={TanishaPC}
+              isBlog={false}
+              title="Tanisha"
               description=""
               ghLink=""
               demoLink=""
