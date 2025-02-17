@@ -94,7 +94,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item> */}
 
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link
                 href="https://register.programming-club.tech/" 
                 // target="_blank"
@@ -102,7 +102,7 @@ function NavBar() {
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Register
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
 
             {/* <Nav.Item className="fork-btn">
               <Button
