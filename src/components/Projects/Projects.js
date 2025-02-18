@@ -76,7 +76,7 @@ import { useTransition } from "react";
 
 function Projects() {
   return (
-    <Container fluid className="project-section">
+    <Container fluid className="home-section">
       <Particle />
       <Container>
         <h1 className="project-heading">

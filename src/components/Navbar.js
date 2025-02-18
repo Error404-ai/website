@@ -68,14 +68,14 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />
-                  About
+                   Achievements
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
+                to="/members"
                 onClick={() => updateExpanded(false)}
               >
                 

@@ -13,7 +13,7 @@ import icpc2 from "../../Assets/Projects/icpc2.jpg";
 import icpc3 from "../../Assets/Projects/icpc3.jpg";
 function About() {
   return (
-    <Container fluid className="about-section">
+    <Container fluid className="home-section">
       <Particle />
       <Container>
       <Row style={{ justifyContent: "center", padding: "10px" }}>
@@ -25,7 +25,7 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px",color: "white" }}>
               ICPC <strong className="purple">Regionalist'24</strong>
             </h1>
             <Card className="quote-card-view">
@@ -70,7 +70,7 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" ,color: "white"}}>
               ICPC <strong className="purple">Regionalist'23</strong>
             </h1>
             <Card className="quote-card-view">
@@ -121,7 +121,7 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" ,color: "white"}}>
               ICPC <strong className="purple">Regionalist'23</strong>
             </h1>
             <Aboutcard />
