@@ -19,7 +19,7 @@ function Pre(props) {
     <div id={props.load ? "preloader" : "preloader-none"} className="preloader" style={{ backgroundColor: "#0c0513" }}>
       {props.load && (
         <div className="new-spinner">
-          <img src={logo} alt="Loading" /> {/* Add the new image */}
+          <img src={logo} alt="Loading" style={{ width: "20%", height: "auto" }} />
         </div>
       )}
     </div>
