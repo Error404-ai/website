@@ -83,3 +83,68 @@
     transform: scale(1.0);
   }
 }
+
+/* Registration Form Styles */
+.home-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.register-form-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  margin-top: 4rem !important;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.register-form {
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.register-form .form-label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.register-form .form-control,
+.register-form .form-select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem;
+}
+
+.register-form .form-control:focus,
+.register-form .form-select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+}
+
+.register-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.register-form .submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  background: #007bff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.register-form .submit-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}

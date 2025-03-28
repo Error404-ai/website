@@ -94,15 +94,15 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item> */}
 
-            {/* <Nav.Item>
+             <Nav.Item>
               <Nav.Link
-                href="https://register.programming-club.tech/" 
-                // target="_blank"
-                rel="noreferrer"
+                as={Link}
+                to="/register"
+                onClick={() => updateExpanded(false)}
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Register
               </Nav.Link>
-            </Nav.Item> */}
+            </Nav.Item> 
 
             {/* <Nav.Item className="fork-btn">
               <Button
