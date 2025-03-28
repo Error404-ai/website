@@ -3,9 +3,8 @@ import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
+import Members from "./components/Members/Members";
 import Register from "./components/Register";
 import EventPopup from "./components/EventPopup";
 import {
@@ -39,9 +38,8 @@ function App() {
         <EventPopup />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/members" element={<Projects />} />
           <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
+          <Route path="/members" element={<Members />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>

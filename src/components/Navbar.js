@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import logo from "../Assets/Projects/logo.png"
-import Button from "react-bootstrap/Button";
+import logo from "../Assets/Projects/logo.png";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
-  AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -28,7 +23,14 @@ function NavBar() {
     }
   }
 
-  window.addEventListener("scroll", scrollHandler);
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     <Navbar
@@ -68,7 +70,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />
-                   Achievements
+                Achievements
               </Nav.Link>
             </Nav.Item>
 
@@ -78,23 +80,12 @@ function NavBar() {
                 to="/members"
                 onClick={() => updateExpanded(false)}
               >
-                
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> 
                 Members
               </Nav.Link>
             </Nav.Item>
 
-            {/* <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item> */}
-
-             <Nav.Item>
+            <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/register"
@@ -102,18 +93,7 @@ function NavBar() {
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Register
               </Nav.Link>
-            </Nav.Item> 
-
-            {/* <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/soumyajit4419/Portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item> */}
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,0 +1,90 @@
+{
+  "fourthYear": {
+    "title": "4th Year Members",
+    "members": [
+      {
+        "name": "Aakash Sharma",
+        "image": "AnasPC.png",
+        "branch": "Computer Science",
+        "specialization": "Full Stack Development",
+        "skills": ["React", "Node.js", "MongoDB"],
+        "github": "https://github.com/aakash",
+        "linkedin": "https://linkedin.com/in/aakash",
+        "email": "aakash@example.com"
+      },
+      {
+        "name": "Bhavya Patel",
+        "image": "DeepakPC.png",
+        "branch": "Information Technology",
+        "specialization": "Cloud Computing",
+        "skills": ["AWS", "Docker", "Kubernetes"],
+        "github": "https://github.com/bhavya",
+        "linkedin": "https://linkedin.com/in/bhavya"
+      }
+    ]
+  },
+  "thirdYear": {
+    "title": "3rd Year Members",
+    "members": [
+      {
+        "name": "Ananya Gupta",
+        "image": "aanyaPC.png",
+        "branch": "Computer Science",
+        "specialization": "Machine Learning",
+        "skills": ["Python", "TensorFlow", "Data Science"],
+        "github": "https://github.com/ananya",
+        "linkedin": "https://linkedin.com/in/ananya"
+      },
+      {
+        "name": "Dev Patel",
+        "image": "DEVPC.png",
+        "branch": "Information Technology",
+        "specialization": "Cybersecurity",
+        "skills": ["Network Security", "Ethical Hacking", "Cryptography"],
+        "github": "https://github.com/dev",
+        "linkedin": "https://linkedin.com/in/dev"
+      }
+    ]
+  },
+  "secondYear": {
+    "title": "2nd Year Members",
+    "members": [
+      {
+        "name": "Arjun Reddy",
+        "image": "RahulPC.png",
+        "branch": "Computer Science",
+        "specialization": "Mobile Development",
+        "skills": ["Flutter", "React Native", "Firebase"],
+        "github": "https://github.com/arjun",
+        "linkedin": "https://linkedin.com/in/arjun"
+      },
+      {
+        "name": "Neha Verma",
+        "image": "SnehaPC.png",
+        "branch": "Information Technology",
+        "specialization": "UI/UX Design",
+        "skills": ["Figma", "Adobe XD", "Web Design"],
+        "github": "https://github.com/neha",
+        "linkedin": "https://linkedin.com/in/neha"
+      },
+      {
+        "name": "Arjun Reddy",
+        "image": "RahulPC.png",
+        "branch": "Computer Science",
+        "specialization": "Mobile Development",
+        "skills": ["Flutter", "React Native", "Firebase"],
+        "github": "https://github.com/arjun",
+        "linkedin": "https://linkedin.com/in/arjun"
+      },
+      {
+        "name": "Neha ",
+        "image": "SnehaPC.png",
+        "branch": "Information Technology",
+        "specialization": "UI/UX Design",
+        "skills": ["Figma", "Adobe XD", "Web Design"],
+        "github": "https://github.com/neha",
+        "linkedin": "https://linkedin.com/in/neha"
+      }
+    ]
+  }
+} 
