@@ -7,6 +7,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import Register from "./components/Register";
+import EventPopup from "./components/EventPopup";
 import {
   BrowserRouter as Router,
   Route,
@@ -35,6 +36,7 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
+        <EventPopup />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/members" element={<Projects />} />

@@ -148,3 +148,104 @@
   background: #0056b3;
   transform: translateY(-2px);
 }
+
+/* Event Popup Styles */
+.event-popup .modal-content {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.event-popup .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-popup .modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-popup .modal-title {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.event-content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.event-content h3 {
+  color: #00ff88;
+  margin-bottom: 1rem;
+}
+
+.event-content h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.event-details {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.event-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.event-info li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.event-description {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.event-description ul {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.event-description ul li {
+  margin: 0.5rem 0;
+  color: #fff;
+  position: relative;
+}
+
+.event-description ul li:before {
+  content: "→";
+  color: #00ff88;
+  position: absolute;
+  left: -1rem;
+}
+
+.event-popup .btn-primary {
+  background: #00ff88;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+}
+
+.event-popup .btn-primary:hover {
+  background: #00cc6a;
+  transform: translateY(-2px);
+}
+
+.event-popup .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.event-popup .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
