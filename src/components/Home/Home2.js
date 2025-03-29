@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/home-main2.svg";
 import Tilt from "react-parallax-tilt";
+import Particle from "../Particle";
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -11,12 +12,15 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
   return (
-    <Container fluid className="home-about-section" id="about">
-      <Container>
+    <Container fluid className="home-about-section position-relative" id="about">
+      <div className="home-about-particle-container">
+        <Particle variant="about" />
+      </div>
+      <Container className="home-about-content">
         <Row>
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
-              What We <span className="purple"> Do </span> 
+            <h1 className="about-heading">
+              What We <span className="purple">Do</span> 
             </h1>
             <p className="home-about-body">
 
@@ -24,12 +28,12 @@ function Home2() {
                We aim to develop students' <span className="purple">problem-solving</span> skills through coding workshops and seminars that prepare them for national and global competitions.
 
               Our events are designed for all skill levels, offering insights and techniques to master <span className="purple">Competitive Programming</span>. <br/><br/>
-              Whether you're a beginner or an experienced coder, the Programming Club is the perfect place to enhance your skills and succeed in coding challenges.
+              Whether you're a beginner or an experienced coder, the Programming Club is the perfect place to enhance your skills and succeed in coding challenges.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img src={myImg} className="img-fluid rounded-circle" alt="avatar" />
             </Tilt>
           </Col>
         </Row>
@@ -37,7 +41,7 @@ function Home2() {
           <Col md={12} className="home-about-social">
             <h1>FIND US ON</h1>
             <p>
-              Feel free to <span className="pur">connect </span>with us
+              Feel free to <span className="purple">connect</span> with us
             </p>
             <ul className="home-about-social-links">
               {/* <li className="social-icons">
@@ -65,7 +69,8 @@ function Home2() {
                   href="https://www.linkedin.com/company/programming-club-akgec/mycompany/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -76,6 +81,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="Instagram"
                 >
                   <AiFillInstagram />
                 </a>

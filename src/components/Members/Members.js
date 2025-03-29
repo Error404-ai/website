@@ -4,6 +4,7 @@ import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import membersData from "../Data/sortedMembers.json";
+import Particle from "../Particle";
 import "./Members.css";
 
 // The core issue is that images are in src/Assets/Projects, not in public/Assets/Projects
@@ -244,6 +245,9 @@ function Members() {
 
   return (
     <Container fluid className="members-section">
+      <div className="particle-container">
+        <Particle variant="members" />
+      </div>
       <Container>
         <div className="section-title">
           <h2>Our Team</h2>

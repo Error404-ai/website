@@ -84,6 +84,24 @@
         "skills": ["Figma", "Adobe XD", "Web Design"],
         "github": "https://github.com/neha",
         "linkedin": "https://linkedin.com/in/neha"
+      },
+      {
+        "name": "Arjun Reddy",
+        "image": "RahulPC.png",
+        "branch": "Computer Science",
+        "specialization": "Mobile Development",
+        "skills": ["Flutter", "React Native", "Firebase"],
+        "github": "https://github.com/arjun",
+        "linkedin": "https://linkedin.com/in/arjun"
+      },
+      {
+        "name": "Neha ",
+        "image": "SnehaPC.png",
+        "branch": "Information Technology",
+        "specialization": "UI/UX Design",
+        "skills": ["Figma", "Adobe XD", "Web Design"],
+        "github": "https://github.com/neha",
+        "linkedin": "https://linkedin.com/in/neha"
       }
     ]
   }
