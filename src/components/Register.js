@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
-import Particle from "./Particle";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FaCheckCircle } from "react-icons/fa";
 import "./Register.css";
+
+// Lazy load particle component
+const Particle = lazy(() => import("./Particle"));
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -23,15 +25,34 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formError, setFormError] = useState("");
+  const [shouldRenderParticles, setShouldRenderParticles] = useState(false);
+  const [yearError, setYearError] = useState(false);
+  const [registrationTypeError, setRegistrationTypeError] = useState(false);
+
+  // Only enable particles on desktop devices and if user's device is powerful enough
+  useEffect(() => {
+    // Check for desktop and not low-end device
+    const isDesktop = window.innerWidth >= 992;
+    const isLowEndDevice = navigator.hardwareConcurrency <= 4;
+    setShouldRenderParticles(isDesktop && !isLowEndDevice);
+
+    // Add a listener for window resize events
+    const handleResize = () => {
+      setShouldRenderParticles(window.innerWidth >= 992 && !isLowEndDevice);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const validateForm = () => {
     // Email validation for AKGEC domain
     if (!formData.email.endsWith('@akgec.ac.in')) {
-      setFormError('Please use your AKGEC email address');
+      setFormError('Please use your AKGEC email address (@akgec.ac.in)');
       return false;
     }
 
-    // Phone number validation (10 digits)
+    // Phone number validation (exactly 10 digits)
     if (!/^\d{10}$/.test(formData.phone)) {
       setFormError('Please enter a valid 10-digit phone number');
       return false;
@@ -43,9 +64,23 @@ function Register() {
       return false;
     }
 
-    // HackerRank username validation (no spaces or special characters)
-    if (!/^[a-zA-Z0-9_-]+$/.test(formData.hackerrank)) {
-      setFormError('Please enter a valid HackerRank username (no spaces or special characters)');
+    // Year validation (only 1st and 2nd year allowed)
+    if (formData.year !== "1" && formData.year !== "2") {
+      setFormError('Only 1st and 2nd year students are eligible for this event');
+      return false;
+    }
+
+    // Registration type validation based on year
+    if (formData.year === "2" && formData.registration_type === "workshop_contest") {
+      setFormError('2nd year students can only register for Contest Only option');
+      return false;
+    }
+
+    // Required fields validation (all except hackerrank)
+    if (!formData.name || !formData.email || !formData.branch_name || 
+        !formData.student_no || !formData.phone || !formData.gender || 
+        !formData.hosteller || !formData.year || !formData.registration_type) {
+      setFormError('All fields are required except HackerRank profile');
       return false;
     }
 
@@ -55,7 +90,7 @@ function Register() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    // Format phone number to remove any non-digit characters
+    // Format phone number to remove any non-digit characters and limit to 10 digits
     if (name === 'phone') {
       const formattedValue = value.replace(/\D/g, '').slice(0, 10);
       setFormData(prevState => ({
@@ -75,9 +110,75 @@ function Register() {
       return;
     }
 
+    // Reset registration type if 2nd year is selected
+    if (name === 'year' && value === '2') {
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value,
+        registration_type: 'contest' // Default to contest only for 2nd year
+      }));
+      return;
+    }
+
     setFormData(prevState => ({
       ...prevState,
       [name]: value
+    }));
+
+    // Clear year-specific errors when changing year or registration type
+    if (name === 'year' || name === 'registration_type') {
+      setYearError(false);
+      setRegistrationTypeError(false);
+    }
+  };
+
+  // Handle year selection and update available registration types
+  const handleYearChange = (e) => {
+    const selectedYear = e.target.value;
+    
+    // Reset any previous errors
+    setYearError(false);
+    setRegistrationTypeError(false);
+    
+    // Check if the year is valid (1st or 2nd)
+    if (selectedYear !== "1" && selectedYear !== "2") {
+      setYearError(true);
+      return;
+    }
+    
+    // If 2nd year is selected, force registration type to "contest"
+    if (selectedYear === "2") {
+      setFormData(prevState => ({
+        ...prevState,
+        year: selectedYear,
+        registration_type: "contest"
+      }));
+    } else {
+      // For 1st year, just update the year
+      setFormData(prevState => ({
+        ...prevState,
+        year: selectedYear
+      }));
+    }
+  };
+
+  // Handle registration type selection based on year
+  const handleRegistrationTypeChange = (e) => {
+    const selectedType = e.target.value;
+    const currentYear = formData.year;
+    
+    // Reset any previous errors
+    setRegistrationTypeError(false);
+    
+    // If 2nd year is trying to select workshop+contest, show error
+    if (currentYear === "2" && selectedType === "workshop_contest") {
+      setRegistrationTypeError(true);
+      return;
+    }
+    
+    setFormData(prevState => ({
+      ...prevState,
+      registration_type: selectedType
     }));
   };
 
@@ -104,7 +205,7 @@ function Register() {
       branch_name: formData.branch_name,
       recaptcha_token: recaptchaToken,
       student_no: formData.student_no,
-      hackerrank: formData.hackerrank,
+      hackerrank: formData.hackerrank || "", // Optional field
       phone: formData.phone,
       email: formData.email,
       gender: formData.gender.charAt(0).toUpperCase() + formData.gender.slice(1).toLowerCase(),
@@ -154,9 +255,13 @@ function Register() {
 
   return (
     <section className="register-section">
-      <div className="particle-container">
-        <Particle />
-      </div>
+      {shouldRenderParticles && (
+        <Suspense fallback={<div />}>
+          <div className="particle-container">
+            <Particle />
+          </div>
+        </Suspense>
+      )}
       <Container>
         <Row className="justify-content-center">
           <Col md={8} className="register-form-container">
@@ -188,7 +293,7 @@ function Register() {
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Full Name</Form.Label>
+                        <Form.Label>Full Name <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                           type="text"
                           name="name"
@@ -201,7 +306,7 @@ function Register() {
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Email Address</Form.Label>
+                        <Form.Label>Email Address <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                           type="email"
                           name="email"
@@ -209,7 +314,12 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="your.email@akgec.ac.in"
+                          pattern="^[a-zA-Z0-9._%+-]+@akgec\.ac\.in$"
+                          title="Please enter a valid AKGEC email address (ending with @akgec.ac.in)"
                         />
+                        <Form.Text className="text-muted">
+                          Must be an AKGEC domain email (@akgec.ac.in)
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -217,7 +327,7 @@ function Register() {
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Label>Phone Number <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                           type="tel"
                           name="phone"
@@ -225,24 +335,36 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="10-digit phone number"
+                          pattern="[0-9]{10}"
+                          title="Please enter exactly 10 digits"
                         />
+                        <Form.Text className="text-muted">
+                          Must be exactly 10 digits
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Year</Form.Label>
+                        <Form.Label>Year <span className="text-danger">*</span></Form.Label>
                         <Form.Select
                           name="year"
                           value={formData.year}
-                          onChange={handleChange}
+                          onChange={handleYearChange}
                           required
+                          isInvalid={yearError}
                         >
                           <option value="">Select Year</option>
                           <option value="1">1st Year</option>
                           <option value="2">2nd Year</option>
-                          <option value="3">3rd Year</option>
-                          <option value="4">4th Year</option>
                         </Form.Select>
+                        <Form.Text className="text-muted">
+                          Only 1st and 2nd year students are eligible
+                        </Form.Text>
+                        {yearError && (
+                          <Form.Control.Feedback type="invalid">
+                            Only 1st and 2nd year students are eligible
+                          </Form.Control.Feedback>
+                        )}
                       </Form.Group>
                     </Col>
                   </Row>
@@ -250,7 +372,7 @@ function Register() {
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Branch</Form.Label>
+                        <Form.Label>Branch <span className="text-danger">*</span></Form.Label>
                         <Form.Select
                           name="branch_name"
                           value={formData.branch_name}
@@ -274,17 +396,31 @@ function Register() {
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Registration Type</Form.Label>
+                        <Form.Label>Registration Type <span className="text-danger">*</span></Form.Label>
                         <Form.Select
                           name="registration_type"
                           value={formData.registration_type}
-                          onChange={handleChange}
+                          onChange={handleRegistrationTypeChange}
                           required
+                          disabled={formData.year === "2"}
+                          isInvalid={registrationTypeError}
                         >
                           <option value="">Select Option</option>
-                          <option value="workshop_contest">Workshop + Contest</option>
+                          {formData.year !== "2" && (
+                            <option value="workshop_contest">Workshop + Contest</option>
+                          )}
                           <option value="contest">Contest Only (Free)</option>
                         </Form.Select>
+                        {formData.year === "2" && (
+                          <Form.Text className="text-muted">
+                            2nd year students can only register for Contest Only
+                          </Form.Text>
+                        )}
+                        {registrationTypeError && (
+                          <Form.Control.Feedback type="invalid">
+                            2nd year students can only register for Contest Only
+                          </Form.Control.Feedback>
+                        )}
                       </Form.Group>
                     </Col>
                   </Row>
@@ -292,7 +428,7 @@ function Register() {
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Gender</Form.Label>
+                        <Form.Label>Gender <span className="text-danger">*</span></Form.Label>
                         <Form.Select
                           name="gender"
                           value={formData.gender}
@@ -308,7 +444,7 @@ function Register() {
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Are you a Hosteller?</Form.Label>
+                        <Form.Label>Are you a Hosteller? <span className="text-danger">*</span></Form.Label>
                         <Form.Select
                           name="hosteller"
                           value={formData.hosteller}
@@ -332,14 +468,16 @@ function Register() {
                           name="hackerrank"
                           value={formData.hackerrank}
                           onChange={handleChange}
-                          required
                           placeholder="Your HackerRank username"
                         />
+                        <Form.Text className="text-muted">
+                          Optional field
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Student Number</Form.Label>
+                        <Form.Label>Student Number <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                           type="text"
                           name="student_no"
@@ -347,7 +485,12 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="Enter your student number"
+                          pattern="[0-9]{7,8}"
+                          title="Please enter 7 or 8 digits"
                         />
+                        <Form.Text className="text-muted">
+                          Must be 7 or 8 digits
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                   </Row>

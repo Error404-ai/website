@@ -9,7 +9,7 @@
 }
 
 .register-form-container {
-  background: rgba(27, 26, 46, 0.7);
+  background-color: rgba(30, 30, 45, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px;
@@ -58,7 +58,7 @@
 .register-form .form-select:focus {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: #EF334C;
-  box-shadow: 0 0 0 3px rgba(239, 51, 76, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(239, 51, 76, 0.25);
 }
 
 .register-form .form-control::placeholder {
@@ -68,44 +68,42 @@
 .recaptcha-container {
   display: flex;
   justify-content: center;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .submit-btn {
-  background: #EF334C !important;
-  border: none;
-  padding: 12px 25px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(239, 51, 76, 0.3);
-  transition: all 0.3s ease;
+  background-color: #EF334C;
+  border-color: #EF334C;
+  padding: 10px 25px;
+  font-weight: 500;
   width: 100%;
-  margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
-.submit-btn:hover, 
-.submit-btn:focus {
-  background: #d41e37 !important;
+.submit-btn:hover:not(:disabled) {
+  background-color: #d41c35;
+  border-color: #d41c35;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 51, 76, 0.4);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn:disabled {
-  background: rgba(239, 51, 76, 0.5) !important;
+  background-color: #f5a5ae;
+  border-color: #f5a5ae;
   cursor: not-allowed;
-  transform: none;
 }
 
 .success-message {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 30px;
   text-align: center;
-  padding: 30px 20px;
-  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .success-icon {
-  font-size: 5rem;
-  color: #EF334C;
+  font-size: 4rem;
+  color: #28a745;
   margin-bottom: 20px;
 }
 
@@ -163,17 +161,56 @@
   border-radius: 8px;
 }
 
-/* Responsive styles */
-@media (max-width: 767px) {
+/* Required field indicator */
+.text-danger {
+  color: #f03e3e !important;
+}
+
+/* Form validation feedback */
+.invalid-feedback, 
+.form-control.is-invalid,
+.form-select.is-invalid {
+  color: #f03e3e;
+  border-color: #f03e3e;
+}
+
+.form-text {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Disabled field styling */
+.form-select:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* Year-specific validation styling */
+.year-error,
+.registration-type-error {
+  margin-top: 0.25rem;
+  color: #f03e3e;
+  font-size: 0.875rem;
+}
+
+/* Conditional field styling */
+.conditional-field {
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.conditional-field.disabled {
+  opacity: 0.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .register-form-container {
     padding: 20px;
   }
   
-  .heading-name {
-    font-size: 2rem;
-  }
-  
-  .submit-btn {
-    padding: 10px 20px;
+  .recaptcha-container {
+    transform: scale(0.85);
+    transform-origin: left center;
   }
 } 
