@@ -27,13 +27,14 @@
     "title": "3rd Year Members",
     "members": [
       {
-        "name": "Ananya Gupta",
-        "image": "aanyaPC.png",
-        "branch": "Computer Science",
-        "specialization": "Machine Learning",
-        "skills": ["Python", "TensorFlow", "Data Science"],
-        "github": "https://github.com/ananya",
-        "linkedin": "https://linkedin.com/in/ananya"
+        "name": "Rachit Katiyar",
+        "image": "RachitPC.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Android Development",
+        "skills": ["Kotlin", "Java", "C++", "Android"],
+        "github": "https://github.com/rockyhappy",
+        "linkedin": "https://www.linkedin.com/in/rachit-katiyar-800378275/",
+        "email": "rachitjk.chanakya1@gmail.com"
       },
       {
         "name": "Dev Patel",
