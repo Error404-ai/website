@@ -6,7 +6,7 @@ import "./Register.css";
 
 // Lazy load particle component
 const Particle = lazy(() => import("./Particle"));
-const RECAPTCHA_SITE_KEY = "6LdIzwMrAAAAAJQGSJlGQv11I7FqHKZhsvwDp3t7";
+const RECAPTCHA_SITE_KEY = "6LePUwUrAAAAAPZdevNjCuMlDlPgEKZQ2aHUZSLE";
 
 function Register() {
   const [formData, setFormData] = useState({
