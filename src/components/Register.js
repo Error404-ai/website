@@ -315,7 +315,7 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="your.email@akgec.ac.in"
-                          pattern="^[a-zA-Z0-9._%+-]+@akgec\.ac\.in$"
+                          pattern="[0-9a-zA-Z._%+-]+@akgec[.]ac[.]in"
                           title="Please enter a valid AKGEC email address (ending with @akgec.ac.in)"
                         />
                         <Form.Text className="text-muted">
