@@ -2,30 +2,61 @@
   "fourthYear": {
     "title": "4th Year Members",
     "members": [
-      {
-        "name": "Aakash Sharma",
-        "image": "AnasPC.png",
-        "branch": "Computer Science",
-        "specialization": "Full Stack Development",
-        "skills": ["React", "Node.js", "MongoDB"],
-        "github": "https://github.com/aakash",
-        "linkedin": "https://linkedin.com/in/aakash",
-        "email": "aakash@example.com"
-      },
-      {
-        "name": "Bhavya Patel",
-        "image": "DeepakPC.png",
-        "branch": "Information Technology",
-        "specialization": "Cloud Computing",
-        "skills": ["AWS", "Docker", "Kubernetes"],
-        "github": "https://github.com/bhavya",
-        "linkedin": "https://linkedin.com/in/bhavya"
-      }
+      
     ]
   },
   "thirdYear": {
     "title": "3rd Year Members",
     "members": [
+      {
+        "name": "Aakarsh Singh",
+        "image": "Aakarsh Singh.jpeg",
+        "branch": "Electronics and Communication Engineering",
+        "specialization": "Spring Boot Development",
+        "skills": [ "Java", "C++", "JDK"],
+        "linkedin": "https://www.linkedin.com/in/aakarsh09z/"
+      },
+      {
+        "name": "Anas Khan",
+        "image": "AnasPC.png",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Cyber Security Expert",
+        "skills": [ "Python", "C++", "Cyber Security"],
+        "linkedin": "https://www.linkedin.com/in/anas-khan-094b92290/"
+      },
+      {
+        "name": "Ayush Agrawal",
+        "image": "AyushAgrawalPC.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Competitive Programming",
+        "skills": [ "Javascript", "C++", "Python"],
+        "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/"
+      },
+      {
+        "name": "Lakshay Gupta",
+        "image": "Lakshay.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Python and IOS Developer",
+        "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart", "Swift"],
+        "linkedin": "https://www.linkedin.com/in/ilakshaygupt/"
+      },
+      {
+        "name": "Lakshya Goel",
+        "image": "Lakshya Goel.jpeg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Flutter Developer",
+        "skills": [ "Node.js", "C++", "Flutter", "Dart"],
+        "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/"
+      },
+      {
+        "name": "Paras Upadhyay",
+        "image": "Paras.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Competitive Programming and Flutter Developer",
+        "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart"],
+        "linkedin": "https://www.linkedin.com/in/pudv95/"
+      },
+      
       {
         "name": "Rachit Katiyar",
         "image": "RachitPC.jpg",
@@ -35,75 +66,13 @@
         "github": "https://github.com/rockyhappy",
         "linkedin": "https://www.linkedin.com/in/rachit-katiyar-800378275/",
         "email": "rachitjk.chanakya1@gmail.com"
-      },
-      {
-        "name": "Dev Patel",
-        "image": "DEVPC.png",
-        "branch": "Information Technology",
-        "specialization": "Cybersecurity",
-        "skills": ["Network Security", "Ethical Hacking", "Cryptography"],
-        "github": "https://github.com/dev",
-        "linkedin": "https://linkedin.com/in/dev"
       }
     ]
   },
   "secondYear": {
     "title": "2nd Year Members",
     "members": [
-      {
-        "name": "Arjun Reddy",
-        "image": "RahulPC.png",
-        "branch": "Computer Science",
-        "specialization": "Mobile Development",
-        "skills": ["Flutter", "React Native", "Firebase"],
-        "github": "https://github.com/arjun",
-        "linkedin": "https://linkedin.com/in/arjun"
-      },
-      {
-        "name": "Neha Verma",
-        "image": "SnehaPC.png",
-        "branch": "Information Technology",
-        "specialization": "UI/UX Design",
-        "skills": ["Figma", "Adobe XD", "Web Design"],
-        "github": "https://github.com/neha",
-        "linkedin": "https://linkedin.com/in/neha"
-      },
-      {
-        "name": "Arjun Reddy",
-        "image": "RahulPC.png",
-        "branch": "Computer Science",
-        "specialization": "Mobile Development",
-        "skills": ["Flutter", "React Native", "Firebase"],
-        "github": "https://github.com/arjun",
-        "linkedin": "https://linkedin.com/in/arjun"
-      },
-      {
-        "name": "Neha ",
-        "image": "SnehaPC.png",
-        "branch": "Information Technology",
-        "specialization": "UI/UX Design",
-        "skills": ["Figma", "Adobe XD", "Web Design"],
-        "github": "https://github.com/neha",
-        "linkedin": "https://linkedin.com/in/neha"
-      },
-      {
-        "name": "Arjun Reddy",
-        "image": "RahulPC.png",
-        "branch": "Computer Science",
-        "specialization": "Mobile Development",
-        "skills": ["Flutter", "React Native", "Firebase"],
-        "github": "https://github.com/arjun",
-        "linkedin": "https://linkedin.com/in/arjun"
-      },
-      {
-        "name": "Neha ",
-        "image": "SnehaPC.png",
-        "branch": "Information Technology",
-        "specialization": "UI/UX Design",
-        "skills": ["Figma", "Adobe XD", "Web Design"],
-        "github": "https://github.com/neha",
-        "linkedin": "https://linkedin.com/in/neha"
-      }
+    
     ]
   }
 } 
