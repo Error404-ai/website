@@ -14,7 +14,9 @@
         "branch": "Electronics and Communication Engineering",
         "specialization": "Spring Boot Development",
         "skills": [ "Java", "C++", "JDK"],
-        "linkedin": "https://www.linkedin.com/in/aakarsh09z/"
+        "linkedin": "https://www.linkedin.com/in/aakarsh09z/",
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       },
       {
         "name": "Anas Khan",
@@ -22,7 +24,9 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Cyber Security Expert",
         "skills": [ "Python", "C++", "Cyber Security"],
-        "linkedin": "https://www.linkedin.com/in/anas-khan-094b92290/"
+        "linkedin": "https://www.linkedin.com/in/anas-khan-094b92290/",
+        "showBanner": true,
+        "bannerText": "SIH Winner"
       },
       {
         "name": "Ayush Agrawal",
@@ -30,7 +34,9 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Competitive Programming",
         "skills": [ "Javascript", "C++", "Python"],
-        "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/"
+        "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/",
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       },
       {
         "name": "Lakshay Gupta",
@@ -38,7 +44,9 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Python and IOS Development",
         "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart", "Swift"],
-        "linkedin": "https://www.linkedin.com/in/ilakshaygupt/"
+        "linkedin": "https://www.linkedin.com/in/ilakshaygupt/",
+        "showBanner": true,
+        "bannerText": "SIH Winner"
       },
       {
         "name": "Lakshya Goel",
@@ -46,7 +54,9 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Flutter Development",
         "skills": [ "Node.js", "C++", "Flutter", "Dart"],
-        "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/"
+        "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/",
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Paras Upadhyay",
@@ -54,7 +64,9 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Competitive Programming and Flutter Development",
         "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart"],
-        "linkedin": "https://www.linkedin.com/in/pudv95/"
+        "linkedin": "https://www.linkedin.com/in/pudv95/",
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       },
       
       {
@@ -65,7 +77,9 @@
         "skills": ["Kotlin", "Java", "C++", "Android"],
         "github": "https://github.com/rockyhappy",
         "linkedin": "https://www.linkedin.com/in/rachit-katiyar-800378275/",
-        "email": "rachitjk.chanakya1@gmail.com"
+        "email": "rachitjk.chanakya1@gmail.com",
+        "showBanner": true,
+        "bannerText": "SIH Winner"
       }
     ]
   },
