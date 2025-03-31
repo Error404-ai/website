@@ -36,7 +36,7 @@
         "name": "Lakshay Gupta",
         "image": "Lakshay.jpg",
         "branch": "Computer Science and Engineering",
-        "specialization": "Python and IOS Developer",
+        "specialization": "Python and IOS Development",
         "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart", "Swift"],
         "linkedin": "https://www.linkedin.com/in/ilakshaygupt/"
       },
@@ -44,7 +44,7 @@
         "name": "Lakshya Goel",
         "image": "Lakshya Goel.jpeg",
         "branch": "Computer Science and Engineering",
-        "specialization": "Flutter Developer",
+        "specialization": "Flutter Development",
         "skills": [ "Node.js", "C++", "Flutter", "Dart"],
         "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/"
       },
@@ -52,7 +52,7 @@
         "name": "Paras Upadhyay",
         "image": "Paras.jpg",
         "branch": "Computer Science and Engineering",
-        "specialization": "Competitive Programming and Flutter Developer",
+        "specialization": "Competitive Programming and Flutter Development",
         "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart"],
         "linkedin": "https://www.linkedin.com/in/pudv95/"
       },
