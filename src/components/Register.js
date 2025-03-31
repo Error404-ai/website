@@ -6,6 +6,7 @@ import "./Register.css";
 
 // Lazy load particle component
 const Particle = lazy(() => import("./Particle"));
+const RECAPTCHA_SITE_KEY = "6LdIzwMrAAAAAJQGSJlGQv11I7FqHKZhsvwDp3t7";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -497,7 +498,7 @@ function Register() {
 
                   <div className="recaptcha-container mb-4">
                     <ReCAPTCHA
-                      sitekey="6LeyqpApAAAAAKTZxQW5Kf4fEepP5YXzAGXZHsuK"
+                      sitekey={RECAPTCHA_SITE_KEY}
                       onChange={handleRecaptchaChange}
                     />
                   </div>
@@ -520,4 +521,4 @@ function Register() {
   );
 }
 
-export default Register; 
+export default Register;

@@ -3,14 +3,14 @@
   min-height: 100vh;
   padding-top: 80px;
   padding-bottom: 80px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75));
   color: white;
   z-index: 1;
 }
 
 .register-form-container {
-  background-color: rgba(30, 30, 45, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: rgba(30, 30, 45, 0.7);
+  backdrop-filter: blur(5px);
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -213,4 +213,4 @@
     transform: scale(0.85);
     transform-origin: left center;
   }
-} 
+}
