@@ -6,7 +6,7 @@ import "./Register.css";
 
 // Lazy load particle component
 const Particle = lazy(() => import("./Particle"));
-const RECAPTCHA_SITE_KEY = "6LdIzwMrAAAAAJQGSJlGQv11I7FqHKZhsvwDp3t7";
+const RECAPTCHA_SITE_KEY = "6LePUwUrAAAAAPZdevNjCuMlDlPgEKZQ2aHUZSLE";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -267,7 +267,7 @@ function Register() {
         <Row className="justify-content-center">
           <Col md={8} className="register-form-container">
             <h1 className="heading-name text-center mb-4">
-              <span className="purple">INCLUDE 4.0</span> REGISTRATION
+              <span className="purple">#INCLUDE 4.0</span> REGISTRATION
             </h1>
             <p className="text-center subtitle mb-4">Organized by Programming Club, AKGEC</p>
             
