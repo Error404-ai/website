@@ -72,6 +72,96 @@
   "secondYear": {
     "title": "2nd Year Members",
     "members": [
+      {
+        "name": "Achal Vishnoi",
+        "image": "AchalPc2.jpg",
+        "branch": "Computer Science"
+        
+      },
+      {
+        "name": "Akagra Jain",
+        "image": "Aakarsh Singh.jpeg",
+        "branch": "Computer Science"
+        
+      },
+      {
+        "name": "Anchal Singh",
+        "image": "AnchalPC.jpg",
+        "branch": "Computer Science and Engineering"
+        
+      },
+      {
+        "name": "Anubhav Hajela",
+        "image": "AnubhavPC.jpg",
+        "branch": "Computer Science and Engineering"
+        
+      },
+      {
+        "name": "Arth",
+        "image": "ArthPC.jpg",
+        "branch": "Computer Science and Engineering"
+        
+      },
+      {
+        "name": "Ayush Kumar Agarwal",
+        "image": "Ayush2PC.png",
+        "branch": "Computer Science and Engineering"
+        
+      },
+      {
+        "name": "Harsh Kumar Arya",
+        "image": "HarshPC.jpg",
+        "branch": "CSE DS"
+        
+      },
+      {
+        "name": "Meet Goyal",
+        "image": "MeetPC.jpg",
+        "branch": "Computer Science"
+        
+      },
+      {
+        "name": "Rachit Daksh",
+        "image": "rachit2PC..jpg",
+        "branch": "CSE AIML"
+        
+      },
+      {
+        "name": "Ritik Tayal",
+        "image": "RitikPC.jpg",
+        "branch": "CSE AIML"
+        
+      },
+      {
+        "name": "Sachi Jain",
+        "image": "SachiPC.jpg",
+        "branch": "AIML"
+        
+      },
+      {
+        "name": "Shreyaa Katiyar",
+        "image": "ShreyaaPC.jpg",
+        "branch": "CSE AIML"
+        
+      },
+      {
+        "name": "Shweta",
+        "image": "ShwetaPC.jpg",
+        "branch": "CS-IT"
+        
+      },
+      {
+        "name": "Siddharth Rai",
+        "image": "Siddharth2PC.jpg",
+        "branch": "CSE AIML"
+        
+      },
+      {
+        "name": "Tanisha Bhatt",
+        "image": "TanishaPC.jpg",
+        "branch": "Computer Science and Engineering"
+        
+      }
     
     ]
   }
