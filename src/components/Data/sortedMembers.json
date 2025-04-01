@@ -19,6 +19,18 @@
         "bannerText": "ICPC Regionalist"
       },
       {
+        "name": "Akhil Agrawal",
+        "image": "Akhil.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Backend Development",
+        "skills": [ "Node.js", "SQL", "Ruby", "CS Fundamentals"],
+        "github": "https://github.com/swastik-akhil",
+        "linkedin": "https://www.linkedin.com/in/akhil-agrawal-soccer/",
+        "email": "akhilmindset@gmail.com",
+        "showBanner": true,
+        "bannerText": "Techie"
+      },
+      {
         "name": "Anas Khan",
         "image": "AnasPC.png",
         "branch": "Computer Science and Engineering",
