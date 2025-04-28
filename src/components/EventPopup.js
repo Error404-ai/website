@@ -37,10 +37,10 @@ function EventPopup() {
             Join us for an exciting competitive programming workshop where you can elevate your programming skills!
           </p>
           <ul className="event-info">
-            <li>📅 Date: April 6, 2025 - April 7, 2025</li>
+            <li>📅 Date: May 5, 2025 - May 6, 2025</li>
             <li>⏰ Time: 9:00 AM - 6:00 PM</li>
             <li>📍 Venue: CSIT Seminar Hall</li>
-            <li>💻 Coding Contest on April 8, 2025 from 4:00 PM - 6:00 PM</li>
+            <li>💻 Coding Contest on May 7, 2025 from 4:00 PM - 6:30 PM</li>
           </ul>
           <p className="event-description">
             Participate in our flagship coding event featuring:
