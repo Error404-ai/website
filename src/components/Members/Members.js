@@ -272,7 +272,7 @@ function Members() {
   return (
     <Container fluid className="members-section">
       <div className="particle-container">
-        <Particle variant="members" />
+        {/* <Particle variant="members" /> */}
       </div>
       <Container>
         <div className="section-title">

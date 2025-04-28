@@ -259,7 +259,7 @@ function Register() {
       {shouldRenderParticles && (
         <Suspense fallback={<div />}>
           <div className="particle-container">
-            <Particle />
+            {/* <Particle /> */}
           </div>
         </Suspense>
       )}
