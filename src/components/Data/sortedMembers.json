@@ -2,6 +2,139 @@
   "fourthYear": {
     "title": "4th Year Members",
     "members": [
+
+      {
+        "name": "Aanya Mittal",
+        "image": "aanyaPC.png",
+        "branch": "CSE AIML",
+        "linkedin": "https://www.linkedin.com/in/aanya-mittal-508059231/?originalSubdomain=in"
+      },
+      {
+        "name": "Aanand Rai",
+        "image": "src/Assets/Projects/AanandPC.jpg",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/aanand-rai-363890260/?originalSubdomain=in"
+      },
+      {
+        "name": "Deepak Jain",
+        "image": "src/Assets/Projects/DeepakPC.png",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/deepak-4-jain/?originalSubdomain=in"
+      },
+      {
+        "name": "Dev Goel",
+        "image": "src/Assets/Projects/DEVPC.png",
+        "branch": "IT",
+        "linkedin": "https://www.linkedin.com/in/devgoel901/?originalSubdomain=in"
+      },
+      {
+        "name": "Ishita Singhal",
+        "image": "src/Assets/Projects/IshitaPC.png",
+        "branch": "CSE AIML",
+        "linkedin": ""
+      },
+      {
+        "name": "Kapish Upadhyay",
+        "image": "src/Assets/Projects/KapishPC.png",
+        "branch": "IT",
+        "linkedin": "https://www.linkedin.com/in/kapishupadhyay/?originalSubdomain=in"
+      },
+      {
+        "name": "Kartikey Tandon",
+        "image": "src/Assets/Projects/KartikeyPC.jpeg",
+        "branch": "CS",
+        "linkedin": "https://www.linkedin.com/in/kartikeytandon/?originalSubdomain=in"
+      },
+      {
+        "name": "Keshav Gupta",
+        "image": "src/Assets/Projects/KeshavPC.png",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/keshav-gupta-847725228/"
+      },
+      {
+        "name": "KinjalK Yadav",
+        "image": "src/Assets/Projects/KinjalPC.png",
+        "branch": "CSE AIML",
+        "linkedin": "https://www.linkedin.com/in/kinjalk-yadav-253165243/?trk=public_post_feed-actor-image&original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in"
+      },
+      {
+        "name": "Kshitiz Agarwal",
+        "image": "src/Assets/Projects/KshitizPC.png",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/kshitiz--agarwal/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in"
+      },
+      {
+        "name": "Lisha Singh",
+        "image": "src/Assets/Projects/LishaPC.jpg",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/lisha-singh-854453221/?originalSubdomain=in"
+      },
+      {
+        "name": "Madhur Goel",
+        "image": "src/Assets/Projects/MadhurPC.png",
+        "branch": "AIML",
+        "linkedin": "https://www.linkedin.com/in/madhur-goel-mg/recent-activity/all/"
+      },
+      {
+        "name": "Mohd Asjad Raza Ansari",
+        "image": "src/Assets/Projects/AsjadPC.png",
+        "branch": "CS",
+        "linkedin": "https://www.linkedin.com/in/vedasjad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      },
+      {
+        "name": "Nikhil Sinha",
+        "image": "src/Assets/Projects/NikhilPC.png",
+        "branch": "CSIT",
+        "linkedin": "https://www.linkedin.com/in/nikhilsinha822/?originalSubdomain=in"
+      },
+      {
+        "name": "Saumya Srivastava",
+        "image": "src/Assets/Projects/SaumyaPC.jpg",
+        "branch": "CS",
+        "linkedin": "https://www.linkedin.com/in/saumya-srivastava-a49417220/?originalSubdomain=in"
+      },
+      {
+        "name": "Shambhavi Rai",
+        "image": "src/Assets/Projects/ShambhaviPC.jpg",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/rai-shambhavi/?originalSubdomain=in"
+      },
+      {
+        "name": "Shorya",
+        "image": "src/Assets/Projects/ShoryaPC.png",
+        "branch": "IT",
+        "linkedin": "https://www.linkedin.com/in/shorya-9b8b50241/"
+      },
+      {
+        "name": "Shreyansh Mittal",
+        "image": "src/Assets/Projects/ShreyanshPC.jpg",
+        "branch": "IT",
+        "linkedin": "https://www.linkedin.com/in/shreyanshmittal1/?originalSubdomain=in"
+      },
+      {
+        "name": "Siddharth Agarwal",
+        "image": "src/Assets/Projects/siddharthPC.png",
+        "branch": "ECE",
+        "linkedin": "https://www.linkedin.com/in/siddharth-agarwal-48706a1b6/?originalSubdomain=in"
+      },
+      {
+        "name": "Sneha Vasisht",
+        "image": "src/Assets/Projects/SnehaPC.png",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/sneha-vasishth21/"
+      },
+      {
+        "name": "Tushar Chauhan",
+        "image": "src/Assets/Projects/TusharPC.png",
+        "branch": "CSE",
+        "linkedin": "https://www.linkedin.com/in/tushar-chauhan4/?originalSubdomain=in"
+      },
+      {
+        "name": "Utkarsh Shukla",
+        "image": "src/Assets/Projects/UtkarshPC.png",
+        "branch": "CSE AIML",
+        "linkedin": "https://www.linkedin.com/in/-utkarshukla/?originalSubdomain=in"
+      }
       
     ]
   },
