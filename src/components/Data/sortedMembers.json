@@ -234,7 +234,7 @@
       {
         "name": "Achal Vishnoi",
         "image": "AchalPC.jpg",
-        "branch": "Computer Science",
+        "branch": "CS",
         "specialization": "Android Development",
         "skills": [ "Java", "Kotlin", "SpringBoot","Android"],
         "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/",
@@ -244,7 +244,7 @@
       {
         "name": "Akagra Jain",
         "image": "AkagraPC.jpg",
-        "branch": "Computer Science",
+        "branch": "CS",
         "specialization": "Frontend Development",
         "skills": [ "Javascript","ReactJS", "C++"],
         "linkedin": "https://www.linkedin.com/in/akagra-jain09",
@@ -254,7 +254,7 @@
       {
         "name": "Anchal Singh",
         "image": "AnchalPC.jpg",
-        "branch": "Computer Science and Engineering",
+        "branch": "CSE",
         "specialization": "Competitive Programming",
         "skills": [ "Java"],
         "linkedin": "https://www.linkedin.com/in/anchal-singh-42b70a306"
@@ -263,7 +263,7 @@
       {
         "name": "Anubhav Hajela",
         "image": "AnubhavPC.jpg",
-        "branch": "Computer Science and Engineering",
+        "branch": "CSE",
         "specialization": "Spring development",
         "skills": [ "Java", "C++"],
         "linkedin": "https://www.linkedin.com/in/anubhav-hajela-77b093298/",
@@ -273,7 +273,7 @@
       {
         "name": "Arth Kamboj",
         "image": "ArthPC.jpg",
-        "branch": "Computer Science and Engineering",
+        "branch": "CSE",
         "specialization": "Spring development",
         "skills": [ "Java", "C++", "Javascript","SQL"],
         "linkedin": "https://www.linkedin.com/in/arth-kamboj-5ab45a331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -283,7 +283,7 @@
       {
         "name": "Ayush Kumar Agarwal",
         "image": "Ayush2PC.jpg",
-        "branch": "Computer Science and Engineering",
+        "branch": "CSE",
         "specialization": "Frontend Development",
         "skills": [ "Javascript","ReactJS", "C++"],
         "linkedin": "https://www.linkedin.com/in/ayush-kumar-agrawal-376440303/",
@@ -302,7 +302,7 @@
       {
         "name": "Meet Goyal",
         "image": "MeetPC.jpg",
-        "branch": "Computer Science",
+        "branch": "CS",
         "specialization": "Competitive Programming",
         "skills": [ "Java"],
         "linkedin": "http://www.linkedin.com/in/meet-goyal-a2b49a318"
@@ -370,7 +370,7 @@
       {
         "name": "Tanisha Bhatt",
         "image": "TanishaPC.jpg",
-        "branch": "Computer Science and Engineering",
+        "branch": "CSE",
         "specialization": "Backend Development",
         "skills": [ "Javascript", "C++", "Node.js"],
         "linkedin": "https://www.linkedin.com/in/tanisha-bhatt-927315303/",
