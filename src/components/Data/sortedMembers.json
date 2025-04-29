@@ -1,4 +1,20 @@
 {
+  "commitment": {
+    "title": "❤..Single ready to Mingle..❤",
+    "members": [ {
+      "name": "Paras Upadhyay",
+      "image": "Paras.jpg",
+      "branch": "Computer Science and Engineering",
+      "specialization": "Competitive Programming and Flutter Development",
+      "skills": [ "Javascript", "C++", "Python", "Flutter", "Dart"],
+      "linkedin": "https://www.linkedin.com/in/pudv95/",
+      "instagram":"https://www.instagram.com/43.paras.57?utm_source=qr&igsh=NXV4b2ZrZHN3dXlt",
+      "showBanner": true,
+      "bannerText": "ICPC Regionalist"
+    }
+
+    ]
+  },
   "fourthYear": {
     "title": "4th Year Members",
     "members": [
