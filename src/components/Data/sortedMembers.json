@@ -91,7 +91,9 @@
           "CSS",
           "Python",
           "SQL"
-        ]
+        ],
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       },
       {
         "name": "Kartikey Tandon",
@@ -151,7 +153,9 @@
           "SQL",
           "MongoDB",
           "Express"
-        ]
+        ],
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Lisha Singh",
@@ -256,7 +260,9 @@
           "Dart",
           "Flutter",
           "React Native"
-        ]
+        ],
+        "showBanner": true,
+        "bannerText": "SIH Winner"
       },
       {
         "name": "Shreyansh Mittal",
@@ -271,7 +277,9 @@
           "TensorFlow",
           "PyTorch",
           "Pandas"
-        ]
+        ],
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       },
       {
         "name": "Siddharth Agarwal",
@@ -331,7 +339,9 @@
           "PyTorch",
           "Scikit-learn",
           "Keras"
-        ]
+        ],
+        "showBanner": true,
+        "bannerText": "ICPC Regionalist"
       }
     ]
   },
@@ -349,6 +359,14 @@
         "bannerText": "ICPC Regionalist"
       },
       {
+        "name": "Adarsh Sharma",
+        "image": "AdarshPC.jpg",
+        "branch": "CSE",
+        "specialization": "Full stack & Python Development",
+        "skills": ["CPP", "Django", "Python", "Deep Learning"],
+        "linkedin": "https://www.linkedin.com/in/adarsh-sharma-4562a91b8/"
+      },
+      {
         "name": "Akhil Agrawal",
         "image": "Akhil.jpg",
         "branch": "Computer Science and Engineering",
@@ -356,9 +374,15 @@
         "skills": [ "Node.js", "SQL", "Ruby", "CS Fundamentals"],
         "github": "https://github.com/swastik-akhil",
         "linkedin": "https://www.linkedin.com/in/akhil-agrawal-soccer/",
-        "email": "akhilmindset@gmail.com",
-        "showBanner": true,
-        "bannerText": "Techie"
+        "email": "akhilmindset@gmail.com"
+      },
+      {
+        "name": "Ananya Singhal",
+        "image": "AnanyaPC.jpg",
+        "branch": "CSE",
+        "specialization": "Flutter Development",
+        "skills": ["CPP", "Dart", "Python"],
+        "linkedin": "https://www.linkedin.com/in/ananyasinghaldev"
       },
       {
         "name": "Anas Khan",
@@ -371,6 +395,14 @@
         "bannerText": "SIH Winner"
       },
       {
+        "name": "Apoorva Vaishya",
+        "image": "Apoorva.jpeg", 
+        "branch": "CS",
+        "specialization": "Backend developer",
+        "skills": ["Nodejs", "React js"],
+        "linkedin": "https://www.linkedin.com/in/apoorva-vaishya-5b682027b"
+      },
+      {
         "name": "Ayush Agrawal",
         "image": "AyushAgrawalPC.jpg",
         "branch": "Computer Science and Engineering",
@@ -379,6 +411,22 @@
         "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/",
         "showBanner": true,
         "bannerText": "ICPC Regionalist"
+      },
+      {
+        "name": "Harshit Bhardwaj",
+        "image": "HarshitPC.jpeg",
+        "branch": "CS",
+        "specialization": "Full Stack development",
+        "skills": ["CPP", "Node.js", "React.js", "Nextjs", "Nestjs"],
+        "linkedin": "https://www.linkedin.com/in/harshit-b-a4b756254/"
+      },
+      {
+        "name": "Kavya Mittal",
+        "image": "KavyaPC.jpg",
+        "branch": "CS&IT",
+        "specialization": "MERN & Android Development",
+        "skills": ["React", "Java", "Kotlin", "Nodejs"],
+        "linkedin": "https://www.linkedin.com/in/mittalkavya"
       },
       {
         "name": "Lakshay Gupta",
@@ -396,7 +444,31 @@
         "branch": "Computer Science and Engineering",
         "specialization": "Flutter Development",
         "skills": [ "Node.js", "C++", "Flutter", "Dart"],
-        "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/",
+        "linkedin": "https://www.linkedin.com/in/lakshya-1-goel/"
+      },
+      {
+        "name": "Manas Agarwal",
+        "image": "ManasPC.jpg",
+        "branch": "CSIT",
+        "specialization": "Full Stack Development",
+        "skills": ["CPP", "DSA", "Reactjs", "Nodejs", "SQL"],
+        "linkedin": "https://www.linkedin.com/in/manas-agarwal16/"
+      },
+      {
+        "name": "Megha Singh",
+        "image": "Megha.jpg",
+        "branch": "CSE",
+        "specialization": "AI & ML",
+        "skills": ["CPP", "Python", "Data Analysis", "ML frameworks"],
+        "linkedin": "https://www.linkedin.com/in/megha-singh-01bb762b7/"
+      },
+      {
+        "name": "Mohit Bharti",
+        "image": "Mohitpc.jpg",
+        "branch": "CSE",
+        "specialization": "Full Stack development",
+        "skills": ["CPP", "Node.js", "React.js"],
+        "linkedin": "https://www.linkedin.com/in/themohitbharti/",
         "showBanner": true,
         "bannerText": "COORDINATOR"
       },
@@ -410,7 +482,22 @@
         "showBanner": true,
         "bannerText": "ICPC Regionalist"
       },
-      
+      {
+        "name": "Prachi Singh",
+        "image": "PrachiPC.jpg",
+        "branch": "CSE",
+        "specialization": "ML & Go development",
+        "skills": ["CPP", "Python", "Go", "ML"],
+        "linkedin": "https://in.linkedin.com/in/prachi-singh-1981592a5"
+      },
+      {
+        "name": "Pranjal",
+        "image": "PranjalPC.jpg",
+        "branch": "CSE",
+        "specialization": "Backend developer",
+        "skills": ["Nodejs", "Django", "CPP", "DSA", "AWS", "Docker"],
+        "linkedin": "https://www.linkedin.com/in/pranjal-1a4b5a258"
+      },
       {
         "name": "Rachit Katiyar",
         "image": "RachitPC.jpg",
@@ -422,6 +509,40 @@
         "email": "rachitjk.chanakya1@gmail.com",
         "showBanner": true,
         "bannerText": "SIH Winner"
+      },
+      {
+        "name": "Rohit Yadav",
+        "image": "Rohitpc.jpg",
+        "branch": "CSE AIML",
+        "specialization": "ML & Python Development",
+        "skills": ["CPP", "Python", "Django", "Deep learning"],
+        "linkedin": "https://www.linkedin.com/in/xyfer"
+      },
+      {
+        "name": "Shreya Goel",
+        "image": "ShreyaPC.jpg",
+        "branch": "CSIT",
+        "specialization": "Backend development",
+        "skills": ["DSA", "SPRING BOOT", "SQL", "PYTHON", "JAVA"],
+        "linkedin": "https://www.linkedin.com/in/shreya-goel-971b47271"
+      },
+      {
+        "name": "Shreyansh Gupta",
+        "image": "ShreyanshPC.png",
+        "branch": "CSE AIML",
+        "specialization": "ML & Python development",
+        "skills": ["CPP", "Python", "Deep learning", "Django", "Go"],
+        "linkedin": "https://www.linkedin.com/in/shreyansh-gupta-b57a54258/"
+      },
+      {
+        "name": "Siddhant Gupta",
+        "image": "SiddhantPC.jpg",
+        "branch": "IT",
+        "specialization": "Full Stack Development",
+        "skills": ["Golang", "Docker", "Next.js"],
+        "linkedin": "https://www.linkedin.com/in/siddhantgupta12/",
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       }
     ]
   },
@@ -577,4 +698,4 @@
     
     ]
   }
-} 
+}
