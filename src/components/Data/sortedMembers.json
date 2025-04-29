@@ -3,6 +3,18 @@
     "title": "❤..Single ready to Mingle..❤",
     "members": [ 
       {
+        "name": "Rachit Katiyar",
+        "image": "RachitPC.jpg",
+        "branch": "Computer Science and Engineering",
+        "specialization": "Android Development",
+        "skills": ["Kotlin", "Java", "C++", "Android"],
+        "github": "https://github.com/rockyhappy",
+        "linkedin": "https://www.linkedin.com/in/rachit-katiyar-800378275/",
+        "email": "rachitjk.chanakya1@gmail.com",
+        "showBanner": true,
+        "bannerText": "SIH Winner"
+      },
+      {
         "name": "Anas Khan",
         "image": "AnasPC.png",
         "branch": "Computer Science and Engineering",
