@@ -215,51 +215,51 @@ function Register() {
       registration_type: formData.registration_type === 'workshop_contest' ? 'contest_workshop' : 'contest'
     };
 
-    try {
-      setIsLoading(true);
-      const response = await fetch('https://api.programming-club.tech/api/register/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(apiData),
-      });
+  try {
+  setIsLoading(true);
+  const response = await fetch('https://api.programming-club.tech/api/register/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(apiData),
+  });
 
-      // Parse the response data regardless of status code
-      const responseData = await response.json().catch(() => ({ message: 'Failed to parse response' }));
-      
-      if (response.status !== 201) {
-        // Display the actual response in the error message
-        setFormError(JSON.stringify(responseData, null, 2));
-        throw new Error('Registration failed');
-      }
+  // Get the response body directly (no parsing)
+  const responseBody = await response.text(); // This gets the raw response body as a string
 
-      // Success handling
-      setShowSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        branch_name: "",
-        student_no: "",
-        phone: "",
-        hackerrank: "",
-        gender: "",
-        hosteller: "",
-        year: "",
-        registration_type: ""
-      });
-      window.scrollTo(0, 0);
-    } catch (error) {
-      console.error('Registration error:', error);
-      // Don't override the error message if it was already set above for non-201 status
-      if (!formError) {
-        setFormError(error.message || 'Registration failed. Please try again.');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  if (response.status !== 201) {
+    // Display the raw response body in the toaster message
+    setFormError(responseBody || 'An error occurred');
+    throw new Error(responseBody || 'Registration failed');
+  }
+
+  // Success handling
+  setShowSuccess(true);
+  setFormData({
+    name: "",
+    email: "",
+    branch_name: "",
+    student_no: "",
+    phone: "",
+    hackerrank: "",
+    gender: "",
+    hosteller: "",
+    year: "",
+    registration_type: ""
+  });
+  window.scrollTo(0, 0);
+} catch (error) {
+  console.error('Registration error:', error);
+  // Don't override the error message if it was already set above for non-201 status
+  if (!formError) {
+    setFormError(error.message || 'Registration failed. Please try again.');
+  }
+} finally {
+  setIsLoading(false);
+};
+
 
   return (
     <section className="register-section">
