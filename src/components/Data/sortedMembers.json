@@ -422,7 +422,7 @@
       },
       {
         "name": "Kavya Mittal",
-        "image": "KavyaPC.jpg",
+        "image": "src/Assets/Projects/Mr.Mittal.jpg",
         "branch": "CS&IT",
         "specialization": "MERN & Android Development",
         "skills": ["React", "Java", "Kotlin", "Nodejs"],
