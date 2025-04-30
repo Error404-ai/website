@@ -258,7 +258,8 @@ function Register() {
   }
 } finally {
   setIsLoading(false);
-};
+}
+  };
 
 
   return (
