@@ -394,6 +394,7 @@ function Register() {
                           <option value="CSE (Hindi)">CSE (Hindi)</option>
                           <option value="CSE (DS)">CSE (DS)</option>
                           <option value="CS">CS</option>
+                          <option value="CS IT">CS IT</option>
                           <option value="AIML">AIML</option>
                           <option value="IT">IT</option>
                           <option value="ECE">ECE</option>
