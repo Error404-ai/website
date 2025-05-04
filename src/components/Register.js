@@ -199,8 +199,8 @@ function Register() {
     gender: "",
     hosteller: "",
     year: "",
-    registration_type: "contest" // Reset to contest
-  });
+  registration_type: "contest" 
+});
   window.scrollTo(0, 0);
 } catch (error) {
   console.error('Registration error:', error);
@@ -468,4 +468,5 @@ function Register() {
   );
 }
 
-export default Register;
+
+export default Register;

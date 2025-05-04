@@ -277,7 +277,7 @@ const YearSection = memo(({ section }) => (
 
 function Members() {
   const yearSections = [
-    {key: "commitment", data: membersData.commitment},
+    // {key: "commitment", data: membersData.commitment},
     { key: "fourthYear", data: membersData.fourthYear },
     { key: "thirdYear", data: membersData.thirdYear },
     { key: "secondYear", data: membersData.secondYear }
