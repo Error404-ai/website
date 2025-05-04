@@ -19,7 +19,7 @@ function Register() {
     gender: "",
     hosteller: "",
     year: "",
-    registration_type: ""
+    registration_type: "contest" // Default to contest only
   });
 
   const [recaptchaToken, setRecaptchaToken] = useState(null);
@@ -28,7 +28,6 @@ function Register() {
   const [formError, setFormError] = useState("");
   const [shouldRenderParticles, setShouldRenderParticles] = useState(false);
   const [yearError, setYearError] = useState(false);
-  const [registrationTypeError, setRegistrationTypeError] = useState(false);
 
   // Only enable particles on desktop devices and if user's device is powerful enough
   useEffect(() => {
@@ -71,16 +70,10 @@ function Register() {
       return false;
     }
 
-    // Registration type validation based on year
-    if (formData.year === "2" && formData.registration_type === "workshop_contest") {
-      setFormError('2nd year students can only register for Contest Only option');
-      return false;
-    }
-
     // Required fields validation (all except hackerrank)
     if (!formData.name || !formData.email || !formData.branch_name || 
         !formData.student_no || !formData.phone || !formData.gender || 
-        !formData.hosteller || !formData.year || !formData.registration_type) {
+        !formData.hosteller || !formData.year) {
       setFormError('All fields are required except HackerRank profile');
       return false;
     }
@@ -111,35 +104,23 @@ function Register() {
       return;
     }
 
-    // Reset registration type if 2nd year is selected
-    if (name === 'year' && value === '2') {
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value,
-        registration_type: 'contest' // Default to contest only for 2nd year
-      }));
-      return;
-    }
-
     setFormData(prevState => ({
       ...prevState,
       [name]: value
     }));
 
-    // Clear year-specific errors when changing year or registration type
-    if (name === 'year' || name === 'registration_type') {
+    // Clear year-specific errors when changing year
+    if (name === 'year') {
       setYearError(false);
-      setRegistrationTypeError(false);
     }
   };
 
-  // Handle year selection and update available registration types
+  // Handle year selection
   const handleYearChange = (e) => {
     const selectedYear = e.target.value;
     
     // Reset any previous errors
     setYearError(false);
-    setRegistrationTypeError(false);
     
     // Check if the year is valid (1st or 2nd)
     if (selectedYear !== "1" && selectedYear !== "2") {
@@ -147,39 +128,10 @@ function Register() {
       return;
     }
     
-    // If 2nd year is selected, force registration type to "contest"
-    if (selectedYear === "2") {
-      setFormData(prevState => ({
-        ...prevState,
-        year: selectedYear,
-        registration_type: "contest"
-      }));
-    } else {
-      // For 1st year, just update the year
-      setFormData(prevState => ({
-        ...prevState,
-        year: selectedYear
-      }));
-    }
-  };
-
-  // Handle registration type selection based on year
-  const handleRegistrationTypeChange = (e) => {
-    const selectedType = e.target.value;
-    const currentYear = formData.year;
-    
-    // Reset any previous errors
-    setRegistrationTypeError(false);
-    
-    // If 2nd year is trying to select workshop+contest, show error
-    if (currentYear === "2" && selectedType === "workshop_contest") {
-      setRegistrationTypeError(true);
-      return;
-    }
-    
+    // Update the year field
     setFormData(prevState => ({
       ...prevState,
-      registration_type: selectedType
+      year: selectedYear
     }));
   };
 
@@ -212,7 +164,7 @@ function Register() {
       gender: formData.gender.charAt(0).toUpperCase() + formData.gender.slice(1).toLowerCase(),
       hosteller: formData.hosteller === 'yes' ? 'True' : 'False',
       year: formData.year,
-      registration_type: formData.registration_type === 'workshop_contest' ? 'contest_workshop' : 'contest'
+      registration_type: 'contest' // Always contest only
     };
 
   try {
@@ -247,8 +199,8 @@ function Register() {
     gender: "",
     hosteller: "",
     year: "",
-    registration_type: ""
-  });
+  registration_type: "contest" 
+});
   window.scrollTo(0, 0);
 } catch (error) {
   console.error('Registration error:', error);
@@ -407,30 +359,16 @@ function Register() {
                     <Col md={6}>
                       <Form.Group className="mb-3">
                         <Form.Label>Registration Type <span className="text-danger">*</span></Form.Label>
-                        <Form.Select
-                          name="registration_type"
-                          value={formData.registration_type}
-                          onChange={handleRegistrationTypeChange}
-                          required
-                          disabled={formData.year === "2"}
-                          isInvalid={registrationTypeError}
-                        >
-                          <option value="">Select Option</option>
-                          {formData.year !== "2" && (
-                            <option value="workshop_contest">Workshop + Contest</option>
-                          )}
-                          <option value="contest">Contest Only (Free)</option>
-                        </Form.Select>
-                        {formData.year === "2" && (
-                          <Form.Text className="text-muted">
-                            2nd year students can only register for Contest Only
-                          </Form.Text>
-                        )}
-                        {registrationTypeError && (
-                          <Form.Control.Feedback type="invalid">
-                            2nd year students can only register for Contest Only
-                          </Form.Control.Feedback>
-                        )}
+                        <Form.Control
+                          type="text"
+                          value="Contest Only (Free)"
+                          readOnly
+                          disabled
+                          className="bg-dark text-light"
+                        />
+                        <Form.Text className="text-muted">
+                          Only Contest registration is available
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -529,5 +467,6 @@ function Register() {
     </section>
   );
 }
+
 
 export default Register;
