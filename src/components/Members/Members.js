@@ -276,12 +276,11 @@ const YearSection = memo(({ section }) => (
 ));
 
 function Members() {
-  const yearSections = [
-    // {key: "commitment", data: membersData.commitment},
-    { key: "fourthYear", data: membersData.fourthYear },
-    { key: "thirdYear", data: membersData.thirdYear },
-    { key: "secondYear", data: membersData.secondYear }
-  ];
+  // Updated yearSections array - promoted thirdYear to fourthYear, removed old fourthYear
+const yearSections = [
+  { key: "fourthYear", data: membersData.thirdYear }, 
+  { key: "secondYear", data: membersData.secondYear }
+];
 
   return (
     <Container fluid className="members-section">
@@ -302,4 +301,4 @@ function Members() {
   );
 }
 
-export default Members; 
+export default Members;
