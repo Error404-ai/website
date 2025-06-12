@@ -277,12 +277,10 @@ const YearSection = memo(({ section }) => (
 
 function Members() {
   // Updated yearSections array - promoted thirdYear to fourthYear, removed old fourthYear
-  const yearSections = [
-    // Commented out commitment section
-    // {key: "commitment", data: membersData.commitment},
-    { key: "fourthYear", data: membersData.thirdYear }, // Promoted: 3rd year students are now 4th year
-    { key: "secondYear", data: membersData.secondYear }
-  ];
+const yearSections = [
+  { key: "fourthYear", data: membersData.thirdYear }, 
+  { key: "secondYear", data: membersData.secondYear }
+];
 
   return (
     <Container fluid className="members-section">
