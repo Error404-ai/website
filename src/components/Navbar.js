@@ -4,7 +4,6 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/Projects/logo.png";
 import { Link } from "react-router-dom";
-import { ImBlog } from "react-icons/im";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -82,16 +81,6 @@ function NavBar() {
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> 
                 Members
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/register"
-                onClick={() => updateExpanded(false)}
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Register
               </Nav.Link>
             </Nav.Item>
           </Nav>
