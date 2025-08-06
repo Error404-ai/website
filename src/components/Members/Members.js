@@ -279,7 +279,7 @@ function Members() {
   // Updated yearSections array - promoted thirdYear to fourthYear, removed old fourthYear
 const yearSections = [
   { key: "fourthYear", data: membersData.thirdYear }, 
-  { key: "secondYear", data: membersData.secondYear }
+  { key: "thirdYear", data: membersData.secondYear }
 ];
 
   return (
