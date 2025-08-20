@@ -27,28 +27,28 @@ function EventPopup() {
       className="event-popup"
     >
       <Modal.Header closeButton>
-        <Modal.Title>🎉 New Event Alert! 🎉</Modal.Title>
+        <Modal.Title>🚀 Recruitment Drive Alert! 🚀</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className="event-content">
           <h3>Programming Club Presents</h3>
-          <h2>#Include 4.0</h2>
+          <h2>Cin&gt;&gt;PC</h2>
           <p className="event-details">
-            Join us for an exciting competitive programming workshop where you can elevate your programming skills!
+            Cin&gt;&gt;PC is the official recruitment drive of the Programming Club, designed exclusively for 2nd-year students who are passionate about coding and problem-solving.
           </p>
           <ul className="event-info">
             <li>📅 Date: May 5, 2025 - May 6, 2025</li>
             <li>⏰ Time: 9:00 AM - 6:00 PM</li>
             <li>📍 Venue: CSIT Seminar Hall</li>
-            <li>💻 Coding Contest on May 7, 2025 from 4:00 PM - 6:30 PM</li>
+            <li>💻 Recruitment Coding Contest on May 7, 2025 from 4:00 PM - 6:30 PM</li>
           </ul>
           <p className="event-description">
-            Participate in our flagship coding event featuring:
+            Why participate?
             <ul>
-              <li>Competitive Programming Workshop for Beginners 1st year students</li>
-              <li>Coding Contest for both 1st and 2nd year students</li>
-              <li>Opportunity to win exciting prizes and certificates</li>
-              <li>Connect with your seniors and alumini for career guidance</li>
+              <li>Showcase your coding and problem-solving skills</li>
+              <li>Get an opportunity to become a member of the Programming Club</li>
+              <li>Win exciting prizes and certificates</li>
+              <li>Learn, grow, and connect with seniors and alumni for career guidance</li>
             </ul>
           </p>
         </div>
@@ -58,11 +58,11 @@ function EventPopup() {
           Close
         </Button>
         <Button variant="primary" onClick={handleRegister}>
-          Register Now
+          Apply Now
         </Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
-export default EventPopup; 
+export default EventPopup;
