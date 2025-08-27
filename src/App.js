@@ -5,8 +5,8 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Footer from "./components/Footer";
 import Members from "./components/Members/Members";
-// import Register from "./components/Register"; // Commented out registration component
-// import EventPopup from "./components/EventPopup"; // Commented out event popup component
+import Register from "./components/Register";
+import EventPopup from "./components/EventPopup";
 import {
   BrowserRouter as Router,
   Route,
@@ -35,12 +35,12 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
-        {/* <EventPopup /> */} {/* Commented out event popup */}
+        <EventPopup />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/members" element={<Members />} />
-          {/* <Route path="/register" element={<Register />} /> */} {/* Commented out registration route */}
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

@@ -11,6 +11,7 @@ const RECAPTCHA_SITE_KEY = "6LePUwUrAAAAAPZdevNjCuMlDlPgEKZQ2aHUZSLE";
 function Register() {
   const [formData, setFormData] = useState({
     name: "",
+    roll_no: "",
     email: "",
     branch_name: "",
     student_no: "",
@@ -18,8 +19,6 @@ function Register() {
     hackerrank: "",
     gender: "",
     hosteller: "",
-    year: "",
-    registration_type: "contest" // Default to contest only
   });
 
   const [recaptchaToken, setRecaptchaToken] = useState(null);
@@ -31,12 +30,10 @@ function Register() {
 
   // Only enable particles on desktop devices and if user's device is powerful enough
   useEffect(() => {
-    // Check for desktop and not low-end device
     const isDesktop = window.innerWidth >= 992;
     const isLowEndDevice = navigator.hardwareConcurrency <= 4;
     setShouldRenderParticles(isDesktop && !isLowEndDevice);
 
-    // Add a listener for window resize events
     const handleResize = () => {
       setShouldRenderParticles(window.innerWidth >= 992 && !isLowEndDevice);
     };
@@ -46,9 +43,19 @@ function Register() {
   }, []);
 
   const validateForm = () => {
-    // Email validation for AKGEC domain
-    if (!formData.email.endsWith('@akgec.ac.in')) {
+    // Enhanced email validation for AKGEC domain
+    const email = formData.email.trim().toLowerCase();
+    
+    // Check if email ends with @akgec.ac.in (case insensitive)
+    if (!email.endsWith('@akgec.ac.in')) {
       setFormError('Please use your AKGEC email address (@akgec.ac.in)');
+      return false;
+    }
+    
+    // Check if email has valid format before @akgec.ac.in
+    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]@akgec\.ac\.in$/;
+    if (!emailRegex.test(email)) {
+      setFormError('Please enter a valid AKGEC email address (e.g., yourname.rollno@akgec.ac.in)');
       return false;
     }
 
@@ -58,22 +65,22 @@ function Register() {
       return false;
     }
 
-    // Student number validation (7 or 8 digits)
-    if (!/^\d{7,8}$/.test(formData.student_no)) {
-      setFormError('Please enter a valid 7 or 8-digit student number');
+    // Roll number validation - improved regex
+    if (!/^(\d{13,15})(-[dD])?$/i.test(formData.roll_no.trim())) {
+      setFormError('Please enter a valid University roll number (13-15 digits, optionally ending with -d)');
       return false;
     }
 
-    // Year validation (only 1st and 2nd year allowed)
-    if (formData.year !== "1" && formData.year !== "2") {
-      setFormError('Only 1st and 2nd year students are eligible for this event');
+    // Student number validation - improved regex
+    if (!/^(\d{7,8})(-[dD])?$/i.test(formData.student_no.trim())) {
+      setFormError('Please enter a valid student number (7-8 digits, optionally ending with -d)');
       return false;
     }
 
-    // Required fields validation (all except hackerrank)
-    if (!formData.name || !formData.email || !formData.branch_name || 
-        !formData.student_no || !formData.phone || !formData.gender || 
-        !formData.hosteller || !formData.year) {
+    // Required field validations
+    if (!formData.name.trim() || !formData.email.trim() || !formData.branch_name ||
+        !formData.student_no.trim() || !formData.phone.trim() || !formData.gender ||
+        !formData.hosteller || !formData.roll_no.trim()) {
       setFormError('All fields are required except HackerRank profile');
       return false;
     }
@@ -83,6 +90,11 @@ function Register() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Clear form errors when user starts typing
+    if (formError) {
+      setFormError("");
+    }
     
     // Format phone number to remove any non-digit characters and limit to 10 digits
     if (name === 'phone') {
@@ -94,9 +106,19 @@ function Register() {
       return;
     }
 
-    // Format student number to remove any non-digit characters and limit to 8 digits
+    // Format student number - allow digits and optional -d suffix
     if (name === 'student_no') {
-      const formattedValue = value.replace(/\D/g, '').slice(0, 8);
+      const formattedValue = value.replace(/[^0-9dD-]/g, '').slice(0, 10);
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: formattedValue
+      }));
+      return;
+    }
+
+    // Format roll number - allow digits and optional -d suffix
+    if (name === 'roll_no') {
+      const formattedValue = value.replace(/[^0-9dD-]/g, '').slice(0, 18);
       setFormData(prevState => ({
         ...prevState,
         [name]: formattedValue
@@ -108,35 +130,14 @@ function Register() {
       ...prevState,
       [name]: value
     }));
-
-    // Clear year-specific errors when changing year
-    if (name === 'year') {
-      setYearError(false);
-    }
-  };
-
-  // Handle year selection
-  const handleYearChange = (e) => {
-    const selectedYear = e.target.value;
-    
-    // Reset any previous errors
-    setYearError(false);
-    
-    // Check if the year is valid (1st or 2nd)
-    if (selectedYear !== "1" && selectedYear !== "2") {
-      setYearError(true);
-      return;
-    }
-    
-    // Update the year field
-    setFormData(prevState => ({
-      ...prevState,
-      year: selectedYear
-    }));
   };
 
   const handleRecaptchaChange = (token) => {
     setRecaptchaToken(token);
+
+    if (formError && formError.includes('reCAPTCHA')) {
+      setFormError("");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -152,67 +153,125 @@ function Register() {
       return;
     }
 
-    // Transform the data to match the API schema
+    // Enhanced API data preparation with exact server format
     const apiData = {
-      name: formData.name,
-      branch_name: formData.branch_name,
+      name: formData.name.trim(),
+      roll_no: formData.roll_no.trim(),
+      email: formData.email.trim().toLowerCase(),
+      hackerrank: formData.hackerrank.trim() || "", // Keep as empty string for server compatibility
+      student_no: formData.student_no.trim(),
       recaptcha_token: recaptchaToken,
-      student_no: formData.student_no,
-      hackerrank: formData.hackerrank || "", // Optional field
-      phone: formData.phone,
-      email: formData.email,
+      branch_name: formData.branch_name,
       gender: formData.gender.charAt(0).toUpperCase() + formData.gender.slice(1).toLowerCase(),
-      hosteller: formData.hosteller === 'yes' ? 'True' : 'False',
-      year: formData.year,
-      registration_type: 'contest' // Always contest only
+      phone: formData.phone.trim(),
+      hosteller: formData.hosteller === 'yes' ? 'True' : 'False', // Backend expects string 'True'/'False'
     };
 
-  try {
-  setIsLoading(true);
-  const response = await fetch('https://api.programming-club.tech/api/register/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(apiData),
-  });
+    // Debug logging
+    console.log('Sending data:', JSON.stringify(apiData, null, 2));
 
-  // Get the response body directly (no parsing)
-  const responseBody = await response.text(); // This gets the raw response body as a string
+    try {
+      setIsLoading(true);
+      
+      const response = await fetch('https://cin-pc.onrender.com/api/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 Registration Form'
+        },
+        body: JSON.stringify(apiData),
+      });
 
-  if (response.status !== 201) {
-    // Display the raw response body in the toaster message
-    setFormError(responseBody || 'An error occurred');
-    throw new Error(responseBody || 'Registration failed');
-  }
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
 
-  // Success handling
-  setShowSuccess(true);
-  setFormData({
-    name: "",
-    email: "",
-    branch_name: "",
-    student_no: "",
-    phone: "",
-    hackerrank: "",
-    gender: "",
-    hosteller: "",
-    year: "",
-  registration_type: "contest" 
-});
-  window.scrollTo(0, 0);
-} catch (error) {
-  console.error('Registration error:', error);
-  // Don't override the error message if it was already set above for non-201 status
-  if (!formError) {
-    setFormError(error.message || 'Registration failed. Please try again.');
-  }
-} finally {
-  setIsLoading(false);
-}
+      // Handle different response statuses
+      if (response.status === 201 || response.status === 200) {
+        // Success handling
+        const responseData = await response.json();
+        console.log('Success response:', responseData);
+        
+        setShowSuccess(true);
+        
+        // Reset form data
+        setFormData({
+          name: "",
+          roll_no: "",
+          email: "",
+          branch_name: "",
+          student_no: "",
+          phone: "",
+          hackerrank: "",
+          gender: "",
+          hosteller: "",
+        });
+        
+        // Reset reCAPTCHA
+        setRecaptchaToken(null);
+        window.scrollTo(0, 0);
+        
+      } else {
+        // Enhanced error handling for 400 Bad Request
+        let errorMessage = 'Registration failed. Please try again.';
+        let responseText = '';
+        
+        try {
+          // First, try to get the response as text to see what we're dealing with
+          const clonedResponse = response.clone();
+          responseText = await clonedResponse.text();
+          console.log('Raw response text:', responseText);
+          
+          // Then try to parse as JSON
+          const errorData = await response.json();
+          console.log('Error response data:', errorData);
+          
+          if (errorData.message) {
+            errorMessage = errorData.message;
+          } else if (errorData.error) {
+            errorMessage = errorData.error;
+          } else if (errorData.detail) {
+            errorMessage = errorData.detail;
+          } else if (typeof errorData === 'string') {
+            errorMessage = errorData;
+          } else if (errorData.errors) {
+            // Handle validation errors from server
+            if (typeof errorData.errors === 'object') {
+              const errorMessages = Object.entries(errorData.errors).map(([field, messages]) => {
+                const messageArray = Array.isArray(messages) ? messages : [messages];
+                return `${field}: ${messageArray.join(', ')}`;
+              });
+              errorMessage = errorMessages.join('\n');
+            } else {
+              errorMessage = errorData.errors;
+            }
+          } else if (errorData.non_field_errors) {
+            errorMessage = Array.isArray(errorData.non_field_errors) 
+              ? errorData.non_field_errors.join('\n')
+              : errorData.non_field_errors;
+          }
+        } catch (parseError) {
+          console.error('Error parsing response:', parseError);
+          errorMessage = responseText || `Server returned ${response.status}: ${response.statusText}`;
+        }
+        
+        setFormError(errorMessage);
+      }
+      
+    } catch (error) {
+      console.error('Network error:', error);
+      
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        setFormError('Network error: Unable to connect to server. Please check your internet connection and try again.');
+      } else if (error.name === 'AbortError') {
+        setFormError('Request timed out. Please try again.');
+      } else {
+        setFormError(error.message || 'Unexpected error occurred. Please try again.');
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
-
 
   return (
     <section className="register-section">
@@ -248,7 +307,13 @@ function Register() {
               </div>
             ) : (
               <>
-                {formError && <Alert variant="danger"><pre style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{formError}</pre></Alert>}
+                {formError && (
+                  <Alert variant="danger">
+                    <pre style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word', margin: 0}}>
+                      {formError}
+                    </pre>
+                  </Alert>
+                )}
                 
                 <Form onSubmit={handleSubmit} className="register-form">
                   <Row>
@@ -274,12 +339,12 @@ function Register() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          placeholder="your.email@akgec.ac.in"
-                          pattern="[0-9a-zA-Z._%+-]+@akgec[.]ac[.]in"
-                          title="Please enter a valid AKGEC email address (ending with @akgec.ac.in)"
+                          placeholder="firstname.lastname@akgec.ac.in"
+                          pattern="[0-9a-zA-Z][0-9a-zA-Z._-]*[0-9a-zA-Z]@akgec[.]ac[.]in"
+                          title="Please enter a valid AKGEC email address (e.g., yourname.rollno@akgec.ac.in)"
                         />
                         <Form.Text className="text-muted">
-                          Must be an AKGEC domain email (@akgec.ac.in)
+                          Must be an AKGEC domain email (@akgec.ac.in) - Example: john.doe@akgec.ac.in
                         </Form.Text>
                       </Form.Group>
                     </Col>
@@ -306,26 +371,18 @@ function Register() {
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Year <span className="text-danger">*</span></Form.Label>
-                        <Form.Select
-                          name="year"
-                          value={formData.year}
-                          onChange={handleYearChange}
+                        <Form.Label>Roll Number <span className="text-danger">*</span></Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="roll_no"
+                          value={formData.roll_no}
+                          onChange={handleChange}
                           required
-                          isInvalid={yearError}
-                        >
-                          <option value="">Select Year</option>
-                          <option value="1">1st Year</option>
-                          <option value="2">2nd Year</option>
-                        </Form.Select>
+                          placeholder="Enter your university roll number"
+                        />
                         <Form.Text className="text-muted">
-                          Only 1st and 2nd year students are eligible
+                          13-15 digits, optionally ending with -d
                         </Form.Text>
-                        {yearError && (
-                          <Form.Control.Feedback type="invalid">
-                            Only 1st and 2nd year students are eligible
-                          </Form.Control.Feedback>
-                        )}
                       </Form.Group>
                     </Col>
                   </Row>
@@ -358,16 +415,19 @@ function Register() {
                     </Col>
                     <Col md={6}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Registration Type <span className="text-danger">*</span></Form.Label>
+                        <Form.Label>Student Number <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                           type="text"
-                          value="Contest Only (Free)"
-                          readOnly
-                          disabled
-                          className="bg-dark text-light"
+                          name="student_no"
+                          value={formData.student_no}
+                          onChange={handleChange}
+                          required
+                          placeholder="Enter your student number"
+                          pattern="[0-9]{7,8}"
+                          title="Please enter 7 or 8 digits"
                         />
                         <Form.Text className="text-muted">
-                          Only Contest registration is available
+                          7-8 digits, optionally ending with -d
                         </Form.Text>
                       </Form.Group>
                     </Col>
@@ -423,24 +483,6 @@ function Register() {
                         </Form.Text>
                       </Form.Group>
                     </Col>
-                    <Col md={6}>
-                      <Form.Group className="mb-3">
-                        <Form.Label>Student Number <span className="text-danger">*</span></Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="student_no"
-                          value={formData.student_no}
-                          onChange={handleChange}
-                          required
-                          placeholder="Enter your student number"
-                          pattern="[0-9]{7,8}"
-                          title="Please enter 7 or 8 digits"
-                        />
-                        <Form.Text className="text-muted">
-                          Must be 7 or 8 digits
-                        </Form.Text>
-                      </Form.Group>
-                    </Col>
                   </Row>
 
                   <div className="recaptcha-container mb-4">
@@ -468,5 +510,4 @@ function Register() {
   );
 }
 
-
-export default Register;
+export default Register;
