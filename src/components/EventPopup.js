@@ -30,84 +30,132 @@ function EventPopup() {
         '--bs-modal-max-width': '600px'
       }}
     >
-      <Modal.Header closeButton className="px-3 px-md-4">
-        <Modal.Title className="fs-5 fs-md-4">
+      <Modal.Header 
+        closeButton 
+        className="px-4 py-3"
+        style={{
+          backgroundColor: '#000000',
+          borderBottom: '1px solid #333',
+          borderTopLeftRadius: '0.5rem',
+          borderTopRightRadius: '0.5rem'
+        }}
+      >
+        <Modal.Title className="fs-3 fs-md-2 fw-bold w-100 text-center" style={{ color: '#00FF7F' }}>
           <span className="d-none d-sm-inline">🚀 Recruitment Drive Alert! 🚀</span>
           <span className="d-sm-none">🚀 Recruitment Alert! 🚀</span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="px-3 px-md-4">
+      <Modal.Body 
+        className="px-4 py-4"
+        style={{
+          backgroundColor: '#000000',
+          color: '#FFFFFF'
+        }}
+      >
         <div className="event-content">
-          <div className="text-center mb-3">
-            <h4 className="fs-6 fs-md-5 text-success mb-2">Programming Club Presents</h4>
-            <h2 className="fs-3 fs-md-1 fw-bold text-primary">Cin&gt;&gt;PC</h2>
+          <div className="text-center mb-4">
+            <h4 className="fs-4 fs-md-3 mb-3 fw-bold" style={{ color: '#00FF7F' }}>
+              Programming Club Presents
+            </h4>
+            <h1 className="display-5 display-md-3 fw-bold mb-4" style={{ color: '#4A90E2' }}>
+              Cin&gt;&gt;PC
+            </h1>
           </div>
           
-          <p className="event-details fs-6 fs-md-5 mb-3">
+          <p className="fs-5 fs-md-4 mb-4 text-center fw-normal" style={{ color: '#FFFFFF' }}>
             Cin&gt;&gt;PC is the official recruitment drive of the Programming Club, designed exclusively for 2nd-year students who are passionate about coding and problem-solving.
           </p>
           
-          <div className="event-info mb-3">
-            <div className="row g-2">
+          <div className="event-info mb-4">
+            <div className="row g-3">
               <div className="col-12 col-sm-6">
                 <div className="d-flex align-items-center mb-2">
-                  <span className="me-2">📅</span>
-                  <small className="fw-semibold">Date:</small>
+                  <span className="me-3 fs-3">📅</span>
+                  <span className="fw-bold fs-4" style={{ color: '#FFFFFF' }}>Date:</span>
                 </div>
-                <small className="ms-3 d-block">Sept 3, 2025</small>
+                <div className="fs-4 fw-semibold ms-5" style={{ color: '#FFFFFF' }}>May 5, 2025 - May 6, 2025</div>
               </div>
               
               <div className="col-12 col-sm-6">
                 <div className="d-flex align-items-center mb-2">
-                  <span className="me-2">⏰</span>
-                  <small className="fw-semibold">Time:</small>
+                  <span className="me-3 fs-3">⏰</span>
+                  <span className="fw-bold fs-4" style={{ color: '#FFFFFF' }}>Time:</span>
                 </div>
-                <small className="ms-3 d-block">4:00 PM - 7:30 PM</small>
+                <div className="fs-4 fw-semibold ms-5" style={{ color: '#FFFFFF' }}>9:00 AM - 6:00 PM</div>
               </div>
               
-              <div className="col-12 col-sm-6">
+              <div className="col-12">
                 <div className="d-flex align-items-center mb-2">
-                  <span className="me-2">📍</span>
-                  <small className="fw-semibold">Venue:</small>
+                  <span className="me-3 fs-3">📍</span>
+                  <span className="fw-bold fs-4" style={{ color: '#FFFFFF' }}>Venue:</span>
                 </div>
-                <small className="ms-3 d-block">CSIT Block</small>
+                <div className="fs-4 fw-semibold ms-5" style={{ color: '#FFFFFF' }}>CSIT Seminar Hall</div>
               </div>
-        
+              
+              <div className="col-12">
+                <div className="d-flex align-items-center mb-2">
+                  <span className="me-3 fs-3">💻</span>
+                  <span className="fw-bold fs-4" style={{ color: '#FFFFFF' }}>Recruitment Coding Contest:</span>
+                </div>
+                <div className="fs-4 fw-semibold ms-5" style={{ color: '#FFFFFF' }}>May 7, 2025 from 4:00 PM - 6:30 PM</div>
+              </div>
             </div>
           </div>
           
           <div className="event-description">
-            <p className="fw-semibold mb-2 fs-6">Why participate?</p>
+            <h4 className="fw-bold mb-3 fs-3" style={{ color: '#FFFFFF' }}>Why participate?</h4>
             <ul className="list-unstyled">
-              <li className="mb-1">
-                <small>✨ Showcase your coding and problem-solving skills</small>
+              <li className="mb-3 d-flex align-items-start">
+                <span className="me-3 fs-4" style={{ color: '#00FF7F' }}>→</span>
+                <span className="fs-4" style={{ color: '#FFFFFF' }}>✨ Showcase your coding and problem-solving skills</span>
               </li>
-              <li className="mb-1">
-                <small>🎯 Get an opportunity to become a member of the Programming Club</small>
+              <li className="mb-3 d-flex align-items-start">
+                <span className="me-3 fs-4" style={{ color: '#00FF7F' }}>→</span>
+                <span className="fs-4" style={{ color: '#FFFFFF' }}>🎯 Get an opportunity to become a member of the Programming Club</span>
               </li>
-              <li className="mb-1">
-                <small>🏆 Win exciting prizes and certificates</small>
+              <li className="mb-3 d-flex align-items-start">
+                <span className="me-3 fs-4" style={{ color: '#00FF7F' }}>→</span>
+                <span className="fs-4" style={{ color: '#FFFFFF' }}>🏆 Win exciting prizes and certificates</span>
               </li>
-              <li className="mb-1">
-                <small>🚀 Learn, grow, and connect with seniors and alumni for career guidance</small>
+              <li className="mb-3 d-flex align-items-start">
+                <span className="me-3 fs-4" style={{ color: '#00FF7F' }}>→</span>
+                <span className="fs-4" style={{ color: '#FFFFFF' }}>🚀 Learn, grow, and connect with seniors and alumni for career guidance</span>
               </li>
             </ul>
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer className="px-3 px-md-4">
-        <div className="d-flex flex-column flex-sm-row gap-2 w-100">
+      <Modal.Footer 
+        className="px-4 py-3"
+        style={{
+          backgroundColor: '#000000',
+          borderTop: '1px solid #333',
+          borderBottomLeftRadius: '0.5rem',
+          borderBottomRightRadius: '0.5rem'
+        }}
+      >
+        <div className="d-flex flex-column flex-sm-row gap-3 w-100">
           <Button 
-            variant="outline-secondary" 
+            variant="outline-light"
             onClick={handleClose}
-            className="flex-fill flex-sm-grow-0"
+            className="flex-fill flex-sm-grow-0 fs-4 py-2 fw-semibold"
+            style={{
+              borderWidth: '2px',
+              borderRadius: '8px',
+              borderColor: '#666'
+            }}
           >
             Close
           </Button>
           <Button 
-            variant="primary" 
             onClick={handleRegister}
-            className="flex-fill flex-sm-grow-1"
+            className="flex-fill flex-sm-grow-1 fs-4 py-3 fw-bold"
+            style={{
+              backgroundColor: '#8B4B9C',
+              borderColor: '#8B4B9C',
+              color: '#FFFFFF',
+              borderRadius: '8px'
+            }}
           >
             Apply Now
           </Button>
