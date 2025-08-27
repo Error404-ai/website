@@ -25,41 +25,93 @@ function EventPopup() {
       size="lg"
       centered
       className="event-popup"
+      style={{
+        '--bs-modal-width': '90vw',
+        '--bs-modal-max-width': '600px'
+      }}
     >
-      <Modal.Header closeButton>
-        <Modal.Title>🚀 Recruitment Drive Alert! 🚀</Modal.Title>
+      <Modal.Header closeButton className="px-3 px-md-4">
+        <Modal.Title className="fs-5 fs-md-4">
+          <span className="d-none d-sm-inline">🚀 Recruitment Drive Alert! 🚀</span>
+          <span className="d-sm-none">🚀 Recruitment Alert! 🚀</span>
+        </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="px-3 px-md-4">
         <div className="event-content">
-          <h3>Programming Club Presents</h3>
-          <h2>Cin&gt;&gt;PC</h2>
-          <p className="event-details">
+          <div className="text-center mb-3">
+            <h4 className="fs-6 fs-md-5 text-success mb-2">Programming Club Presents</h4>
+            <h2 className="fs-3 fs-md-1 fw-bold text-primary">Cin&gt;&gt;PC</h2>
+          </div>
+          
+          <p className="event-details fs-6 fs-md-5 mb-3">
             Cin&gt;&gt;PC is the official recruitment drive of the Programming Club, designed exclusively for 2nd-year students who are passionate about coding and problem-solving.
           </p>
-          <ul className="event-info">
-            <li>📅 Date: May 5, 2025 - May 6, 2025</li>
-            <li>⏰ Time: 9:00 AM - 6:00 PM</li>
-            <li>📍 Venue: CSIT Seminar Hall</li>
-            <li>💻 Recruitment Coding Contest on May 7, 2025 from 4:00 PM - 6:30 PM</li>
-          </ul>
-          <p className="event-description">
-            Why participate?
-            <ul>
-              <li>Showcase your coding and problem-solving skills</li>
-              <li>Get an opportunity to become a member of the Programming Club</li>
-              <li>Win exciting prizes and certificates</li>
-              <li>Learn, grow, and connect with seniors and alumni for career guidance</li>
+          
+          <div className="event-info mb-3">
+            <div className="row g-2">
+              <div className="col-12 col-sm-6">
+                <div className="d-flex align-items-center mb-2">
+                  <span className="me-2">📅</span>
+                  <small className="fw-semibold">Date:</small>
+                </div>
+                <small className="ms-3 d-block">Sept 3, 2025</small>
+              </div>
+              
+              <div className="col-12 col-sm-6">
+                <div className="d-flex align-items-center mb-2">
+                  <span className="me-2">⏰</span>
+                  <small className="fw-semibold">Time:</small>
+                </div>
+                <small className="ms-3 d-block">4:00 PM - 7:30 PM</small>
+              </div>
+              
+              <div className="col-12 col-sm-6">
+                <div className="d-flex align-items-center mb-2">
+                  <span className="me-2">📍</span>
+                  <small className="fw-semibold">Venue:</small>
+                </div>
+                <small className="ms-3 d-block">CSIT Block</small>
+              </div>
+        
+            </div>
+          </div>
+          
+          <div className="event-description">
+            <p className="fw-semibold mb-2 fs-6">Why participate?</p>
+            <ul className="list-unstyled">
+              <li className="mb-1">
+                <small>✨ Showcase your coding and problem-solving skills</small>
+              </li>
+              <li className="mb-1">
+                <small>🎯 Get an opportunity to become a member of the Programming Club</small>
+              </li>
+              <li className="mb-1">
+                <small>🏆 Win exciting prizes and certificates</small>
+              </li>
+              <li className="mb-1">
+                <small>🚀 Learn, grow, and connect with seniors and alumni for career guidance</small>
+              </li>
             </ul>
-          </p>
+          </div>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleRegister}>
-          Apply Now
-        </Button>
+      <Modal.Footer className="px-3 px-md-4">
+        <div className="d-flex flex-column flex-sm-row gap-2 w-100">
+          <Button 
+            variant="outline-secondary" 
+            onClick={handleClose}
+            className="flex-fill flex-sm-grow-0"
+          >
+            Close
+          </Button>
+          <Button 
+            variant="primary" 
+            onClick={handleRegister}
+            className="flex-fill flex-sm-grow-1"
+          >
+            Apply Now
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );
