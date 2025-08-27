@@ -37,9 +37,8 @@ function EventPopup() {
             Cin&gt;&gt;PC is the official recruitment drive of the Programming Club, designed exclusively for 2nd-year students who are passionate about coding and problem-solving.
           </p>
           <ul className="event-info">
-            <li>📅 Date: May 5, 2025 - May 6, 2025</li>
-            <li>⏰ Time: 9:00 AM - 6:00 PM</li>
-            <li>📍 Venue: CSIT Seminar Hall</li>
+            <li>📅 Date: Sept 3, 2025 </li>
+            <li>📍 Venue: CSIT Block</li>
             <li>💻 Recruitment Coding Contest on May 7, 2025 from 4:00 PM - 6:30 PM</li>
           </ul>
           <p className="event-description">
