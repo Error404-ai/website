@@ -85,12 +85,21 @@ function Register() {
     return true;
   };
 
-  // Helper function to parse and format error messages - IMPROVED VERSION
+  // Helper function to parse and format error messages - FIXED VERSION
   const parseErrorMessage = (errorData) => {
     console.log('Parsing error data:', errorData);
 
-    // If errorData is a string, return it directly
+    // If errorData is a string, return it directly (but check if it looks like JSON)
     if (typeof errorData === 'string') {
+      // Check if the string looks like JSON and try to parse it
+      if (errorData.trim().startsWith('{') && errorData.trim().endsWith('}')) {
+        try {
+          const parsedError = JSON.parse(errorData);
+          return parseErrorMessage(parsedError); // Recursive call with parsed object
+        } catch (e) {
+          console.log('Failed to parse JSON string:', e);
+        }
+      }
       return errorData;
     }
 
@@ -104,7 +113,7 @@ function Register() {
       email: 'Please enter a valid AKGEC email address (@akgec.ac.in)',
       phone: 'Please enter a valid 10-digit phone number',
       roll_no: 'Please enter a valid University roll number',
-      student_no: 'Please enter a valid student number',
+      student_no: 'Please enter a valid student number (7-8 digits)',
       name: 'Please enter a valid name',
       branch_name: 'Please select a valid branch',
       gender: 'Please select your gender',
@@ -120,29 +129,48 @@ function Register() {
       student_no: 'This student number is already registered. Please contact support if this is an error.'
     };
 
-    // Check each field for errors
-    for (const [field, defaultMessage] of Object.entries(fieldErrors)) {
-      if (errorData[field]) {
+    // First, check if any field has an error and return the first one found
+    const errorFields = Object.keys(errorData);
+    console.log('Error fields found:', errorFields);
+
+    for (const field of errorFields) {
+      if (errorData[field] && fieldErrors[field]) {
         const fieldError = Array.isArray(errorData[field]) ? errorData[field][0] : errorData[field];
+        console.log(`Processing ${field} error:`, fieldError);
         
         // Check if it's a duplicate error
         if (typeof fieldError === 'string') {
-          if (fieldError.toLowerCase().includes('already exists') || 
-              fieldError.toLowerCase().includes('unique') ||
-              fieldError.toLowerCase().includes('duplicate')) {
+          const lowerError = fieldError.toLowerCase();
+          if (lowerError.includes('already exists') || 
+              lowerError.includes('unique') ||
+              lowerError.includes('duplicate')) {
             return duplicateMessages[field] || `This ${field.replace('_', ' ')} is already registered.`;
           }
           
+          // Special handling for specific error types
           if (field === 'email' && (
-              fieldError.toLowerCase().includes('college') || 
-              fieldError.toLowerCase().includes('invalid') ||
-              fieldError.toLowerCase().includes('domain')
+              lowerError.includes('college') || 
+              lowerError.includes('invalid') ||
+              lowerError.includes('domain')
           )) {
             return 'Please use your AKGEC email address (@akgec.ac.in)';
           }
+
+          if (field === 'student_no' && lowerError.includes('invalid')) {
+            return 'Please enter a valid student number (7-8 digits, optionally ending with -d)';
+          }
+
+          if (field === 'roll_no' && lowerError.includes('invalid')) {
+            return 'Please enter a valid University roll number (13-15 digits, optionally ending with -d)';
+          }
+
+          if (field === 'phone' && lowerError.includes('invalid')) {
+            return 'Please enter a valid 10-digit phone number';
+          }
         }
         
-        return defaultMessage;
+        // Return the mapped user-friendly message
+        return fieldErrors[field];
       }
     }
 
@@ -167,7 +195,8 @@ function Register() {
       return typeof errorData.error === 'string' ? errorData.error : 'Registration failed. Please try again.';
     }
 
-    // Default fallback
+    // If we still have an object but couldn't parse it, log it and return default
+    console.log('Unhandled error structure:', errorData);
     return 'Registration failed. Please check your information and try again.';
   };
 
