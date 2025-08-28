@@ -1,11 +1,9 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FaCheckCircle } from "react-icons/fa";
 import "./Register.css";
 
-// Lazy load particle component
-const Particle = lazy(() => import("./Particle"));
 const RECAPTCHA_SITE_KEY = "6LcnprQrAAAAAHM75pNKhkeHt1c8zMoTKW6qbBlZ";
 
 function Register() {
@@ -26,7 +24,6 @@ function Register() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [formError, setFormError] = useState("");
   const [shouldRenderParticles, setShouldRenderParticles] = useState(false);
-  const [yearError, setYearError] = useState(false);
 
   // Only enable particles on desktop devices and if user's device is powerful enough
   useEffect(() => {
@@ -86,6 +83,77 @@ function Register() {
     }
 
     return true;
+  };
+
+  // Helper function to parse and format error messages
+  const parseErrorMessage = (errorData) => {
+    // Check for common error scenarios and return user-friendly messages
+    
+    // Handle email validation errors
+    if (errorData.email) {
+      const emailErrors = Array.isArray(errorData.email) ? errorData.email : [errorData.email];
+      if (emailErrors.some(err => err.includes('college') || err.includes('College'))) {
+        return 'Invalid College Email ID';
+      }
+      if (emailErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
+        return 'This email is already registered. Please use a different email address.';
+      }
+      return 'Please enter a valid AKGEC email address';
+    }
+
+    // Handle duplicate registration
+    if (errorData.roll_no) {
+      const rollErrors = Array.isArray(errorData.roll_no) ? errorData.roll_no : [errorData.roll_no];
+      if (rollErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
+        return 'This roll number is already registered. Please contact support if this is an error.';
+      }
+    }
+
+    // Handle phone number errors
+    if (errorData.phone) {
+      const phoneErrors = Array.isArray(errorData.phone) ? errorData.phone : [errorData.phone];
+      if (phoneErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
+        return 'This phone number is already registered. Please use a different phone number.';
+      }
+      return 'Please enter a valid 10-digit phone number';
+    }
+
+    // Handle student number errors
+    if (errorData.student_no) {
+      const studentErrors = Array.isArray(errorData.student_no) ? errorData.student_no : [errorData.student_no];
+      if (studentErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
+        return 'This student number is already registered. Please contact support if this is an error.';
+      }
+    }
+
+    // Handle general validation errors
+    if (errorData.detail) {
+      return errorData.detail;
+    }
+
+    if (errorData.message) {
+      return errorData.message;
+    }
+
+    if (errorData.error) {
+      return errorData.error;
+    }
+
+    // Handle non-field errors
+    if (errorData.non_field_errors) {
+      const errors = Array.isArray(errorData.non_field_errors) 
+        ? errorData.non_field_errors 
+        : [errorData.non_field_errors];
+      return errors.join(' ');
+    }
+
+    // If it's a string, return as is
+    if (typeof errorData === 'string') {
+      return errorData;
+    }
+
+    // Default fallback
+    return 'Registration failed. Please check your information and try again.';
   };
 
   const handleChange = (e) => {
@@ -212,47 +280,34 @@ function Register() {
         window.scrollTo(0, 0);
         
       } else {
-        // Enhanced error handling for 400 Bad Request
+        // Enhanced error handling with user-friendly messages
         let errorMessage = 'Registration failed. Please try again.';
-        let responseText = '';
         
         try {
-          // First, try to get the response as text to see what we're dealing with
-          const clonedResponse = response.clone();
-          responseText = await clonedResponse.text();
-          console.log('Raw response text:', responseText);
-          
-          // Then try to parse as JSON
           const errorData = await response.json();
           console.log('Error response data:', errorData);
           
-          if (errorData.message) {
-            errorMessage = errorData.message;
-          } else if (errorData.error) {
-            errorMessage = errorData.error;
-          } else if (errorData.detail) {
-            errorMessage = errorData.detail;
-          } else if (typeof errorData === 'string') {
-            errorMessage = errorData;
-          } else if (errorData.errors) {
-            // Handle validation errors from server
-            if (typeof errorData.errors === 'object') {
-              const errorMessages = Object.entries(errorData.errors).map(([field, messages]) => {
-                const messageArray = Array.isArray(messages) ? messages : [messages];
-                return `${field}: ${messageArray.join(', ')}`;
-              });
-              errorMessage = errorMessages.join('\n');
-            } else {
-              errorMessage = errorData.errors;
-            }
-          } else if (errorData.non_field_errors) {
-            errorMessage = Array.isArray(errorData.non_field_errors) 
-              ? errorData.non_field_errors.join('\n')
-              : errorData.non_field_errors;
-          }
+          // Use the new parseErrorMessage function
+          errorMessage = parseErrorMessage(errorData);
+          
         } catch (parseError) {
           console.error('Error parsing response:', parseError);
-          errorMessage = responseText || `Server returned ${response.status}: ${response.statusText}`;
+          
+          // Try to get text response for additional context
+          try {
+            const textResponse = await response.text();
+            console.log('Raw response text:', textResponse);
+            
+            if (textResponse.includes('email') || textResponse.includes('Email')) {
+              errorMessage = 'Invalid email address. Please use your AKGEC email.';
+            } else if (textResponse.includes('already exists')) {
+              errorMessage = 'You are already registered. Please contact support if this is an error.';
+            } else {
+              errorMessage = `Server error (${response.status}). Please try again later.`;
+            }
+          } catch {
+            errorMessage = `Server error (${response.status}). Please try again later.`;
+          }
         }
         
         setFormError(errorMessage);
@@ -266,7 +321,7 @@ function Register() {
       } else if (error.name === 'AbortError') {
         setFormError('Request timed out. Please try again.');
       } else {
-        setFormError(error.message || 'Unexpected error occurred. Please try again.');
+        setFormError('Unexpected error occurred. Please try again.');
       }
     } finally {
       setIsLoading(false);
@@ -275,13 +330,6 @@ function Register() {
 
   return (
     <section className="register-section">
-      {shouldRenderParticles && (
-        <Suspense fallback={<div />}>
-          <div className="particle-container">
-            {/* <Particle /> */}
-          </div>
-        </Suspense>
-      )}
       <Container>
         <Row className="justify-content-center">
           <Col md={8} className="register-form-container">
@@ -309,9 +357,7 @@ function Register() {
               <>
                 {formError && (
                   <Alert variant="danger">
-                    <pre style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word', margin: 0}}>
-                      {formError}
-                    </pre>
+                    {formError}
                   </Alert>
                 )}
                 

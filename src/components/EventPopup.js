@@ -27,7 +27,9 @@ function EventPopup() {
       className="event-popup"
     >
       <Modal.Header closeButton>
-        <Modal.Title>🚀 Recruitment Drive Alert! 🚀</Modal.Title>
+        <Modal.Title>
+          <span>🚀</span> Recruitment Drive Alert! <span>🚀</span>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className="event-content">
