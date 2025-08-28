@@ -85,58 +85,65 @@ function Register() {
     return true;
   };
 
-  // Helper function to parse and format error messages
+  // Helper function to parse and format error messages - IMPROVED VERSION
   const parseErrorMessage = (errorData) => {
-    // Check for common error scenarios and return user-friendly messages
-    
-    // Handle email validation errors
-    if (errorData.email) {
-      const emailErrors = Array.isArray(errorData.email) ? errorData.email : [errorData.email];
-      if (emailErrors.some(err => err.includes('college') || err.includes('College'))) {
-        return 'Invalid College Email ID';
+    console.log('Parsing error data:', errorData);
+
+    // If errorData is a string, return it directly
+    if (typeof errorData === 'string') {
+      return errorData;
+    }
+
+    // If errorData is not an object, return default message
+    if (!errorData || typeof errorData !== 'object') {
+      return 'Registration failed. Please check your information and try again.';
+    }
+
+    // Handle specific field errors with user-friendly messages
+    const fieldErrors = {
+      email: 'Please enter a valid AKGEC email address (@akgec.ac.in)',
+      phone: 'Please enter a valid 10-digit phone number',
+      roll_no: 'Please enter a valid University roll number',
+      student_no: 'Please enter a valid student number',
+      name: 'Please enter a valid name',
+      branch_name: 'Please select a valid branch',
+      gender: 'Please select your gender',
+      hosteller: 'Please specify if you are a hosteller',
+      recaptcha_token: 'Please complete the reCAPTCHA verification'
+    };
+
+    // Check for duplicate/unique constraint errors
+    const duplicateMessages = {
+      email: 'This email is already registered. Please use a different email address.',
+      phone: 'This phone number is already registered. Please use a different phone number.',
+      roll_no: 'This roll number is already registered. Please contact support if this is an error.',
+      student_no: 'This student number is already registered. Please contact support if this is an error.'
+    };
+
+    // Check each field for errors
+    for (const [field, defaultMessage] of Object.entries(fieldErrors)) {
+      if (errorData[field]) {
+        const fieldError = Array.isArray(errorData[field]) ? errorData[field][0] : errorData[field];
+        
+        // Check if it's a duplicate error
+        if (typeof fieldError === 'string') {
+          if (fieldError.toLowerCase().includes('already exists') || 
+              fieldError.toLowerCase().includes('unique') ||
+              fieldError.toLowerCase().includes('duplicate')) {
+            return duplicateMessages[field] || `This ${field.replace('_', ' ')} is already registered.`;
+          }
+          
+          if (field === 'email' && (
+              fieldError.toLowerCase().includes('college') || 
+              fieldError.toLowerCase().includes('invalid') ||
+              fieldError.toLowerCase().includes('domain')
+          )) {
+            return 'Please use your AKGEC email address (@akgec.ac.in)';
+          }
+        }
+        
+        return defaultMessage;
       }
-      if (emailErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
-        return 'This email is already registered. Please use a different email address.';
-      }
-      return 'Please enter a valid AKGEC email address';
-    }
-
-    // Handle duplicate registration
-    if (errorData.roll_no) {
-      const rollErrors = Array.isArray(errorData.roll_no) ? errorData.roll_no : [errorData.roll_no];
-      if (rollErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
-        return 'This roll number is already registered. Please contact support if this is an error.';
-      }
-    }
-
-    // Handle phone number errors
-    if (errorData.phone) {
-      const phoneErrors = Array.isArray(errorData.phone) ? errorData.phone : [errorData.phone];
-      if (phoneErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
-        return 'This phone number is already registered. Please use a different phone number.';
-      }
-      return 'Please enter a valid 10-digit phone number';
-    }
-
-    // Handle student number errors
-    if (errorData.student_no) {
-      const studentErrors = Array.isArray(errorData.student_no) ? errorData.student_no : [errorData.student_no];
-      if (studentErrors.some(err => err.includes('already exists') || err.includes('unique'))) {
-        return 'This student number is already registered. Please contact support if this is an error.';
-      }
-    }
-
-    // Handle general validation errors
-    if (errorData.detail) {
-      return errorData.detail;
-    }
-
-    if (errorData.message) {
-      return errorData.message;
-    }
-
-    if (errorData.error) {
-      return errorData.error;
     }
 
     // Handle non-field errors
@@ -144,12 +151,20 @@ function Register() {
       const errors = Array.isArray(errorData.non_field_errors) 
         ? errorData.non_field_errors 
         : [errorData.non_field_errors];
-      return errors.join(' ');
+      return errors[0] || 'Registration failed. Please try again.';
     }
 
-    // If it's a string, return as is
-    if (typeof errorData === 'string') {
-      return errorData;
+    // Handle general error messages
+    if (errorData.detail) {
+      return typeof errorData.detail === 'string' ? errorData.detail : 'Registration failed. Please try again.';
+    }
+
+    if (errorData.message) {
+      return typeof errorData.message === 'string' ? errorData.message : 'Registration failed. Please try again.';
+    }
+
+    if (errorData.error) {
+      return typeof errorData.error === 'string' ? errorData.error : 'Registration failed. Please try again.';
     }
 
     // Default fallback
@@ -235,7 +250,7 @@ function Register() {
       hosteller: formData.hosteller === 'yes' ? 'True' : 'False', // Backend expects string 'True'/'False'
     };
 
-    // Debug logging
+    // Debug logging (remove in production)
     console.log('Sending data:', JSON.stringify(apiData, null, 2));
 
     try {
@@ -250,9 +265,6 @@ function Register() {
         },
         body: JSON.stringify(apiData),
       });
-
-      console.log('Response status:', response.status);
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
 
       // Handle different response statuses
       if (response.status === 201 || response.status === 200) {
@@ -287,23 +299,28 @@ function Register() {
           const errorData = await response.json();
           console.log('Error response data:', errorData);
           
-          // Use the new parseErrorMessage function
+          // Use the improved parseErrorMessage function
           errorMessage = parseErrorMessage(errorData);
           
         } catch (parseError) {
-          console.error('Error parsing response:', parseError);
+          console.error('Error parsing JSON response:', parseError);
           
-          // Try to get text response for additional context
+          // Fallback to text response
           try {
             const textResponse = await response.text();
             console.log('Raw response text:', textResponse);
             
-            if (textResponse.includes('email') || textResponse.includes('Email')) {
-              errorMessage = 'Invalid email address. Please use your AKGEC email.';
-            } else if (textResponse.includes('already exists')) {
+            // Handle common text-based error responses
+            if (textResponse.toLowerCase().includes('email') && textResponse.toLowerCase().includes('invalid')) {
+              errorMessage = 'Please use your AKGEC email address (@akgec.ac.in)';
+            } else if (textResponse.toLowerCase().includes('already exists')) {
               errorMessage = 'You are already registered. Please contact support if this is an error.';
+            } else if (response.status === 400) {
+              errorMessage = 'Invalid information provided. Please check your details and try again.';
+            } else if (response.status === 500) {
+              errorMessage = 'Server error. Please try again later.';
             } else {
-              errorMessage = `Server error (${response.status}). Please try again later.`;
+              errorMessage = `Registration failed (Error ${response.status}). Please try again later.`;
             }
           } catch {
             errorMessage = `Server error (${response.status}). Please try again later.`;

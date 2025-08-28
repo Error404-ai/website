@@ -277,8 +277,8 @@
 .home-scroll-arrow:hover svg,
 .scroll-indicator:hover svg,
 .scroll-down-btn:hover svg {
-  fill: #d41c35 !important;
-  stroke: #d41c35 !important;
+  fill: #EF334C !important;
+  stroke: #EF334C !important;
 }
 
 /* If using react-scroll or similar libraries */
