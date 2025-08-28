@@ -38,7 +38,7 @@ function EventPopup() {
           </p>
           <ul className="event-info">
             <li>📅 Date: Sept 3, 2025 </li>
-            <li>⏰ Time: 4:00 AM - 7:30 PM</li>
+            <li>⏰ Time: 4:00 PM - 7:30 PM</li>
             <li>📍 Venue: CSIT Block</li>
           </ul>
           <p className="event-description">
