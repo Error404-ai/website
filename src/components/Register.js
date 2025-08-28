@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FaCheckCircle } from "react-icons/fa";
 import "./Register.css";
 
-const RECAPTCHA_SITE_KEY = "6LcnprQrAAAAAHM75pNKhkeHt1c8zMoTKW6qbBlZ";
+const RECAPTCHA_SITE_KEY = "6LcnprQrAAAAABbDh36kcDHZHlAJbdg3FrSiD_Wv";
 
 function Register() {
   const [formData, setFormData] = useState({
