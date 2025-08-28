@@ -286,7 +286,7 @@ function Register() {
         <Row className="justify-content-center">
           <Col md={8} className="register-form-container">
             <h1 className="heading-name text-center mb-4">
-              <span className="purple">#INCLUDE 4.0</span> REGISTRATION
+              <span className="purple">CIN&gt;&gt;PC</span> REGISTRATION
             </h1>
             <p className="text-center subtitle mb-4">Organized by Programming Club, AKGEC</p>
             
