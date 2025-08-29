@@ -25,6 +25,26 @@ function Register() {
   const [formError, setFormError] = useState("");
   const [shouldRenderParticles, setShouldRenderParticles] = useState(false);
 
+  // Branch code mapping
+  const branchCodes = {
+    'ME': '40',
+    'ECE': '31', 
+    'EE': '21',
+    'CSE(Hindi)': '169',
+    'CSE (Hindi)': '169',
+    'AIML': '164',
+    'CSE(DS)': '154',
+    'CSE (DS)': '154',
+    'CSE(AIML)': '153',
+    'CSE (AIML)': '153',
+    'IT': '13',
+    'CS': '12',
+    'CSIT': '11',
+    'CS IT': '11',
+    'CSE': '10',
+    'CE': '0'
+  };
+
   // Only enable particles on desktop devices and if user's device is powerful enough
   useEffect(() => {
     const isDesktop = window.innerWidth >= 992;
@@ -40,41 +60,14 @@ function Register() {
   }, []);
 
   const validateForm = () => {
-    // Enhanced email validation for AKGEC domain
-    const email = formData.email.trim().toLowerCase();
-    
-    // Check if email ends with @akgec.ac.in (case insensitive)
-    if (!email.endsWith('@akgec.ac.in')) {
-      setFormError('Please use your AKGEC email address (@akgec.ac.in)');
-      return false;
-    }
-    
-    // Check if email has valid format before @akgec.ac.in
-    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]@akgec\.ac\.in$/;
-    if (!emailRegex.test(email)) {
-      setFormError('Please enter a valid AKGEC email address (e.g., yourname.rollno@akgec.ac.in)');
+    // Get branch code for selected branch
+    const branchCode = branchCodes[formData.branch_name];
+    if (!branchCode) {
+      setFormError('Please select a valid branch');
       return false;
     }
 
-    // Phone number validation (exactly 10 digits)
-    if (!/^\d{10}$/.test(formData.phone)) {
-      setFormError('Please enter a valid 10-digit phone number');
-      return false;
-    }
-
-    // Roll number validation - improved regex
-    if (!/^(\d{13,15})(-[dD])?$/i.test(formData.roll_no.trim())) {
-      setFormError('Please enter a valid University roll number (13-15 digits, optionally ending with -d)');
-      return false;
-    }
-
-    // Student number validation - improved regex
-    if (!/^(\d{7,8})(-[dD])?$/i.test(formData.student_no.trim())) {
-      setFormError('Please enter a valid student number (7-8 digits, optionally ending with -d)');
-      return false;
-    }
-
-    // Required field validations
+    // Required field validations first
     if (!formData.name.trim() || !formData.email.trim() || !formData.branch_name ||
         !formData.student_no.trim() || !formData.phone.trim() || !formData.gender ||
         !formData.hosteller || !formData.roll_no.trim()) {
@@ -82,93 +75,85 @@ function Register() {
       return false;
     }
 
+    // Name validation - alphabets and spaces only
+    if (!/^[a-zA-Z ]+$/.test(formData.name.trim())) {
+      setFormError('Name must have alphabets only.');
+      return false;
+    }
+
+    // Phone validation - must start with 9, 8, 7, or 6 and be exactly 10 digits
+    if (!/^[9876]\d{9}$/.test(formData.phone)) {
+      setFormError('Phone number is not valid');
+      return false;
+    }
+
+    // Student number validation
+    const studentNo = formData.student_no.trim();
+    
+    // Length check (7-8 digits only)
+    if (studentNo.length < 7 || studentNo.length > 8 || !/^\d+$/.test(studentNo)) {
+      setFormError('Invalid Student Number');
+      return false;
+    }
+    
+    // Must start with 24
+    if (!studentNo.startsWith('24')) {
+      setFormError('Invalid Student Number');
+      return false;
+    }
+    
+    // Branch code must be in positions 2-4 (0-indexed)
+    const studentBranchCode = studentNo.substring(2, 5);
+    if (!studentBranchCode.includes(branchCode)) {
+      setFormError('Invalid Student Number');
+      return false;
+    }
+
+    // Roll number validation
+    const rollNo = formData.roll_no.trim();
+    
+    // Must be exactly 13 digits
+    if (rollNo.length !== 13 || !/^\d{13}$/.test(rollNo)) {
+      setFormError('University roll number must be of 13 digits');
+      return false;
+    }
+    
+    // Positions 3-5 must be "027"
+    if (rollNo.substring(3, 6) !== '027') {
+      setFormError('Invalid University roll number');
+      return false;
+    }
+    
+    // Branch code must be in positions 5-8 (0-indexed)
+    const rollBranchCode = rollNo.substring(5, 9);
+    if (!rollBranchCode.includes(branchCode)) {
+      setFormError('Invalid University roll number');
+      return false;
+    }
+
+    // Email validation
+    const email = formData.email.trim().toLowerCase();
+    
+    // Must end with @akgec.ac.in
+    if (!email.endsWith('@akgec.ac.in')) {
+      setFormError('Invalid College Email ID');
+      return false;
+    }
+    
+    // Email format: [letters][student_no]@akgec.ac.in
+    const emailRegex = new RegExp(`^[a-zA-Z]+${studentNo}@akgec\\.ac\\.in$`);
+    if (!emailRegex.test(email)) {
+      setFormError('Invalid College Email ID');
+      return false;
+    }
+    
+    // Branch code must be in email
+    if (!email.includes(branchCode)) {
+      setFormError('Invalid College Email ID');
+      return false;
+    }
+
     return true;
-  };
-
-  // Helper function to parse and format error messages - IMPROVED VERSION
-  const parseErrorMessage = (errorData) => {
-    console.log('Parsing error data:', errorData);
-
-    // If errorData is a string, return it directly
-    if (typeof errorData === 'string') {
-      return errorData;
-    }
-
-    // If errorData is not an object, return default message
-    if (!errorData || typeof errorData !== 'object') {
-      return 'Registration failed. Please check your information and try again.';
-    }
-
-    // Handle specific field errors with user-friendly messages
-    const fieldErrors = {
-      email: 'Please enter a valid AKGEC email address (@akgec.ac.in)',
-      phone: 'Please enter a valid 10-digit phone number',
-      roll_no: 'Please enter a valid University roll number',
-      student_no: 'Please enter a valid student number',
-      name: 'Please enter a valid name',
-      branch_name: 'Please select a valid branch',
-      gender: 'Please select your gender',
-      hosteller: 'Please specify if you are a hosteller',
-      recaptcha_token: 'Please complete the reCAPTCHA verification'
-    };
-
-    // Check for duplicate/unique constraint errors
-    const duplicateMessages = {
-      email: 'This email is already registered. Please use a different email address.',
-      phone: 'This phone number is already registered. Please use a different phone number.',
-      roll_no: 'This roll number is already registered. Please contact support if this is an error.',
-      student_no: 'This student number is already registered. Please contact support if this is an error.'
-    };
-
-    // Check each field for errors
-    for (const [field, defaultMessage] of Object.entries(fieldErrors)) {
-      if (errorData[field]) {
-        const fieldError = Array.isArray(errorData[field]) ? errorData[field][0] : errorData[field];
-        
-        // Check if it's a duplicate error
-        if (typeof fieldError === 'string') {
-          if (fieldError.toLowerCase().includes('already exists') || 
-              fieldError.toLowerCase().includes('unique') ||
-              fieldError.toLowerCase().includes('duplicate')) {
-            return duplicateMessages[field] || `This ${field.replace('_', ' ')} is already registered.`;
-          }
-          
-          if (field === 'email' && (
-              fieldError.toLowerCase().includes('college') || 
-              fieldError.toLowerCase().includes('invalid') ||
-              fieldError.toLowerCase().includes('domain')
-          )) {
-            return 'Please use your AKGEC email address (@akgec.ac.in)';
-          }
-        }
-        
-        return defaultMessage;
-      }
-    }
-
-    // Handle non-field errors
-    if (errorData.non_field_errors) {
-      const errors = Array.isArray(errorData.non_field_errors) 
-        ? errorData.non_field_errors 
-        : [errorData.non_field_errors];
-      return errors[0] || 'Registration failed. Please try again.';
-    }
-
-    // Handle general error messages
-    if (errorData.detail) {
-      return typeof errorData.detail === 'string' ? errorData.detail : 'Registration failed. Please try again.';
-    }
-
-    if (errorData.message) {
-      return typeof errorData.message === 'string' ? errorData.message : 'Registration failed. Please try again.';
-    }
-
-    if (errorData.error) {
-      return typeof errorData.error === 'string' ? errorData.error : 'Registration failed. Please try again.';
-    }
-
-    // Default fallback
-    return 'Registration failed. Please check your information and try again.';
   };
 
   const handleChange = (e) => {
@@ -189,9 +174,9 @@ function Register() {
       return;
     }
 
-    // Format student number - allow digits and optional -d suffix
+    // Format student number - only digits, no -d suffix allowed based on backend validation
     if (name === 'student_no') {
-      const formattedValue = value.replace(/[^0-9dD-]/g, '').slice(0, 10);
+      const formattedValue = value.replace(/\D/g, '').slice(0, 8);
       setFormData(prevState => ({
         ...prevState,
         [name]: formattedValue
@@ -199,9 +184,19 @@ function Register() {
       return;
     }
 
-    // Format roll number - allow digits and optional -d suffix
+    // Format roll number - only digits, exactly 13 digits based on backend validation
     if (name === 'roll_no') {
-      const formattedValue = value.replace(/[^0-9dD-]/g, '').slice(0, 18);
+      const formattedValue = value.replace(/\D/g, '').slice(0, 13);
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: formattedValue
+      }));
+      return;
+    }
+
+    // Format name - only alphabets and spaces
+    if (name === 'name') {
+      const formattedValue = value.replace(/[^a-zA-Z ]/g, '');
       setFormData(prevState => ({
         ...prevState,
         [name]: formattedValue
@@ -292,39 +287,13 @@ function Register() {
         window.scrollTo(0, 0);
         
       } else {
-        // Enhanced error handling with user-friendly messages
+        // Simplified error handling since validation is now on frontend
         let errorMessage = 'Registration failed. Please try again.';
         
-        try {
-          const errorData = await response.json();
-          console.log('Error response data:', errorData);
-          
-          // Use the improved parseErrorMessage function
-          errorMessage = parseErrorMessage(errorData);
-          
-        } catch (parseError) {
-          console.error('Error parsing JSON response:', parseError);
-          
-          // Fallback to text response
-          try {
-            const textResponse = await response.text();
-            console.log('Raw response text:', textResponse);
-            
-            // Handle common text-based error responses
-            if (textResponse.toLowerCase().includes('email') && textResponse.toLowerCase().includes('invalid')) {
-              errorMessage = 'Please use your AKGEC email address (@akgec.ac.in)';
-            } else if (textResponse.toLowerCase().includes('already exists')) {
-              errorMessage = 'You are already registered. Please contact support if this is an error.';
-            } else if (response.status === 400) {
-              errorMessage = 'Invalid information provided. Please check your details and try again.';
-            } else if (response.status === 500) {
-              errorMessage = 'Server error. Please try again later.';
-            } else {
-              errorMessage = `Registration failed (Error ${response.status}). Please try again later.`;
-            }
-          } catch {
-            errorMessage = `Server error (${response.status}). Please try again later.`;
-          }
+        if (response.status === 400) {
+          errorMessage = 'You may already be registered. Please contact support if this is an error.';
+        } else if (response.status === 500) {
+          errorMessage = 'Server error. Please try again later.';
         }
         
         setFormError(errorMessage);
@@ -391,6 +360,9 @@ function Register() {
                           required
                           placeholder="Enter your full name"
                         />
+                        <Form.Text className="text-muted">
+                          Only alphabets and spaces allowed
+                        </Form.Text>
                       </Form.Group>
                     </Col>
                     <Col md={6}>
@@ -402,12 +374,11 @@ function Register() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          placeholder="firstname.lastname@akgec.ac.in"
-                          pattern="[0-9a-zA-Z][0-9a-zA-Z._-]*[0-9a-zA-Z]@akgec[.]ac[.]in"
-                          title="Please enter a valid AKGEC email address (e.g., yourname.rollno@akgec.ac.in)"
+                          placeholder="firstname24xxxxxxx@akgec.ac.in"
+                          title="Format: [letters][student_number]@akgec.ac.in"
                         />
                         <Form.Text className="text-muted">
-                          Must be an AKGEC domain email (@akgec.ac.in) - Example: john.doe@akgec.ac.in
+                          Format: [your_name][student_number]@akgec.ac.in
                         </Form.Text>
                       </Form.Group>
                     </Col>
@@ -424,11 +395,10 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="10-digit phone number"
-                          pattern="[0-9]{10}"
-                          title="Please enter exactly 10 digits"
+                          title="Must start with 9, 8, 7, or 6"
                         />
                         <Form.Text className="text-muted">
-                          Must be exactly 10 digits
+                          Must start with 9, 8, 7, or 6 and be exactly 10 digits
                         </Form.Text>
                       </Form.Group>
                     </Col>
@@ -442,9 +412,10 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="Enter your university roll number"
+                          title="Must be exactly 13 digits with specific format"
                         />
                         <Form.Text className="text-muted">
-                          13-15 digits, optionally ending with -d
+                          Must be exactly 13 digits (format: XXX027[branch_code]XXX)
                         </Form.Text>
                       </Form.Group>
                     </Col>
@@ -486,11 +457,10 @@ function Register() {
                           onChange={handleChange}
                           required
                           placeholder="Enter your student number"
-                          pattern="[0-9]{7,8}"
-                          title="Please enter 7 or 8 digits"
+                          title="7-8 digits starting with 24"
                         />
                         <Form.Text className="text-muted">
-                          7-8 digits, optionally ending with -d
+                          7-8 digits, must start with 24 and include your branch code
                         </Form.Text>
                       </Form.Group>
                     </Col>
