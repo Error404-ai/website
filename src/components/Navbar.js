@@ -8,7 +8,6 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
-  AiOutlineForm,
 } from "react-icons/ai";
 
 function NavBar() {
@@ -30,7 +29,7 @@ function NavBar() {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   return (
     <Navbar
@@ -82,17 +81,6 @@ function NavBar() {
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> 
                 Members
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/register"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineForm style={{ marginBottom: "2px" }} /> 
-                Register
               </Nav.Link>
             </Nav.Item>
           </Nav>
