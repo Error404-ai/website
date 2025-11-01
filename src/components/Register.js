@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import styles from "./RegisterationForm.module.css";
+import styles from "./Register.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const branchCodes = {
