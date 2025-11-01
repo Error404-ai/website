@@ -30,7 +30,7 @@ function NavBar() {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   return (
     <Navbar
