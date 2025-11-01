@@ -419,7 +419,7 @@ function Register() {
   };
 
   return (
-    <div className={styles.formContainer}>
+    <div className="formContainer">
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2>
           <span className={styles.highlight}>CODE++</span> Registration
