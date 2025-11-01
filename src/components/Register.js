@@ -883,12 +883,12 @@ function Register() {
         }}
       >
         <div>
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey="6LcnprQrAAAAABbDh36kcDHZHlAJbdg3FrSiD_Wv"
-            onChange={(value) => setCaptchaValue(value)}
-            theme="dark"
-          />
+        <ReCAPTCHA
+  ref={recaptchaRef}
+  sitekey="6LdiBPkrAAAAAE2m6IRWNs3Gu37Ps6y-MpfwOLRA"
+  onChange={(value) => setCaptchaValue(value)}
+  theme="dark"
+/>
           {errors.captcha && (
             <p className="errorText" style={{ textAlign: "center" }}>
               {errors.captcha}
