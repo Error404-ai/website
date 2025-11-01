@@ -63,7 +63,6 @@ function Register() {
       rollNumber1,
       branch1,
       year1,
-      hackerrankProfile1,
       hosteller1,
       studentNumber1,
       fullName2,
@@ -72,7 +71,6 @@ function Register() {
       rollNumber2,
       branch2,
       year2,
-      hackerrankProfile2,
       hosteller2,
       studentNumber2,
     } = formData;
@@ -887,7 +885,7 @@ function Register() {
           <div>
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey=""
+              sitekey="6LcnprQrAAAAABbDh36kcDHZHlAJbdg3FrSiD_Wv"
               onChange={(value) => setCaptchaValue(value)}
               theme="dark"
             />
