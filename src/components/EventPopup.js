@@ -27,30 +27,24 @@ function EventPopup() {
       className="event-popup"
     >
       <Modal.Header closeButton>
-        <Modal.Title>
-          <span>🚀</span> Recruitment Drive Alert! <span>🚀</span>
-        </Modal.Title>
+        <Modal.Title>🎉 New Event Alert! 🎉</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className="event-content">
           <h3>Programming Club Presents</h3>
-          <h2>Cin&gt;&gt;PC</h2>
+          <h2>#Include 4.0</h2>
           <p className="event-details">
-            Cin&gt;&gt;PC is the official recruitment drive of the Programming Club, designed exclusively for 2nd-year students who are passionate about coding and problem-solving.
+            Join us for an exciting competitive programming workshop where you can elevate your programming skills!
           </p>
           <ul className="event-info">
-            <li>📅 Date: Sept 3, 2025 </li>
-            <li>⏰ Time: 4:00 PM - 7:30 PM</li>
-            <li>📍 Venue: CSIT Block</li>
+            <li>📅 Date: Nov 4, 2025</li>
+            <li>⏰ Time: 4:00 PM - 6:00 PM</li>
+            <li>📍 Venue: CSIT Seminar Hall</li>
+            <li>💻 Team Size : 2 Members</li>
           </ul>
           <p className="event-description">
-            Why participate?
-            <ul>
-              <li>Showcase your coding and problem-solving skills</li>
-              <li>Get an opportunity to become a member of the Programming Club</li>
-              <li>Win exciting prizes and certificates</li>
-              <li>Learn, grow, and connect with seniors and alumni for career guidance</li>
-            </ul>
+         A Team Contest Comprising of 2 Rounds boosting your competitive programming skills.
+         Prize Pool worth Rs. 6000
           </p>
         </div>
       </Modal.Body>
@@ -59,11 +53,11 @@ function EventPopup() {
           Close
         </Button>
         <Button variant="primary" onClick={handleRegister}>
-          Apply Now
+          Register Now
         </Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
-export default EventPopup;
+export default EventPopup; 
