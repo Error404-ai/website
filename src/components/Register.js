@@ -418,501 +418,499 @@ function Register() {
     }
   };
 
-  return (
-    <div className="formContainer">
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2>
-          <span className={styles.highlight}>CODE++</span> Registration
-        </h2>
-        <p className={styles.description}>
-          Organized by Programming Club, AKGEC
-        </p>
-        <div className={styles.formGrid}>
-          <div className={styles.formGroup} style={{ gridColumn: "1 / -1" }}>
-            <label htmlFor="teamName" className={styles.label}>
-              Team Name:<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="teamName"
-              name="teamName"
-              value={formData.teamName}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter your team name"
-            />
-          </div>
-
-          <h3 className={styles.gridHeading}>Member 1 Details</h3>
-          <div className={styles.formGroup}>
-            <label htmlFor="fullName1" className={styles.label}>
-              Full Name (Member 1):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="fullName1"
-              name="fullName1"
-              value={formData.fullName1}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter member 1's full name"
-            />
-            <p className={styles.hintText}>Only letters and spaces allowed.</p>
-            {errors.fullName1 && (
-              <p className={styles.errorText}>{errors.fullName1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="emailId1" className={styles.label}>
-              Email (Member 1):<span>*</span>
-            </label>
-            <input
-              type="email"
-              id="emailId1"
-              name="emailId1"
-              value={formData.emailId1}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="name.studentno@akgec.ac.in"
-            />
-            <p className={styles.hintText}>Must end with @akgec.ac.in</p>
-            {errors.emailId1 && (
-              <p className={styles.errorText}>{errors.emailId1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="phoneNumber1" className={styles.label}>
-              Phone Number (Member 1):<span>*</span>
-            </label>
-            <input
-              type="tel"
-              id="phoneNumber1"
-              name="phoneNumber1"
-              value={formData.phoneNumber1}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="10-digit mobile number"
-              maxLength={10}
-            />
-            <p className={styles.hintText}>
-              Must be a 10-digit number (e.g., 9876543210)
-            </p>
-            {errors.phoneNumber1 && (
-              <p className={styles.errorText}>{errors.phoneNumber1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="rollNumber1" className={styles.label}>
-              Roll Number (Member 1):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="rollNumber1"
-              name="rollNumber1"
-              value={formData.rollNumber1}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter 13-digit university roll number"
-              maxLength={13}
-            />
-            <p className={styles.hintText}>
-              Must be 13 digits (e.g., 230027... or 240027...)
-            </p>
-            {errors.rollNumber1 && (
-              <p className={styles.errorText}>{errors.rollNumber1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="branch1" className={styles.label}>
-              Branch (Member 1):<span>*</span>
-            </label>
-            <select
-              id="branch1"
-              name="branch1"
-              value={formData.branch1}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Branch</option>
-              <option value="CSE">CSE</option>
-              <option value="CS IT">CS & IT</option>
-              <option value="CS">CS</option>
-              <option value="IT">IT</option>
-              <option value="CSE(AIML)">CSE (AIML)</option>
-              <option value="AIML">AIML</option>
-              <option value="CSE(DS)">CSE (DS)</option>
-              <option value="CSE(Hindi)">CSE (Hindi)</option>
-              <option value="ECE">ECE</option>
-              <option value="EE">EE</option>
-              <option value="ME">ME</option>
-              <option value="CE">CE</option>
-            </select>
-            {errors.branch1 && (
-              <p className={styles.errorText}>{errors.branch1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="studentNumber1" className={styles.label}>
-              Student Number (Member 1):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="studentNumber1"
-              name="studentNumber1"
-              value={formData.studentNumber1}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter 7 or 8 digit student number"
-            />
-            <p className={styles.hintText}>
-              Must be 7 or 8 digits and numbers only.
-            </p>
-            {errors.studentNumber1 && (
-              <p className={styles.errorText}>{errors.studentNumber1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="year1" className={styles.label}>
-              Year (Member 1):<span>*</span>
-            </label>
-            <select
-              id="year1"
-              name="year1"
-              value={formData.year1}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Year</option>
-              <option value="2">2nd Year</option>
-              <option value="3">3rd Year</option>
-            </select>
-            {errors.year1 && <p className={styles.errorText}>{errors.year1}</p>}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="gender1" className={styles.label}>
-              Gender (Member 1):<span>*</span>
-            </label>
-            <select
-              id="gender1"
-              name="gender1"
-              value={formData.gender1}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="hosteller1" className={styles.label}>
-              Hosteller (Member 1):<span>*</span>
-            </label>
-            <select
-              id="hosteller1"
-              name="hosteller1"
-              value={
-                formData.hosteller1 === true
-                  ? "yes"
-                  : formData.hosteller1 === false
-                  ? "no"
-                  : ""
-              }
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Are you a hosteller?</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            {errors.hosteller1 && (
-              <p className={styles.errorText}>{errors.hosteller1}</p>
-            )}
-          </div>
-          <div className={styles.formGroup} style={{ gridColumn: "1 / -1" }}>
-            <label htmlFor="hackerrankProfile1" className={styles.label}>
-              HackerRank ID (Member 1):
-            </label>
-            <input
-              type="text"
-              id="hackerrankProfile1"
-              name="hackerrankProfile1"
-              value={formData.hackerrankProfile1}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="Enter HackerRank username (Optional)"
-            />
-            {errors.hackerrankProfile1 && (
-              <p className={styles.errorText}>{errors.hackerrankProfile1}</p>
-            )}
-          </div>
-
-          <h3 className={styles.gridHeading}>Member 2 Details</h3>
-          <div className={styles.formGroup}>
-            <label htmlFor="fullName2" className={styles.label}>
-              Full Name (Member 2):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="fullName2"
-              name="fullName2"
-              value={formData.fullName2}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter member 2's full name"
-            />
-            <p className={styles.hintText}>Only letters and spaces allowed.</p>
-            {errors.fullName2 && (
-              <p className={styles.errorText}>{errors.fullName2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="emailId2" className={styles.label}>
-              Email (Member 2):<span>*</span>
-            </label>
-            <input
-              type="email"
-              id="emailId2"
-              name="emailId2"
-              value={formData.emailId2}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="name.studentno@akgec.ac.in"
-            />
-            <p className={styles.hintText}>Must end with @akgec.ac.in</p>
-            {errors.emailId2 && (
-              <p className={styles.errorText}>{errors.emailId2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="phoneNumber2" className={styles.label}>
-              Phone Number (Member 2):<span>*</span>
-            </label>
-            <input
-              type="tel"
-              id="phoneNumber2"
-              name="phoneNumber2"
-              value={formData.phoneNumber2}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="10-digit mobile number"
-              maxLength={10}
-            />
-            <p className={styles.hintText}>
-              Must be a 10-digit number (e.g., 9876543210)
-            </p>
-            {errors.phoneNumber2 && (
-              <p className={styles.errorText}>{errors.phoneNumber2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="rollNumber2" className={styles.label}>
-              Roll Number (Member 2):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="rollNumber2"
-              name="rollNumber2"
-              value={formData.rollNumber2}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter 13-digit university roll number"
-              maxLength={13}
-            />
-            <p className={styles.hintText}>
-              Must be 13 digits (e.g., 230027... or 240027...)
-            </p>
-            {errors.rollNumber2 && (
-              <p className={styles.errorText}>{errors.rollNumber2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="branch2" className={styles.label}>
-              Branch (Member 2):<span>*</span>
-            </label>
-            <select
-              id="branch2"
-              name="branch2"
-              value={formData.branch2}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Branch</option>
-              <option value="CSE">CSE</option>
-              <option value="CS IT">CS & IT</option>
-              <option value="CS">CS</option>
-              <option value="IT">IT</option>
-              <option value="CSE(AIML)">CSE (AIML)</option>
-              <option value="AIML">AIML</option>
-              <option value="CSE(DS)">CSE (DS)</option>
-              <option value="CSE(Hindi)">CSE (Hindi)</option>
-              <option value="ECE">ECE</option>
-              <option value="EE">EE</option>
-              <option value="ME">ME</option>
-              <option value="CE">CE</option>
-            </select>
-            {errors.branch2 && (
-              <p className={styles.errorText}>{errors.branch2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="studentNumber2" className={styles.label}>
-              Student Number (Member 2):<span>*</span>
-            </label>
-            <input
-              type="text"
-              id="studentNumber2"
-              name="studentNumber2"
-              value={formData.studentNumber2}
-              onChange={handleChange}
-              required
-              className={styles.input}
-              placeholder="Enter 7 or 8 digit student number"
-            />
-            <p className={styles.hintText}>
-              Must be 7 or 8 digits and numbers only.
-            </p>
-            {errors.studentNumber2 && (
-              <p className={styles.errorText}>{errors.studentNumber2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="year2" className={styles.label}>
-              Year (Member 2):<span>*</span>
-            </label>
-            <select
-              id="year2"
-              name="year2"
-              value={formData.year2}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Year</option>
-              <option value="2">2nd Year</option>
-              <option value="3">3rd Year</option>
-            </select>
-            {errors.year2 && <p className={styles.errorText}>{errors.year2}</p>}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="gender2" className={styles.label}>
-              Gender (Member 2):<span>*</span>
-            </label>
-            <select
-              id="gender2"
-              name="gender2"
-              value={formData.gender2}
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="hosteller2" className={styles.label}>
-              Hosteller (Member 2):<span>*</span>
-            </label>
-            <select
-              id="hosteller2"
-              name="hosteller2"
-              value={
-                formData.hosteller2 === true
-                  ? "yes"
-                  : formData.hosteller2 === false
-                  ? "no"
-                  : ""
-              }
-              onChange={handleChange}
-              required
-              className={styles.select}
-            >
-              <option value="">Are you a hosteller?</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            {errors.hosteller2 && (
-              <p className={styles.errorText}>{errors.hosteller2}</p>
-            )}
-          </div>
-          <div className={styles.formGroup} style={{ gridColumn: "1 / -1" }}>
-            <label htmlFor="hackerrankProfile2" className={styles.label}>
-              HackerRank ID (Member 2):
-            </label>
-            <input
-              type="text"
-              id="hackerrankProfile2"
-              name="hackerrankProfile2"
-              value={formData.hackerrankProfile2}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="Enter HackerRank username (Optional)"
-            />
-            {errors.hackerrankProfile2 && (
-              <p className={styles.errorText}>{errors.hackerrankProfile2}</p>
-            )}
-          </div>
+ return (
+  <div className="formContainer">
+    <form onSubmit={handleSubmit} className="form">
+      <h2>
+        <span className="highlight">CODE++</span> Registration
+      </h2>
+      <p className="description">
+        Organized by Programming Club, AKGEC
+      </p>
+      <div className="formGrid">
+        <div className="formGroup" style={{ gridColumn: "1 / -1" }}>
+          <label htmlFor="teamName" className="label">
+            Team Name:<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="teamName"
+            name="teamName"
+            value={formData.teamName}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter your team name"
+          />
         </div>
 
-        <div
-          className={styles.formGroup}
-          style={{
-            gridColumn: "1 / -1",
-            marginBottom: "20px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div>
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey="6LcnprQrAAAAABbDh36kcDHZHlAJbdg3FrSiD_Wv"
-              onChange={(value) => setCaptchaValue(value)}
-              theme="dark"
-            />
-            {errors.captcha && (
-              <p className={styles.errorText} style={{ textAlign: "center" }}>
-                {errors.captcha}
-              </p>
-            )}
-          </div>
+        <h3 className="gridHeading">Member 1 Details</h3>
+        <div className="formGroup">
+          <label htmlFor="fullName1" className="label">
+            Full Name (Member 1):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="fullName1"
+            name="fullName1"
+            value={formData.fullName1}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter member 1's full name"
+          />
+          <p className="hintText">Only letters and spaces allowed.</p>
+          {errors.fullName1 && (
+            <p className="errorText">{errors.fullName1}</p>
+          )}
         </div>
-
-        <button type="submit" disabled={loading} className={styles.button}>
-          {loading ? "Submitting..." : "Register"}
-        </button>
-
-        {message && (
-          <p
-            className={`${styles.message} ${
-              isError ? styles.error : styles.success
-            }`}
-          >
-            {message}
+        <div className="formGroup">
+          <label htmlFor="emailId1" className="label">
+            Email (Member 1):<span>*</span>
+          </label>
+          <input
+            type="email"
+            id="emailId1"
+            name="emailId1"
+            value={formData.emailId1}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="name.studentno@akgec.ac.in"
+          />
+          <p className="hintText">Must end with @akgec.ac.in</p>
+          {errors.emailId1 && (
+            <p className="errorText">{errors.emailId1}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="phoneNumber1" className="label">
+            Phone Number (Member 1):<span>*</span>
+          </label>
+          <input
+            type="tel"
+            id="phoneNumber1"
+            name="phoneNumber1"
+            value={formData.phoneNumber1}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="10-digit mobile number"
+            maxLength={10}
+          />
+          <p className="hintText">
+            Must be a 10-digit number (e.g., 9876543210)
           </p>
-        )}
-      </form>
-    </div>
-  );
+          {errors.phoneNumber1 && (
+            <p className="errorText">{errors.phoneNumber1}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="rollNumber1" className="label">
+            Roll Number (Member 1):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="rollNumber1"
+            name="rollNumber1"
+            value={formData.rollNumber1}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter 13-digit university roll number"
+            maxLength={13}
+          />
+          <p className="hintText">
+            Must be 13 digits (e.g., 230027... or 240027...)
+          </p>
+          {errors.rollNumber1 && (
+            <p className="errorText">{errors.rollNumber1}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="branch1" className="label">
+            Branch (Member 1):<span>*</span>
+          </label>
+          <select
+            id="branch1"
+            name="branch1"
+            value={formData.branch1}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="CS IT">CS & IT</option>
+            <option value="CS">CS</option>
+            <option value="IT">IT</option>
+            <option value="CSE(AIML)">CSE (AIML)</option>
+            <option value="AIML">AIML</option>
+            <option value="CSE(DS)">CSE (DS)</option>
+            <option value="CSE(Hindi)">CSE (Hindi)</option>
+            <option value="ECE">ECE</option>
+            <option value="EE">EE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+          </select>
+          {errors.branch1 && (
+            <p className="errorText">{errors.branch1}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="studentNumber1" className="label">
+            Student Number (Member 1):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="studentNumber1"
+            name="studentNumber1"
+            value={formData.studentNumber1}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter 7 or 8 digit student number"
+          />
+          <p className="hintText">
+            Must be 7 or 8 digits and numbers only.
+          </p>
+          {errors.studentNumber1 && (
+            <p className="errorText">{errors.studentNumber1}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="year1" className="label">
+            Year (Member 1):<span>*</span>
+          </label>
+          <select
+            id="year1"
+            name="year1"
+            value={formData.year1}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+          </select>
+          {errors.year1 && <p className="errorText">{errors.year1}</p>}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="gender1" className="label">
+            Gender (Member 1):<span>*</span>
+          </label>
+          <select
+            id="gender1"
+            name="gender1"
+            value={formData.gender1}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="formGroup">
+          <label htmlFor="hosteller1" className="label">
+            Hosteller (Member 1):<span>*</span>
+          </label>
+          <select
+            id="hosteller1"
+            name="hosteller1"
+            value={
+              formData.hosteller1 === true
+                ? "yes"
+                : formData.hosteller1 === false
+                ? "no"
+                : ""
+            }
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Are you a hosteller?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          {errors.hosteller1 && (
+            <p className="errorText">{errors.hosteller1}</p>
+          )}
+        </div>
+        <div className="formGroup" style={{ gridColumn: "1 / -1" }}>
+          <label htmlFor="hackerrankProfile1" className="label">
+            HackerRank ID (Member 1):
+          </label>
+          <input
+            type="text"
+            id="hackerrankProfile1"
+            name="hackerrankProfile1"
+            value={formData.hackerrankProfile1}
+            onChange={handleChange}
+            className="input"
+            placeholder="Enter HackerRank username (Optional)"
+          />
+          {errors.hackerrankProfile1 && (
+            <p className="errorText">{errors.hackerrankProfile1}</p>
+          )}
+        </div>
+
+        <h3 className="gridHeading">Member 2 Details</h3>
+        <div className="formGroup">
+          <label htmlFor="fullName2" className="label">
+            Full Name (Member 2):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="fullName2"
+            name="fullName2"
+            value={formData.fullName2}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter member 2's full name"
+          />
+          <p className="hintText">Only letters and spaces allowed.</p>
+          {errors.fullName2 && (
+            <p className="errorText">{errors.fullName2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="emailId2" className="label">
+            Email (Member 2):<span>*</span>
+          </label>
+          <input
+            type="email"
+            id="emailId2"
+            name="emailId2"
+            value={formData.emailId2}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="name.studentno@akgec.ac.in"
+          />
+          <p className="hintText">Must end with @akgec.ac.in</p>
+          {errors.emailId2 && (
+            <p className="errorText">{errors.emailId2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="phoneNumber2" className="label">
+            Phone Number (Member 2):<span>*</span>
+          </label>
+          <input
+            type="tel"
+            id="phoneNumber2"
+            name="phoneNumber2"
+            value={formData.phoneNumber2}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="10-digit mobile number"
+            maxLength={10}
+          />
+          <p className="hintText">
+            Must be a 10-digit number (e.g., 9876543210)
+          </p>
+          {errors.phoneNumber2 && (
+            <p className="errorText">{errors.phoneNumber2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="rollNumber2" className="label">
+            Roll Number (Member 2):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="rollNumber2"
+            name="rollNumber2"
+            value={formData.rollNumber2}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter 13-digit university roll number"
+            maxLength={13}
+          />
+          <p className="hintText">
+            Must be 13 digits (e.g., 230027... or 240027...)
+          </p>
+          {errors.rollNumber2 && (
+            <p className="errorText">{errors.rollNumber2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="branch2" className="label">
+            Branch (Member 2):<span>*</span>
+          </label>
+          <select
+            id="branch2"
+            name="branch2"
+            value={formData.branch2}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="CS IT">CS & IT</option>
+            <option value="CS">CS</option>
+            <option value="IT">IT</option>
+            <option value="CSE(AIML)">CSE (AIML)</option>
+            <option value="AIML">AIML</option>
+            <option value="CSE(DS)">CSE (DS)</option>
+            <option value="CSE(Hindi)">CSE (Hindi)</option>
+            <option value="ECE">ECE</option>
+            <option value="EE">EE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+          </select>
+          {errors.branch2 && (
+            <p className="errorText">{errors.branch2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="studentNumber2" className="label">
+            Student Number (Member 2):<span>*</span>
+          </label>
+          <input
+            type="text"
+            id="studentNumber2"
+            name="studentNumber2"
+            value={formData.studentNumber2}
+            onChange={handleChange}
+            required
+            className="input"
+            placeholder="Enter 7 or 8 digit student number"
+          />
+          <p className="hintText">
+            Must be 7 or 8 digits and numbers only.
+          </p>
+          {errors.studentNumber2 && (
+            <p className="errorText">{errors.studentNumber2}</p>
+          )}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="year2" className="label">
+            Year (Member 2):<span>*</span>
+          </label>
+          <select
+            id="year2"
+            name="year2"
+            value={formData.year2}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+          </select>
+          {errors.year2 && <p className="errorText">{errors.year2}</p>}
+        </div>
+        <div className="formGroup">
+          <label htmlFor="gender2" className="label">
+            Gender (Member 2):<span>*</span>
+          </label>
+          <select
+            id="gender2"
+            name="gender2"
+            value={formData.gender2}
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="formGroup">
+          <label htmlFor="hosteller2" className="label">
+            Hosteller (Member 2):<span>*</span>
+          </label>
+          <select
+            id="hosteller2"
+            name="hosteller2"
+            value={
+              formData.hosteller2 === true
+                ? "yes"
+                : formData.hosteller2 === false
+                ? "no"
+                : ""
+            }
+            onChange={handleChange}
+            required
+            className="select"
+          >
+            <option value="">Are you a hosteller?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          {errors.hosteller2 && (
+            <p className="errorText">{errors.hosteller2}</p>
+          )}
+        </div>
+        <div className="formGroup" style={{ gridColumn: "1 / -1" }}>
+          <label htmlFor="hackerrankProfile2" className="label">
+            HackerRank ID (Member 2):
+          </label>
+          <input
+            type="text"
+            id="hackerrankProfile2"
+            name="hackerrankProfile2"
+            value={formData.hackerrankProfile2}
+            onChange={handleChange}
+            className="input"
+            placeholder="Enter HackerRank username (Optional)"
+          />
+          {errors.hackerrankProfile2 && (
+            <p className="errorText">{errors.hackerrankProfile2}</p>
+          )}
+        </div>
+      </div>
+
+      <div
+        className="formGroup"
+        style={{
+          gridColumn: "1 / -1",
+          marginBottom: "20px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="6LcnprQrAAAAABbDh36kcDHZHlAJbdg3FrSiD_Wv"
+            onChange={(value) => setCaptchaValue(value)}
+            theme="dark"
+          />
+          {errors.captcha && (
+            <p className="errorText" style={{ textAlign: "center" }}>
+              {errors.captcha}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <button type="submit" disabled={loading} className="button">
+        {loading ? "Submitting..." : "Register"}
+      </button>
+
+      {message && (
+        <p
+          className={`message ${isError ? "error" : "success"}`}
+        >
+          {message}
+        </p>
+      )}
+    </form>
+  </div>
+);
 }
 
 export default Register;
