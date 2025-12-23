@@ -85,16 +85,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/register"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineForm style={{ marginBottom: "2px" }} /> 
-                Register
-              </Nav.Link>
-            </Nav.Item>
+            {/* Register removed from navbar */}
           </Nav>
         </Navbar.Collapse>
       </Container>
