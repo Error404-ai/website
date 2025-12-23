@@ -5,8 +5,6 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Footer from "./components/Footer";
 import Members from "./components/Members/Members";
-import Register from "./components/Register";
-import EventPopup from "./components/EventPopup";  // ADD THIS LINE
 import {
   BrowserRouter as Router,
   Route,
@@ -35,12 +33,10 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
-        <EventPopup />  {/* ADD THIS LINE */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/members" element={<Members />} />
-          <Route path="/register" element={<Register />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />
