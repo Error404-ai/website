@@ -1,14 +1,18 @@
-.register-section {
+/* Main Form Container */
+.formContainer {
   position: relative;
   min-height: 100vh;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 20px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75));
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 }
 
-.register-form-container {
+/* Form */
+.form {
   background-color: rgba(30, 30, 45, 0.7);
   backdrop-filter: blur(5px);
   border-radius: 15px;
@@ -16,130 +20,183 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(239, 51, 76, 0.2);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 1200px;
   z-index: 1;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.register-form-container:hover {
+.form:hover {
   box-shadow: 0 15px 40px rgba(239, 51, 76, 0.15);
   border: 1px solid rgba(239, 51, 76, 0.3);
 }
 
-.heading-name {
+/* Form Header */
+.form h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-.subtitle {
+.highlight {
+  color: #EF334C;
+  font-weight: 800;
+}
+
+.description {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
-.register-form .form-label {
+/* Form Grid Layout */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Grid Heading */
+.gridHeading {
+  grid-column: 1 / -1;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #EF334C;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(239, 51, 76, 0.3);
+}
+
+/* Form Group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+/* Label */
+.label {
   color: #ffffff;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
-.register-form .form-control,
-.register-form .form-select {
+.label span {
+  color: #f03e3e;
+  margin-left: 3px;
+}
+
+/* Input, Select, Textarea */
+.input,
+.select {
   background-color: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(239, 51, 76, 0.2);
   color: white;
   padding: 10px 15px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
+  width: 100%;
 }
 
-.register-form .form-control:focus,
-.register-form .form-select:focus {
+.input:focus,
+.select:focus {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: #EF334C;
   box-shadow: 0 0 0 0.25rem rgba(239, 51, 76, 0.25);
+  outline: none;
 }
 
-.register-form .form-control::placeholder {
+.input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.recaptcha-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.submit-btn {
-  background-color: #EF334C;
-  border-color: #EF334C;
-  padding: 10px 25px;
-  font-weight: 500;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.submit-btn:hover:not(:disabled) {
-  background-color: #d41c35;
-  border-color: #d41c35;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.submit-btn:disabled {
-  background-color: #f5a5ae;
-  border-color: #f5a5ae;
+.input:disabled,
+.select:disabled {
+  background-color: rgba(50, 50, 65, 0.5);
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
-.success-message {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Select Options */
+.select option {
+  background-color: #1b1a2e;
+  color: white;
 }
 
-.success-icon {
-  font-size: 4rem;
-  color: #28a745;
-  margin-bottom: 20px;
+/* Hint Text */
+.hintText {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
 }
 
-.success-message h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333333;
-  text-shadow: none;
+/* Error Text */
+.errorText {
+  color: #f03e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
 }
 
-.success-message p {
-  color: #555555;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.success-message .purple {
-  color: #EF334C;
-}
-
-.success-message button {
-  background: #EF334C !important;
+/* Submit Button */
+.button {
+  background-color: #EF334C;
   border: none;
-  padding: 10px 20px;
-  font-weight: 600;
+  color: white;
+  padding: 12px 25px;
+  font-weight: 500;
+  font-size: 1rem;
+  width: 100%;
   border-radius: 8px;
+  cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
-.success-message button:hover {
-  background: #d41e37 !important;
+.button:hover:not(:disabled) {
+  background-color: #d41c35;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 51, 76, 0.4);
+  box-shadow: 0 4px 8px rgba(239, 51, 76, 0.3);
 }
 
+.button:disabled {
+  background-color: #f5a5ae;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Message */
+.message {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #7fff7f;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.error {
+  background-color: rgba(239, 51, 76, 0.1);
+  color: #ff8a8a;
+  border: 1px solid rgba(239, 51, 76, 0.2);
+}
+
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -151,230 +208,104 @@
   }
 }
 
-/* Dark theme styles for select options */
-.register-form .form-select option {
-  background-color: #1b1a2e;
-  color: white;
-}
-
-/* Alert styles */
-.alert-danger {
-  background-color: rgba(239, 51, 76, 0.1);
-  color: #ff8a8a;
-  border: 1px solid rgba(239, 51, 76, 0.2);
-  border-radius: 8px;
-}
-
-/* Required field indicator */
-.text-danger {
-  color: #f03e3e !important;
-}
-
-/* Form validation feedback */
-.invalid-feedback, 
-.form-control.is-invalid,
-.form-select.is-invalid {
-  color: #f03e3e;
-  border-color: #f03e3e;
-}
-
-.form-text {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-/* Disabled field styling */
-.form-select:disabled {
-  background-color: rgba(50, 50, 65, 0.5);
-  cursor: not-allowed;
-}
-
-/* Year-specific validation styling */
-.year-error,
-.registration-type-error {
-  margin-top: 0.25rem;
-  color: #f03e3e;
-  font-size: 0.875rem;
-}
-
-/* Conditional field styling */
-.conditional-field {
-  transition: all 0.3s ease;
-  opacity: 1;
-}
-
-.conditional-field.disabled {
-  opacity: 0.6;
-}
-
-/* SCROLL DOWN ARROW STYLES - ADD THESE */
-/* Target common scroll arrow classes */
-.scroll-down,
-.scroll-arrow,
-.scroll-down-arrow,
-.home-scroll-arrow,
-.scroll-indicator,
-.scroll-down-btn {
-  color: #EF334C !important; /* Red color matching your theme */
-}
-
-/* Target scroll arrow SVG elements */
-.scroll-down svg,
-.scroll-arrow svg,
-.scroll-down-arrow svg,
-.home-scroll-arrow svg,
-.scroll-indicator svg,
-.scroll-down-btn svg {
-  fill: #EF334C !important;
-  stroke: #EF334C !important;
-}
-
-/* Target Font Awesome scroll arrows */
-.scroll-down i,
-.scroll-arrow i,
-.scroll-down-arrow i,
-.home-scroll-arrow i,
-.scroll-indicator i,
-.scroll-down-btn i {
-  color: #EF334C !important;
-}
-
-/* Target scroll arrow pseudo-elements (for CSS-only arrows) */
-.scroll-down::before,
-.scroll-down::after,
-.scroll-arrow::before,
-.scroll-arrow::after,
-.scroll-down-arrow::before,
-.scroll-down-arrow::after {
-  border-color: #EF334C !important;
-  color: #EF334C !important;
-}
-
-/* CSS Triangle Arrow */
-.scroll-arrow::before {
-  border-top-color: #EF334C !important;
-}
-
-/* Border-based arrow */
-.scroll-arrow.border-arrow {
-  border-left: 2px solid #EF334C !important;
-  border-bottom: 2px solid #EF334C !important;
-}
-
-/* Hover effects for scroll arrows */
-.scroll-down:hover,
-.scroll-arrow:hover,
-.scroll-down-arrow:hover,
-.home-scroll-arrow:hover,
-.scroll-indicator:hover,
-.scroll-down-btn:hover {
-  color: #d41c35 !important; /* Darker red on hover */
-}
-
-.scroll-down:hover svg,
-.scroll-arrow:hover svg,
-.scroll-down-arrow:hover svg,
-.home-scroll-arrow:hover svg,
-.scroll-indicator:hover svg,
-.scroll-down-btn:hover svg {
-  fill: #EF334C !important;
-  stroke: #EF334C !important;
-}
-
-/* If using react-scroll or similar libraries */
-.react-scroll-arrow {
-  color: #EF334C !important;
-}
-
-/* Global overrides for any scroll arrows */
-[class*="scroll"] {
-  color: #EF334C !important;
-}
-
-[class*="scroll"] svg {
-  fill: #EF334C !important;
-  stroke: #EF334C !important;
-}
-
-[class*="scroll"] i {
-  color: #EF334C !important;
-}
-
-/* Improved responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .register-form-container {
-    padding: 20px;
-    margin: 0 10px;
+  .formContainer {
+    padding: 40px 15px;
   }
-  
-  .heading-name {
+
+  .form {
+    padding: 20px;
+  }
+
+  .form h2 {
     font-size: 2rem;
   }
-  
-  .recaptcha-container {
-    transform: scale(0.85);
-    transform-origin: center center;
-    margin-left: -12px;
+
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .success-message {
-    padding: 20px;
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
-  
-  .success-message h2 {
-    font-size: 1.5rem;
+
+  .gridHeading {
+    font-size: 1.3rem;
+    margin-top: 15px;
   }
-  
-  .form-group {
-    margin-bottom: 0.8rem;
+
+  .button {
+    padding: 10px 20px;
   }
 }
 
 @media (max-width: 576px) {
-  .register-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .formContainer {
+    padding: 30px 10px;
   }
-  
-  .heading-name {
+
+  .form {
+    padding: 15px;
+  }
+
+  .form h2 {
     font-size: 1.8rem;
   }
-  
-  .success-icon {
-    font-size: 3rem;
-  }
-  
-  .submit-btn {
-    padding: 8px 20px;
-  }
-  
-  .recaptcha-container {
-    transform: scale(0.7);
-    transform-origin: center center;
-    margin-left: -30px;
-  }
-  
-  .subtitle {
+
+  .description {
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
   }
-  
-  .form-text {
-    font-size: 0.7rem;
+
+  .gridHeading {
+    font-size: 1.2rem;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .input,
+  .select {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .hintText {
+    font-size: 0.75rem;
+  }
+
+  .errorText {
+    font-size: 0.8rem;
+  }
+
+  .button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    padding: 12px;
   }
 }
 
 @media (max-width: 375px) {
-  .heading-name {
+  .form h2 {
     font-size: 1.5rem;
   }
-  
-  .recaptcha-container {
-    transform: scale(0.6);
-    margin-left: -40px;
+
+  .description {
+    font-size: 0.85rem;
   }
-  
-  .register-form-container {
-    padding: 15px;
+
+  .formGrid {
+    gap: 12px;
+  }
+
+  .gridHeading {
+    font-size: 1.1rem;
   }
 }
