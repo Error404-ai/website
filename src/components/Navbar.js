@@ -8,7 +8,6 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
-  AiOutlineForm,
 } from "react-icons/ai";
 
 function NavBar() {
@@ -25,7 +24,7 @@ function NavBar() {
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
-    
+
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
@@ -50,9 +49,7 @@ function NavBar() {
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={() => updateExpanded(expand ? false : "expanded")}
         >
           <span></span>
           <span></span>
@@ -68,25 +65,27 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
-                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />
+              <Nav.Link
+                as={Link}
+                to="/about"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />{" "}
                 Achievements
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} to="/members" onClick={() => updateExpanded(false)}>
+              <Nav.Link
+                as={Link}
+                to="/members"
+                onClick={() => updateExpanded(false)}
+              >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Members
               </Nav.Link>
             </Nav.Item>
 
-            {/*
-            <Nav.Item>
-              <Nav.Link as={Link} to="/register" onClick={() => updateExpanded(false)}>
-                <AiOutlineForm style={{ marginBottom: "2px" }} /> Register
-              </Nav.Link>
-            </Nav.Item>
-            */}
+            {/* Register REMOVED */}
           </Nav>
         </Navbar.Collapse>
       </Container>
