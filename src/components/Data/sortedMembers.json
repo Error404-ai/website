@@ -473,7 +473,7 @@
       },
       {
         "name": "Arth Kamboj",
-        "image": "Arth kamboj.jpeg",
+        "image": "website/src/Assets/Projects/ArthPC.jpeg",
         "branch": "CSE",
         "specialization": "Spring development",
         "skills": ["Java", "C++", "Javascript", "SQL"],
