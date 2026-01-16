@@ -26,7 +26,6 @@ function NavBar() {
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
     
-    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
@@ -41,8 +40,14 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" style={{ width: "250px", height: "250px" }} />
+          <img
+            src={logo}
+            className="img-fluid logo"
+            alt="brand"
+            style={{ width: "250px", height: "250px" }}
+          />
         </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
@@ -53,6 +58,7 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
@@ -62,39 +68,25 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />
+              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
+                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />
                 Achievements
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/members"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> 
-                Members
+              <Nav.Link as={Link} to="/members" onClick={() => updateExpanded(false)}>
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> Members
               </Nav.Link>
             </Nav.Item>
 
-            // <Nav.Item>
-            //   <Nav.Link
-            //     as={Link}
-            //     to="/register"
-            //     onClick={() => updateExpanded(false)}
-            //   >
-            //     <AiOutlineForm style={{ marginBottom: "2px" }} /> 
-            //     Register
-            //   </Nav.Link>
-            // </Nav.Item>
+            {/*
+            <Nav.Item>
+              <Nav.Link as={Link} to="/register" onClick={() => updateExpanded(false)}>
+                <AiOutlineForm style={{ marginBottom: "2px" }} /> Register
+              </Nav.Link>
+            </Nav.Item>
+            */}
           </Nav>
         </Navbar.Collapse>
       </Container>
