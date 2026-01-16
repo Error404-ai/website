@@ -5,8 +5,8 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Footer from "./components/Footer";
 import Members from "./components/Members/Members";
-import Register from "./components/Register";
-import EventPopup from "./components/EventPopup";  // ADD THIS LINE
+// import Register from "./components/Register";
+// import EventPopup from "./components/EventPopup";  // ADD THIS LINE
 import {
   BrowserRouter as Router,
   Route,
