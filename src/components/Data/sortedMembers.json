@@ -469,7 +469,9 @@
         "specialization": "Spring development",
         "skills": ["Java", "C++"],
         "linkedin": "https://www.linkedin.com/in/anubhav-hajela-77b093298/",
-        "github": "https://github.com/anubhavhajela4"
+        "github": "https://github.com/anubhavhajela4",
+          "showBanner": true,
+  "bannerText": "COORDINATOR"
       },
       {
         "name": "Arth Kamboj",
@@ -478,11 +480,13 @@
         "specialization": "Spring development",
         "skills": ["Java", "C++", "Javascript", "SQL"],
         "linkedin": "https://www.linkedin.com/in/arth-kamboj-5ab45a331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "github": "https://github.com/ArthKamboj"
+        "github": "https://github.com/ArthKamboj",
+          "showBanner": true,
+  "bannerText": "COORDINATOR"
       },
       {
   "name": "Ayush Anjay",
-  "image": "AyushAnjayPC.jpg",
+  "image": "AyushAnjayPC.jpeg",
   "branch": "CSE",
   "specialization": "Flutter Developer",
   "skills": ["Node.js", "C++", "Flutter", "Dart"],
@@ -515,7 +519,7 @@
       },
       {
   "name": "Naitik Jain",
-  "image": "NaitikPC.jpg",
+  "image": "NaitikPC.jpeg",
   "branch": "CSE (DS)",
   "specialization": "Backend Developer",
   "skills": ["C++", "Node.js", "Go"],
@@ -582,7 +586,9 @@
         "specialization": "Backend Development",
         "skills": ["Javascript", "C++", "Node.js"],
         "linkedin": "https://www.linkedin.com/in/tanisha-bhatt-927315303/",
-        "github": "https://github.com/Error404-ai"
+        "github": "https://github.com/Error404-ai",
+          "showBanner": true,
+  "bannerText": "COORDINATOR"
       }
     ]
   },
