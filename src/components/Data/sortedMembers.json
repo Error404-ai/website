@@ -481,6 +481,14 @@
         "github": "https://github.com/ArthKamboj"
       },
       {
+  "name": "Ayush Anjay",
+  "image": "AyushAnjayPC.jpg",
+  "branch": "CSE",
+  "specialization": "Flutter Developer",
+  "skills": ["Node.js", "C++", "Flutter", "Dart"],
+  "linkedin": "https://in.linkedin.com/in/ayush-anjay-8ba764294"
+},
+      {
         "name": "Ayush Kumar Agarwal",
         "image": "Ayush2PC.jpg",
         "branch": "CSE",
@@ -505,6 +513,15 @@
         "skills": ["Java"],
         "linkedin": "http://www.linkedin.com/in/meet-goyal-a2b49a318"
       },
+      {
+  "name": "Naitik Jain",
+  "image": "NaitikPC.jpg",
+  "branch": "CSE (DS)",
+  "specialization": "Backend Developer",
+  "skills": ["C++", "Node.js", "Go"],
+  "linkedin": "https://www.linkedin.com/in/naitik-jain-594010241/",
+  "github": "https://github.com/naitiikjainn"
+},
       {
         "name": "Rachit Daksh",
         "image": "rachit2PC..jpg",
