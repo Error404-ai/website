@@ -168,6 +168,7 @@ function EventRegisteration() {
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className={`input ${errors.fullName ? "input-error" : ""}`} placeholder="Full Name" maxLength={50} />
             {errors.fullName && <span className="error-msg">{errors.fullName}</span>}
           </div>
+          {/* cecnje */}
 
           <div className="formGroup">
             <label className="label">Student No <span>*</span></label>
