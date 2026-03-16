@@ -18,7 +18,7 @@ function EventRegisteration() {
 
   const [formData, setFormData] = useState({
     fullName: "", emailId: "", phoneNumber: "", 
-    hackerrankProfile: "", codechefProfile: "", codeforcesProfile: "", leetcodeProfile: "",
+    hackerrankProfile: "",
     branch: "", year: "1", gender: "", hosteller: "",
     studentNumber: "", rollNumber: "",
     website: "", 
@@ -34,7 +34,7 @@ function EventRegisteration() {
     let tempErrors = {};
     const { 
         fullName, emailId, phoneNumber, rollNumber, branch, year, hosteller, studentNumber,
-        hackerrankProfile, codechefProfile, codeforcesProfile, leetcodeProfile 
+        hackerrankProfile 
     } = formData;
 
     const urlRegex = /(http|https|www\.)/i;
@@ -69,15 +69,6 @@ function EventRegisteration() {
     
     if (hackerrankProfile && urlRegex.test(hackerrankProfile)) {
         tempErrors.hackerrankProfile = "Enter Username only, not the full link.";
-    }
-    if (leetcodeProfile && urlRegex.test(leetcodeProfile)) {
-        tempErrors.leetcodeProfile = "Enter Username only, not the full link.";
-    }
-    if (codechefProfile && urlRegex.test(codechefProfile)) {
-        tempErrors.codechefProfile = "Enter Username only, not the full link.";
-    }
-    if (codeforcesProfile && urlRegex.test(codeforcesProfile)) {
-        tempErrors.codeforcesProfile = "Enter Username only, not the full link.";
     }
 
     if (!captchaValue) {
@@ -130,7 +121,7 @@ function EventRegisteration() {
       
       setFormData({
         fullName: "", emailId: "", phoneNumber: "", 
-        hackerrankProfile: "", codechefProfile: "", codeforcesProfile: "", leetcodeProfile: "",
+        hackerrankProfile: "",
         branch: "", year: "1", gender: "", hosteller: "",
         studentNumber: "", rollNumber: "", website: "",
       });
@@ -234,8 +225,8 @@ function EventRegisteration() {
             <label className="label">Gender <span>*</span></label>
             <select name="gender" value={formData.gender} onChange={handleChange} className="select">
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -254,24 +245,6 @@ function EventRegisteration() {
             <label className="label">HackerRank ID</label>
             <input type="text" name="hackerrankProfile" value={formData.hackerrankProfile} onChange={handleChange} className={`input ${errors.hackerrankProfile ? "input-error" : ""}`} placeholder="Username (Optional)" maxLength={50} />
             {errors.hackerrankProfile && <span className="error-msg">{errors.hackerrankProfile}</span>}
-          </div>
-
-          <div className="formGroup">
-            <label className="label">LeetCode ID</label>
-            <input type="text" name="leetcodeProfile" value={formData.leetcodeProfile} onChange={handleChange} className={`input ${errors.leetcodeProfile ? "input-error" : ""}`} placeholder="Username (Optional)" maxLength={50} />
-            {errors.leetcodeProfile && <span className="error-msg">{errors.leetcodeProfile}</span>}
-          </div>
-
-          <div className="formGroup">
-            <label className="label">CodeChef ID</label>
-            <input type="text" name="codechefProfile" value={formData.codechefProfile} onChange={handleChange} className={`input ${errors.codechefProfile ? "input-error" : ""}`} placeholder="Username (Optional)" maxLength={50} />
-            {errors.codechefProfile && <span className="error-msg">{errors.codechefProfile}</span>}
-          </div>
-
-          <div className="formGroup">
-            <label className="label">Codeforces ID</label>
-            <input type="text" name="codeforcesProfile" value={formData.codeforcesProfile} onChange={handleChange} className={`input ${errors.codeforcesProfile ? "input-error" : ""}`} placeholder="Username (Optional)" maxLength={50} />
-            {errors.codeforcesProfile && <span className="error-msg">{errors.codeforcesProfile}</span>}
           </div>
 
         </div>
