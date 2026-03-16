@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./EventPopup.css";
 
 function EventPopup() {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Show popup on every page load
-    setShow(true);
+
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => setShow(false);
@@ -22,42 +26,50 @@ function EventPopup() {
     <Modal
       show={show}
       onHide={handleClose}
-      size="lg"
+      size="lg" // lg se thoda chota kiya taaki compact aur pyara lage
       centered
-      className="event-popup"
+      className="custom-tech-modal" // 👈 Nayi class lagayi hai
     >
-      <Modal.Header closeButton>
-        <Modal.Title>🎉 New Event Alert! 🎉</Modal.Title>
+      <Modal.Header closeButton className="modal-header-custom">
+        <Modal.Title className="modal-title-custom">🚨 Alert: Upcoming Event</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      
+      <Modal.Body className="modal-body-custom">
         <div className="event-content">
-          <h3>Programming Club Presents</h3>
-          <h2>Code++</h2>
-          <p className="event-details">
-            Join us for an exciting competitive programming workshop where you can elevate your programming skills!
+          <p className="club-name">PROGRAMMING CLUB PRESENTS</p>
+          <h2 className="event-title">
+            <span className="highlight">#include</span> 5.0
+          </h2>
+          
+          <p className="event-tagline">
+            "Kickstart your tech journey! Master the basics of coding and get your first real taste of DSA & Competitive Programming. 🚀💡"
           </p>
-          <ul className="event-info">
-            <li>📅 Date: Nov 4, 2025</li>
-            <li>⏰ Time: 4:00 PM - 6:00 PM</li>
-            <li>📍 Venue: CSIT Seminar Hall</li>
-            <li>💻 Team Size : 2 Members</li>
-          </ul>
-          <p className="event-description">
-         A Team Contest Comprising of 2 Rounds boosting your competitive programming skills.
-         Prize Pool worth Rs. 6000
+          
+          <div className="event-details-box">
+            <ul>
+              <li><span className="icon">📅</span> <strong>Date:</strong> 21 march and 22 march</li>
+              <li><span className="icon">⏰</span> <strong>Time:</strong> 4:00 pm - 6:00 pm</li>
+              <li><span className="icon">📍</span> <strong>Venue:</strong> CSIT Seminar Hall</li>
+            </ul>
+          </div>
+          
+         <p className="event-description">
+            No prior coding experience? No worries! We will guide you right from scratch. Learn how to build strong logic qnd to tackle algorithmic problem
+            <br/><br/><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Exciting Prizes & Goodies for top performers! 🎁</span>
           </p>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
+      
+      <Modal.Footer className="modal-footer-custom">
+        <Button variant="secondary" className="btn-close-custom" onClick={handleClose}>
+          Maybe Later
         </Button>
-        <Button variant="primary" onClick={handleRegister}>
-          Register Now
+        <Button className="btn-register-custom" onClick={handleRegister}>
+          Register Now 🚀
         </Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
-export default EventPopup; 
+export default EventPopup;

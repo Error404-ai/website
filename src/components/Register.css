@@ -340,3 +340,30 @@
     font-size: 1.1rem;
   }
 }
+
+/* error text beneath the feilds */
+
+.error-msg {
+  color: #ff4d4d; /* Bright Red */
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  animation: shake 0.3s ease-in-out;
+}
+
+/*  shake effect */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Agar error hai to input ka border bhi laal kar do */
+.input-error {
+  border: 1px solid #ff4d4d !important;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+}
