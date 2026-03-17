@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Register.css"; 
 import ReCAPTCHA from "react-google-recaptcha"; 
 
+
 const branchCodes = {
   ME: "40", ECE: "31", EE: "21", "CSE(Hindi)": "169", "CSE (Hindi)": "169",
   AIML: "164", "CSE(DS)": "154", "CSE (DS)": "154", "CSE(AIML)": "153",
@@ -168,6 +169,7 @@ function EventRegisteration() {
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className={`input ${errors.fullName ? "input-error" : ""}`} placeholder="Full Name" maxLength={50} />
             {errors.fullName && <span className="error-msg">{errors.fullName}</span>}
           </div>
+          {/* cecnje */}
 
           <div className="formGroup">
             <label className="label">Student No <span>*</span></label>
@@ -177,13 +179,13 @@ function EventRegisteration() {
 
           <div className="formGroup">
             <label className="label">Email <span>*</span></label>
-            <input type="email" name="emailId" value={formData.emailId} onChange={handleChange} className={`input ${errors.emailId ? "input-error" : ""}`} placeholder="nameStudentno@akgec.ac.in" maxLength={50} />
+            <input type="email" name="emailId" value={formData.emailId} onChange={handleChange} className={`input ${errors.emailId ? "input-error" : ""}`} placeholder="NameStudentno@akgec.ac.in" maxLength={50} />
             {errors.emailId && <span className="error-msg">{errors.emailId}</span>}
           </div>
 
           <div className="formGroup">
             <label className="label">Roll No <span>*</span></label>
-            <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} className={`input ${errors.rollNumber ? "input-error" : ""}`} placeholder="enter your roll no" maxLength={13} />
+            <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} className={`input ${errors.rollNumber ? "input-error" : ""}`} placeholder="Enter your roll no" maxLength={13} />
             {errors.rollNumber && <span className="error-msg">{errors.rollNumber}</span>}
           </div>
 

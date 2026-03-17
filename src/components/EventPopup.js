@@ -26,9 +26,9 @@ function EventPopup() {
     <Modal
       show={show}
       onHide={handleClose}
-      size="lg" // lg se thoda chota kiya taaki compact aur pyara lage
+      size="lg" 
       centered
-      className="custom-tech-modal" // 👈 Nayi class lagayi hai
+      className="custom-tech-modal" 
     >
       <Modal.Header closeButton className="modal-header-custom">
         <Modal.Title className="modal-title-custom">🚨 Alert: Upcoming Event</Modal.Title>
@@ -54,7 +54,7 @@ function EventPopup() {
           </div>
           
          <p className="event-description">
-            No prior coding experience? No worries! We will guide you right from scratch. Learn how to build strong logic qnd to tackle algorithmic problem
+            No prior coding experience? No worries! We will guide you right from scratch. Learn how to build strong logic and to tackle algorithmic problem
             <br/><br/><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Exciting Prizes & Goodies for top performers! 🎁</span>
           </p>
         </div>
