@@ -442,7 +442,7 @@
         "branch": "CS",
         "specialization": "Android Development",
         "skills": ["Java", "Kotlin", "SpringBoot", "Android"],
-        "linkedin": "https://www.linkedin.com/in/ayush-agrawal-2a3654266/",
+        "linkedin": "https://www.linkedin.com/in/achalvishnoi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "github": "https://github.com/AchalVishnoi"
       },
       {
@@ -507,7 +507,7 @@
         "branch": "CSE DS",
         "specialization": "Frontend Development",
         "skills": ["Javascript", "C++"],
-        "linkedin": "https://www.linkedin.com/in/harsh-arya-4ba04835a/"
+        "linkedin": "https://www.linkedin.com/in/harsh-kumar-arya-a8b027392?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
       },
       {
         "name": "Meet Goyal",
@@ -613,7 +613,7 @@
         "github": "https://github.com/akashv63060",
         "linkedin": "https://www.linkedin.com/in/akash-verma-99604b339/",
         "email": "akashverma936976@gmail.com",
-        "image": "AkashPC.jpeg"
+        "image": "akashPC.jpeg"
       },
       {
         "name": "Anjali Agarwal",
@@ -629,21 +629,11 @@
         "name": "Anshu Gaur",
         "specialization": "Competitive Programmer",
         "branch": "CSE",
-        "skills": ["Java"],
+        "skills": ["JAVA", "React", "Node.js", "Express.js","MongoDB"],
         "github": "",
         "linkedin": "https://www.linkedin.com/in/anshu-gaur-302774332",
         "email": "anshugaur718@gmail.com",
         "image": "AnshuGaurPC.png"
-      },
-      {
-        "name": "Aradhy Dev Tiwari",
-        "specialization": "Full Stack Developer",
-        "branch": "CSE (DS)",
-        "skills": ["Java", "DSA", "OOP", "HTML", "CSS", "JavaScript", "Git", "GitHub"],
-        "github": "https://github.com/aradhy2006",
-        "linkedin": "https://www.linkedin.com/in/aradhy-dev-tiwari-392b1832a/",
-        "email": "",
-        "image": "AradhyPC.jpeg"
       },
       {
         "name": "Aviral",
@@ -694,16 +684,6 @@
         "linkedin": "https://www.linkedin.com/in/khushi-goel-48418832a/",
         "email": "khushigoel2200@gmail.com",
         "image": "KhushiGoelPC.jpeg"
-      },
-      {
-        "name": "Krishna Singh Chauhan",
-        "specialization": "Competitive Programmer",
-        "branch": "IT",
-        "skills": ["CPP"],
-        "github": "",
-        "linkedin": "",
-        "email": "",
-        "image": "KrishnaSinghChauhanPC.jpg"
       },
       {
         "name": "Monu Chaudhary",

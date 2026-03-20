@@ -177,13 +177,13 @@ function EventRegisteration() {
 
           <div className="formGroup">
             <label className="label">Email <span>*</span></label>
-            <input type="email" name="emailId" value={formData.emailId} onChange={handleChange} className={`input ${errors.emailId ? "input-error" : ""}`} placeholder="nameStudentno@akgec.ac.in" maxLength={50} />
+            <input type="email" name="emailId" value={formData.emailId} onChange={handleChange} className={`input ${errors.emailId ? "input-error" : ""}`} placeholder="NameStudentno@akgec.ac.in" maxLength={50} />
             {errors.emailId && <span className="error-msg">{errors.emailId}</span>}
           </div>
 
           <div className="formGroup">
             <label className="label">Roll No <span>*</span></label>
-            <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} className={`input ${errors.rollNumber ? "input-error" : ""}`} placeholder="enter your roll no" maxLength={13} />
+            <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} className={`input ${errors.rollNumber ? "input-error" : ""}`} placeholder="Enter your roll no" maxLength={13} />
             {errors.rollNumber && <span className="error-msg">{errors.rollNumber}</span>}
           </div>
 
