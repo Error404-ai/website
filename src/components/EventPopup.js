@@ -48,7 +48,7 @@ function EventPopup() {
           <div className="event-details-box">
             <ul>
               <li><span className="icon">📅</span> <strong>Date:</strong> 21 march and 22 march</li>
-              <li><span className="icon">⏰</span> <strong>Time:</strong> 9:00 pm - 6:00 pm</li>
+              <li><span className="icon">⏰</span> <strong>Time:</strong> 9:00 am - 6:00 pm</li>
               <li><span className="icon">📍</span> <strong>Venue:</strong> CSIT Seminar Hall</li>
             </ul>
           </div>
