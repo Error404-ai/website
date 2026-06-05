@@ -278,9 +278,8 @@ const YearSection = memo(({ section }) => (
 function Members() {
   // Updated yearSections array - promoted thirdYear to fourthYear, removed old fourthYear
 const yearSections = [
-  { key: "fourthYear", data: membersData.thirdYear }, 
-  { key: "thirdYear", data: membersData.secondYear },
-  { key: "SecondYear", data: membersData.CurrentSecondYear }
+  { key: "fourthYear", data: membersData.fourthYear}, 
+  { key: "thirdYear", data: membersData.thirdYear },
 ];
 
   return (
