@@ -1,6 +1,6 @@
 {
-  "fourthYear": {
-    "title": "4th Year Members",
+  "sixthYear": {
+    "title": "6th Year Members",
     "members": [
       {
         "name": "Aanya Mittal",
@@ -232,8 +232,8 @@
       }
     ]
   },
-  "thirdYear": {
-    "title": "4th Year Members",
+  "fifthYear": {
+    "title": "5th Year Members",
     "members": [
       {
         "name": "Aakarsh Singh",
@@ -433,8 +433,8 @@
       }
     ]
   },
-  "secondYear": {
-    "title": "3rd Year Members",
+  "fourthYear": {
+    "title": "4th Year Members",
     "members": [
       {
         "name": "Achal Vishnoi",
@@ -470,8 +470,8 @@
         "skills": ["Java", "C++"],
         "linkedin": "https://www.linkedin.com/in/anubhav-hajela-77b093298/",
         "github": "https://github.com/anubhavhajela4",
-          "showBanner": true,
-  "bannerText": "COORDINATOR"
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Arth Kamboj",
@@ -481,17 +481,17 @@
         "skills": ["Java", "C++", "Javascript", "SQL"],
         "linkedin": "https://www.linkedin.com/in/arth-kamboj-5ab45a331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "github": "https://github.com/ArthKamboj",
-          "showBanner": true,
-  "bannerText": "COORDINATOR"
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
-  "name": "Ayush Anjay",
-  "image": "AyushAnjayPC.jpeg",
-  "branch": "CSE",
-  "specialization": "Flutter Developer",
-  "skills": ["Node.js", "C++", "Flutter", "Dart"],
-  "linkedin": "https://in.linkedin.com/in/ayush-anjay-8ba764294"
-},
+        "name": "Ayush Anjay",
+        "image": "AyushAnjayPC.jpeg",
+        "branch": "CSE",
+        "specialization": "Flutter Developer",
+        "skills": ["Node.js", "C++", "Flutter", "Dart"],
+        "linkedin": "https://in.linkedin.com/in/ayush-anjay-8ba764294"
+      },
       {
         "name": "Ayush Kumar Agarwal",
         "image": "Ayush2PC.jpg",
@@ -518,14 +518,14 @@
         "linkedin": "http://www.linkedin.com/in/meet-goyal-a2b49a318"
       },
       {
-  "name": "Naitik Jain",
-  "image": "NaitikPC.jpeg",
-  "branch": "CSE (DS)",
-  "specialization": "Backend Developer",
-  "skills": ["C++", "Node.js", "Go"],
-  "linkedin": "https://www.linkedin.com/in/naitik-jain-594010241/",
-  "github": "https://github.com/naitiikjainn"
-},
+        "name": "Naitik Jain",
+        "image": "NaitikPC.jpeg",
+        "branch": "CSE (DS)",
+        "specialization": "Backend Developer",
+        "skills": ["C++", "Node.js", "Go"],
+        "linkedin": "https://www.linkedin.com/in/naitik-jain-594010241/",
+        "github": "https://github.com/naitiikjainn"
+      },
       {
         "name": "Rachit Daksh",
         "image": "rachit2PC..jpg",
@@ -587,13 +587,13 @@
         "skills": ["Javascript", "C++", "Node.js"],
         "linkedin": "https://www.linkedin.com/in/tanisha-bhatt-927315303/",
         "github": "https://github.com/Error404-ai",
-          "showBanner": true,
-  "bannerText": "COORDINATOR"
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       }
     ]
   },
-"CurrentSecondYear": {
-    "title": "2ND YEAR MEMBERS",
+  "thirdYear": {
+    "title": "3rd Year Members",
     "members": [
       {
         "name": "Aditya Chaubey",
@@ -643,7 +643,9 @@
         "github": "https://github.com/Aviral9740",
         "linkedin": "https://www.linkedin.com/in/aviral-371453231",
         "email": "aviralchauhan500@gmail.com",
-        "image": "AviralPC.jpg"
+        "image": "AviralPC.jpg",
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Bharat Chauhan",
@@ -683,7 +685,9 @@
         "github": "https://github.com/khushigoel44-afk",
         "linkedin": "https://www.linkedin.com/in/khushi-goel-48418832a/",
         "email": "khushigoel2200@gmail.com",
-        "image": "KhushiGoelPC.jpeg"
+        "image": "KhushiGoelPC.jpeg",
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Monu Chaudhary",
@@ -693,7 +697,9 @@
         "github": "https://github.com/MonuChaudhary14",
         "linkedin": "https://www.linkedin.com/in/monu-chaudhary-a95a33330",
         "email": "monuchaudharypoonia@gmail.com",
-        "image": "MonuChaudharyPC.jpg"
+        "image": "MonuChaudharyPC.jpg",
+        "showBanner": true,
+        "bannerText": "COORDINATOR"
       },
       {
         "name": "Nilenjay Singh Sengar",
