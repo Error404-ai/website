@@ -49,7 +49,7 @@ function About() {
           Our <strong className="purple">Achievements</strong>
         </h1>
         <p style={{ color: "white", textAlign: "center" }}>
-          Here are a few of my proudest accomplishments in competitive programming.
+          Here are a few of our proudest accomplishments in competitive programming.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="achievement-card-col">
