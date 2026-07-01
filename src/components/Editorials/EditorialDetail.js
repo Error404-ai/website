@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { fetchEditorialBySlug, getPlatformLabel } from "../../api/editorials";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./Editorials.css";
 
 function formatDate(value) {
@@ -20,117 +27,51 @@ function formatDate(value) {
   }
 }
 
-const CODE_KEYWORDS = new Set([
-  "auto",
-  "bool",
-  "break",
-  "case",
-  "catch",
-  "char",
-  "class",
-  "const",
-  "continue",
-  "default",
-  "delete",
-  "do",
-  "double",
-  "else",
-  "enum",
-  "extern",
-  "false",
-  "float",
-  "for",
-  "friend",
-  "if",
-  "inline",
-  "int",
-  "long",
-  "namespace",
-  "new",
-  "null",
-  "private",
-  "protected",
-  "public",
-  "return",
-  "short",
-  "signed",
-  "sizeof",
-  "static",
-  "struct",
-  "switch",
-  "template",
-  "this",
-  "throw",
-  "true",
-  "try",
-  "typedef",
-  "typename",
-  "union",
-  "unsigned",
-  "using",
-  "virtual",
-  "void",
-  "while",
-]);
+const CodeBlock = ({ node, inline, className, children, ...props }) => {
+  const match = /language-(\w+)/.exec(className || "");
+  const [copied, setCopied] = useState(false);
 
-function tokenizeCode(source) {
-  if (!source) {
-    return [];
-  }
+  const handleCopy = () => {
+    navigator.clipboard.writeText(String(children).replace(/\n$/, ""));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-  const tokens = [];
-  const tokenMatcher =
-    /\/\/.*|\/\*[\s\S]*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`|#\w+|\b\d+(?:\.\d+)?\b|[(){}\[\]]|\b[A-Za-z_]\w*\b/g;
-  let lastIndex = 0;
-  let match = tokenMatcher.exec(source);
-
-  while (match) {
-    const [value] = match;
-    const start = match.index;
-
-    if (start > lastIndex) {
-      tokens.push({
-        type: "plain",
-        value: source.slice(lastIndex, start),
-      });
-    }
-
-    let type = "plain";
-
-    if (value.startsWith("//") || value.startsWith("/*")) {
-      type = "comment";
-    } else if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'")) ||
-      (value.startsWith("`") && value.endsWith("`"))
-    ) {
-      type = "string";
-    } else if (value.startsWith("#")) {
-      type = "preprocessor";
-    } else if (/^\d/.test(value)) {
-      type = "number";
-    } else if (/^[(){}\[\]]$/.test(value)) {
-      type = "bracket";
-    } else if (CODE_KEYWORDS.has(value)) {
-      type = "keyword";
-    } else if (/^[A-Za-z_]\w*$/.test(value)) {
-      type = "identifier";
-    }
-
-    tokens.push({ type, value });
-    lastIndex = start + value.length;
-    match = tokenMatcher.exec(source);
-  }
-
-  if (lastIndex < source.length) {
-    tokens.push({
-      type: "plain",
-      value: source.slice(lastIndex),
-    });
-  }
-
-  return tokens;
-}
+  return !inline && match ? (
+    <div className="code-block-container" style={{ position: "relative", marginTop: "1rem", marginBottom: "1rem" }}>
+      <button
+        onClick={handleCopy}
+        style={{
+          position: "absolute",
+          top: "8px",
+          right: "8px",
+          background: copied ? "#4CAF50" : "#2d2d2d",
+          color: "white",
+          border: "1px solid #444",
+          padding: "4px 8px",
+          borderRadius: "4px",
+          cursor: "pointer",
+          fontSize: "12px",
+          zIndex: 1,
+        }}
+      >
+        {copied ? "Copied!" : "Copy"}
+      </button>
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
+    </div>
+  ) : (
+    <code className={className} {...props}>
+      {children}
+    </code>
+  );
+};
 
 function EditorialDetail() {
   const { slug } = useParams();
@@ -237,34 +178,38 @@ function EditorialDetail() {
                         href={question.question_link}
                         target="_blank"
                         rel="noreferrer"
+                        className="editorial-visit-problem-btn"
                       >
                         Visit problem
                       </a>
 
                       <div className="editorial-content-block">
                         <h3>Explanation</h3>
-                        <pre>
-                          {question.explanation || "No explanation added yet."}
-                        </pre>
+                        {question.explanation ? (
+                          <div className="editorial-markdown">
+                            <ReactMarkdown
+                              remarkPlugins={[remarkGfm, remarkMath]}
+                              rehypePlugins={[rehypeKatex]}
+                              components={{
+                                code: CodeBlock,
+                              }}
+                            >
+                              {question.explanation}
+                            </ReactMarkdown>
+                          </div>
+                        ) : (
+                          <p>No explanation added yet.</p>
+                        )}
                       </div>
 
                       <div className="editorial-content-block">
                         <h3>Code</h3>
                         {question.code ? (
-                          <pre className="editorial-code-block">
-                            <code>
-                              {tokenizeCode(question.code).map((token, tokenIndex) => (
-                                <span
-                                  key={`${question.id || index}-${tokenIndex}`}
-                                  className={`token token-${token.type}`}
-                                >
-                                  {token.value}
-                                </span>
-                              ))}
-                            </code>
-                          </pre>
+                          <CodeBlock className="language-cpp">
+                            {question.code}
+                          </CodeBlock>
                         ) : (
-                          <pre>No code added yet.</pre>
+                          <p>No code added yet.</p>
                         )}
                       </div>
                     </div>
