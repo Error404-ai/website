@@ -503,6 +503,7 @@
     "object.hasown": "^1.1.0",
     "object.values": "^1.1.5",
     "obuf": "^1.1.2",
+    "ogl": "^1.0.11",
     "on-finished": "^2.3.0",
     "on-headers": "^1.0.2",
     "once": "^1.4.0",
