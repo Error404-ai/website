@@ -2,34 +2,74 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/home-main2.svg";
 import Tilt from "react-parallax-tilt";
-import Particle from "../Particle";
 import {
   AiFillGithub,
   AiOutlineTwitter,
   AiFillInstagram,
 } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaCode, FaProjectDiagram, FaChalkboardTeacher } from "react-icons/fa";
+import LightRays from "./LightRays";
+
+const highlightChips = [
+  {
+    icon: <FaCode />,
+    title: "Competitive Programming",
+    text: "Regular contests on Codeforces, CodeChef & LeetCode.",
+  },
+  {
+    icon: <FaProjectDiagram />,
+    title: "DSA Mastery",
+    text: "Structured practice in Data Structures & Algorithms.",
+  },
+  {
+    icon: <FaChalkboardTeacher />,
+    title: "Workshops & Seminars",
+    text: "Hands-on sessions to sharpen problem-solving skills.",
+  },
+];
 
 function Home2() {
   return (
     <Container fluid className="home-about-section position-relative" id="about">
-      <div className="home-about-particle-container">
-        {/* <Particle variant="about" /> */}
+      <div className="home-rays" aria-hidden="true">
+        <LightRays
+          raysOrigin="bottom-center"
+          raysColor="#EF334C"
+          raysSpeed={1.2}
+          lightSpread={0.7}
+          rayLength={1.3}
+          fadeDistance={1.1}
+          saturation={0.9}
+          followMouse={true}
+          mouseInfluence={0.08}
+          noiseAmount={0.06}
+          distortion={0.03}
+        />
       </div>
       <Container className="home-about-content">
         <Row>
           <Col md={8} className="home-about-description">
             <h1 className="about-heading">
-              What We <span className="purple">Do</span> 
+              What We <span className="purple">Do</span>
             </h1>
             <p className="home-about-body">
-
-              The <span className="purple">Programming Club</span> at Ajay Kumar Garg Engineering College is dedicated to <span className="purple">Competitive Programming and Data Structures & Algorithms (DSA)</span>.<br/><br/>
-               We aim to develop students' <span className="purple">problem-solving</span> skills through coding workshops and seminars that prepare them for national and global competitions.
-
-              Our events are designed for all skill levels, offering insights and techniques to master <span className="purple">Competitive Programming</span>. <br/><br/>
-              Whether you're a beginner or an experienced coder, the Programming Club is the perfect place to enhance your skills and succeed in coding challenges.
+              The <span className="purple">Programming Club</span> at Ajay Kumar
+              Garg Engineering College is dedicated to competitive programming
+              and building strong problem-solving skills, preparing students
+              for national and global coding competitions.
             </p>
+
+            <div className="home-about-chips">
+              {highlightChips.map((chip) => (
+                <div className="home-about-chip" key={chip.title}>
+                  <div className="home-about-chip-icon">{chip.icon}</div>
+                  <div>
+                    <h3 className="home-about-chip-title">{chip.title}</h3>
+                    <p className="home-about-chip-text">{chip.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>

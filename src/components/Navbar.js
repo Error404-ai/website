@@ -36,7 +36,7 @@ function NavBar() {
       expanded={expand}
       fixed="top"
       expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      className={`floating-navbar${navColour ? " scrolled" : ""}`}
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
