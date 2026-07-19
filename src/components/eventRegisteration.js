@@ -12,9 +12,8 @@ const branchCodes = {
 
 function EventRegisteration() {
   const recaptchaRef = useRef(null); 
-  
   const GOOGLE_SITE_KEY = "6LcGdFgtAAAAAF9ghkLpjwuig_Xhzpp1u71MKpO4"; 
-  const BACKEND_URL = "https://api.programmingclub.live/api/register"; 
+  const BACKEND_URL = "https://cin.monu14.me/api/register"; 
 
   const [formData, setFormData] = useState({
     fullName: "", emailId: "", phoneNumber: "", 
@@ -107,7 +106,11 @@ function EventRegisteration() {
     const payload = { ...formData, captchaToken: captchaValue };
 
     try {
-      const response = await axios.post(BACKEND_URL, payload);
+      const response = await axios.post(BACKEND_URL, payload, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
       setLoading(false);
       setMessage("Registration successful!");
       setIsError(false);
