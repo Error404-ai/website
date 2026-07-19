@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import "./Register.css"; 
+import "./eventRegistration.css"; 
 import ReCAPTCHA from "react-google-recaptcha"; 
 
 const branchCodes = {
@@ -19,7 +19,7 @@ function EventRegisteration() {
   const [formData, setFormData] = useState({
     fullName: "", emailId: "", phoneNumber: "", 
     hackerrankProfile: "",
-    branch: "", year: "1", gender: "", hosteller: "",
+    branch: "", year: "1", gender: "", hosteller: "", otherSkill: "",
     studentNumber: "", rollNumber: "",
     website: "", 
   });
@@ -33,7 +33,7 @@ function EventRegisteration() {
   const validateForm = () => {
     let tempErrors = {};
     const { 
-        fullName, emailId, phoneNumber, rollNumber, branch, year, hosteller, studentNumber,
+        fullName, emailId, phoneNumber, rollNumber, branch, year, hosteller, otherSkill, studentNumber,
         hackerrankProfile 
     } = formData;
 
@@ -66,6 +66,7 @@ function EventRegisteration() {
     if (!branch) tempErrors.branch = "Please select your Branch.";
     if (!year) tempErrors.year = "Please select your Year.";
     if (hosteller === "") tempErrors.hosteller = "Please select Residence status.";
+    if (!otherSkill) tempErrors.otherSkill = "Please select an option.";
     
     if (hackerrankProfile && urlRegex.test(hackerrankProfile)) {
         tempErrors.hackerrankProfile = "Enter Username only, not the full link.";
@@ -122,7 +123,7 @@ function EventRegisteration() {
       setFormData({
         fullName: "", emailId: "", phoneNumber: "", 
         hackerrankProfile: "",
-        branch: "", year: "1", gender: "", hosteller: "",
+        branch: "", year: "1", gender: "", hosteller: "", otherSkill: "",
         studentNumber: "", rollNumber: "", website: "",
       });
       
@@ -150,9 +151,31 @@ function EventRegisteration() {
 
   return (
     <div className="formContainer">
+      {/* Drifting Clouds with Retro Outline */}
+      <div className="css-cloud cloud1"></div>
+      <div className="css-cloud cloud2"></div>
+      <div className="css-cloud cloud3"></div>
+      
+      <div className="mario-scene">
+        {/* Local Mario character (Transparent PNG) */}
+        <div style={{ height: "220px", display: "flex", alignItems: "flex-end", marginBottom: "-5px", zIndex: 10 }}>
+            <img src="/mario.png" alt="Mario" style={{ height: "220px", filter: "drop-shadow(2px 2px 5px rgba(0,0,0,0.3))" }} />
+        </div>
+        <div className="blocks-wrapper">
+          <div className="brick"></div>
+          <div className="q-block">?</div>
+          <div className="brick"></div>
+        </div>
+      </div>
+      
+      <div className="css-pipe"></div>
+
       <form onSubmit={handleSubmit} className="form">
         
-        <h2><span className="highlight">#include</span> 5.0 Registration</h2>
+        <h2>
+          <span className="highlight-red">#INCLUDE</span>{" "}
+          <span className="highlight-yellow">5.0 REGISTRATION</span>
+        </h2>
         <p className="description">Open for 1st Year Students Only</p>
 
         <input 
@@ -239,6 +262,21 @@ function EventRegisteration() {
               <option value="no">No</option>
             </select>
              {errors.hosteller && <span className="error-msg">{errors.hosteller}</span>}
+          </div>
+
+          <div className="formGroup">
+            <label className="label">What do you do other than CP? <span>*</span></label>
+            <select name="otherSkill" value={formData.otherSkill} onChange={handleChange} className={`select ${errors.otherSkill ? "input-error" : ""}`}>
+              <option value="">Select Option</option>
+              <option value="Designing">Designing</option>
+              <option value="Video editing">Video editing</option>
+              <option value="Web dev">Web dev</option>
+              <option value="App dev">App dev</option>
+              <option value="Other">Other</option>
+              <option value="Nothing, Just CP">Nothing, Just CP</option>
+              <option value="I am a beginner">I am a beginner</option>
+            </select>
+             {errors.otherSkill && <span className="error-msg">{errors.otherSkill}</span>}
           </div>
 
           <div className="formGroup">
