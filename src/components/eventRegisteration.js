@@ -13,13 +13,13 @@ const branchCodes = {
 function EventRegisteration() {
   const recaptchaRef = useRef(null); 
   
-  const GOOGLE_SITE_KEY = "6LdiBPkrAAAAAE2m6IRWNs3Gu37Ps6y-MpfwOLRA"; 
+  const GOOGLE_SITE_KEY = "6LcGdFgtAAAAAF9ghkLpjwuig_Xhzpp1u71MKpO4"; 
   const BACKEND_URL = "https://api.programmingclub.live/api/register"; 
 
   const [formData, setFormData] = useState({
     fullName: "", emailId: "", phoneNumber: "", 
-    hackerrankProfile: "",
-    branch: "", year: "1", gender: "", hosteller: "", otherSkill: "",
+    hackerrankProfile: "", leetcodeProfile: "", codeforcesProfile: "", codechefProfile: "",
+    branch: "", gender: "", hosteller: "", otherSkill: "",
     studentNumber: "", rollNumber: "",
     website: "", 
   });
@@ -33,11 +33,8 @@ function EventRegisteration() {
   const validateForm = () => {
     let tempErrors = {};
     const { 
-        fullName, emailId, phoneNumber, rollNumber, branch, year, hosteller, otherSkill, studentNumber,
-        hackerrankProfile 
+        fullName, emailId, phoneNumber, rollNumber, branch, hosteller, studentNumber, otherSkill
     } = formData;
-
-    const urlRegex = /(http|https|www\.)/i;
 
     if (!fullName.trim() || !/^[a-zA-Z\s]+$/.test(fullName)) {
         tempErrors.fullName = "Name must contain only alphabets.";
@@ -64,13 +61,8 @@ function EventRegisteration() {
     }
 
     if (!branch) tempErrors.branch = "Please select your Branch.";
-    if (!year) tempErrors.year = "Please select your Year.";
     if (hosteller === "") tempErrors.hosteller = "Please select Residence status.";
     if (!otherSkill) tempErrors.otherSkill = "Please select an option.";
-    
-    if (hackerrankProfile && urlRegex.test(hackerrankProfile)) {
-        tempErrors.hackerrankProfile = "Enter Username only, not the full link.";
-    }
 
     if (!captchaValue) {
       tempErrors.captcha = "Please verify you are not a robot.";
@@ -122,8 +114,8 @@ function EventRegisteration() {
       
       setFormData({
         fullName: "", emailId: "", phoneNumber: "", 
-        hackerrankProfile: "",
-        branch: "", year: "1", gender: "", hosteller: "", otherSkill: "",
+        hackerrankProfile: "", leetcodeProfile: "", codeforcesProfile: "", codechefProfile: "",
+        branch: "", gender: "", hosteller: "", otherSkill: "",
         studentNumber: "", rollNumber: "", website: "",
       });
       
@@ -237,20 +229,12 @@ function EventRegisteration() {
           </div>
           
            <div className="formGroup">
-            <label className="label">Year <span>*</span></label>
-            <select name="year" value={formData.year} onChange={handleChange} className={`select ${errors.year ? "input-error" : ""}`}>
-              <option value="1">1st Year</option>
-            </select>
-            {errors.year && <span className="error-msg">{errors.year}</span>}
-          </div>
-
-           <div className="formGroup">
             <label className="label">Gender <span>*</span></label>
             <select name="gender" value={formData.gender} onChange={handleChange} className="select">
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="other">Other</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -280,9 +264,23 @@ function EventRegisteration() {
           </div>
 
           <div className="formGroup">
-            <label className="label">HackerRank ID</label>
-            <input type="text" name="hackerrankProfile" value={formData.hackerrankProfile} onChange={handleChange} className={`input ${errors.hackerrankProfile ? "input-error" : ""}`} placeholder="Username (Optional)" maxLength={50} />
-            {errors.hackerrankProfile && <span className="error-msg">{errors.hackerrankProfile}</span>}
+            <label className="label">HackerRank Profile URL</label>
+            <input type="url" name="hackerrankProfile" value={formData.hackerrankProfile} onChange={handleChange} className="input" placeholder="Optional" />
+          </div>
+
+          <div className="formGroup">
+            <label className="label">LeetCode Profile URL</label>
+            <input type="url" name="leetcodeProfile" value={formData.leetcodeProfile} onChange={handleChange} className="input" placeholder="Optional" />
+          </div>
+
+          <div className="formGroup">
+            <label className="label">Codeforces Profile URL</label>
+            <input type="url" name="codeforcesProfile" value={formData.codeforcesProfile} onChange={handleChange} className="input" placeholder="Optional" />
+          </div>
+
+          <div className="formGroup">
+            <label className="label">CodeChef Profile URL</label>
+            <input type="url" name="codechefProfile" value={formData.codechefProfile} onChange={handleChange} className="input" placeholder="Optional" />
           </div>
 
         </div>

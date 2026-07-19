@@ -31,31 +31,31 @@ function EventPopup() {
       className="custom-tech-modal" // 👈 Nayi class lagayi hai
     >
       <Modal.Header closeButton className="modal-header-custom">
-        <Modal.Title className="modal-title-custom">🚨 Alert: Upcoming Event</Modal.Title>
+        <Modal.Title className="modal-title-custom">✨ Join Programming Club</Modal.Title>
       </Modal.Header>
       
       <Modal.Body className="modal-body-custom">
         <div className="event-content">
-          <p className="club-name">PROGRAMMING CLUB PRESENTS</p>
+          <p className="club-name">PROGRAMMING CLUB RECRUITMENT</p>
           <h2 className="event-title">
-            <span className="highlight">#include</span> 5.0
+            <span className="highlight-red">#INCLUDE</span> <span className="highlight-yellow">5.0</span>
           </h2>
           
           <p className="event-tagline">
-            "Kickstart your tech journey! Master the basics of coding and get your first real taste of DSA & Competitive Programming. 🚀💡"
+            "Step into the world of Competitive Programming & DSA. Build logic, solve complex algorithms, and grow with the best community! 🚀"
           </p>
           
           <div className="event-details-box">
             <ul>
-              <li><span className="icon">📅</span> <strong>Date:</strong> 21 march and 22 march</li>
-              <li><span className="icon">⏰</span> <strong>Time:</strong> 9:00 am - 6:00 pm</li>
-              <li><span className="icon">📍</span> <strong>Venue:</strong> CSIT Seminar Hall</li>
+              <li><span className="icon">🎯</span> <strong>Focus:</strong> DSA & Competitive Programming</li>
+              <li><span className="icon">👥</span> <strong>For:</strong> Beginners to Advanced Coders</li>
+              <li><span className="icon">🏆</span> <strong>Goal:</strong> Crack top product companies & global contests</li>
             </ul>
           </div>
           
          <p className="event-description">
-            No prior coding experience? No worries! We will guide you right from scratch. Learn how to build strong logic and to tackle algorithmic problem
-            <br/><br/><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Exciting Prizes & Goodies for top performers! 🎁</span>
+            Start your tech journey right from scratch. We provide complete guidance, peer-to-peer learning, and a competitive environment to help you excel.
+            <br/><br/><span className="bonus-text">Join us and unlock a world of exciting opportunities! 🌟</span>
           </p>
         </div>
       </Modal.Body>
