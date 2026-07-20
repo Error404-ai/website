@@ -2,10 +2,10 @@
 .formContainer {
   position: relative;
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: 120px 20px;
   background: radial-gradient(circle at 15% 20%, rgba(239, 51, 76, 0.12), transparent 35%),
-              radial-gradient(circle at 85% 80%, rgba(239, 51, 76, 0.08), transparent 45%),
-              #0d0e15;
+    radial-gradient(circle at 85% 80%, rgba(239, 51, 76, 0.08), transparent 45%),
+    #0d0e15;
   color: white;
   display: flex;
   flex-direction: column;
@@ -63,13 +63,15 @@
   width: 50px;
   background: linear-gradient(90deg, transparent, rgba(239, 51, 76, 0.8));
 }
+
 .line-right {
   background: linear-gradient(90deg, rgba(239, 51, 76, 0.8), transparent);
 }
 
 /* Form Card */
 .form {
-  background: rgba(18, 19, 25, 0.85); /* Increased opacity and made slightly darker */
+  background: rgba(18, 19, 25, 0.85);
+  /* Increased opacity and made slightly darker */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
@@ -165,7 +167,8 @@
   font-size: 0.95rem;
   width: 100%;
   transition: all 0.3s ease;
-  appearance: none; /* For selects */
+  appearance: none;
+  /* For selects */
 }
 
 /* Custom dropdown arrow for select */
@@ -244,11 +247,13 @@
   margin-top: 20px;
   font-weight: 500;
 }
+
 .success {
   background: rgba(40, 167, 69, 0.1);
   color: #4CAF50;
   border: 1px solid rgba(40, 167, 69, 0.3);
 }
+
 .error {
   background: rgba(239, 51, 76, 0.1);
   color: #ff4d4d;
@@ -261,6 +266,7 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .formHeaderSection h2 {
     font-size: 2rem;
   }

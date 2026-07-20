@@ -36,13 +36,13 @@ function EventPopup() {
 
       <Modal.Body className="modal-body-custom">
         <div className="event-content">
-          <p className="club-name">PROGRAMMING CLUB RECRUITS</p>
+          <p className="club-name">PROGRAMMING CLUB PRESENTS</p>
           <h2 className="event-title">
-            <span className="highlight">CIN</span> &gt;&gt; PC;
+            <span className="highlight">CIN</span> &gt;&gt; PC
           </h2>
 
           <p className="event-tagline">
-            "Got the logic? Got the passion for code? Come be a part of our CP & DSA family — no experience needed, just curiosity! 🚀💡"
+            "Got the logic? Got the passion for code? Come be a part of our CP & DSA family 🚀💡"
           </p>
 
           <div className="event-details-box">
@@ -54,8 +54,8 @@ function EventPopup() {
           </div>
 
           <p className="event-description">
-            First year? No CP background? No problem! We'll train you from the basics — logic building, problem solving, and everything you need to crack your first contest and beyond.
-            <br /><br /><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Limited seats — only the sharpest minds get in! 🔥</span>
+            Whether you're just starting out or looking to sharpen your skills, PC is the perfect place to learn Competitive Programming, improve logical thinking, and grow with an amazing coding community.
+            <br /><br /><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Ready to begin your  CP & DSA journey? Join us and let's grow together! 🚀</span>
           </p>
         </div>
       </Modal.Body>
