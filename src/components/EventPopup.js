@@ -28,44 +28,44 @@ function EventPopup() {
       onHide={handleClose}
       size="lg" // lg se thoda chota kiya taaki compact aur pyara lage
       centered
-      className="custom-tech-modal" // 👈 Nayi class lagayi hai
+      className="custom-tech-modal" 
     >
       <Modal.Header closeButton className="modal-header-custom">
-        <Modal.Title className="modal-title-custom">🚨 Alert: Upcoming Event</Modal.Title>
+        <Modal.Title className="modal-title-custom">🚨 Recruitment Drive</Modal.Title>
       </Modal.Header>
-      
+
       <Modal.Body className="modal-body-custom">
         <div className="event-content">
           <p className="club-name">PROGRAMMING CLUB PRESENTS</p>
           <h2 className="event-title">
-            <span className="highlight">#include</span> 5.0
+            <span className="highlight">CIN</span> &gt;&gt; PC
           </h2>
-          
+
           <p className="event-tagline">
-            "Kickstart your tech journey! Master the basics of coding and get your first real taste of DSA & Competitive Programming. 🚀💡"
+            "Got the logic? Got the passion for code? Come be a part of our CP & DSA family"
           </p>
-          
+
           <div className="event-details-box">
             <ul>
-              <li><span className="icon">📅</span> <strong>Date:</strong> 21 march and 22 march</li>
-              <li><span className="icon">⏰</span> <strong>Time:</strong> 9:00 am - 6:00 pm</li>
-              <li><span className="icon">📍</span> <strong>Venue:</strong> CSIT Seminar Hall</li>
+              <li><span className="icon">📅</span> <strong>Date:</strong> 3 August 2026</li>
+              <li><span className="icon">⏰</span> <strong>Time:</strong> 4:00 PM Onwards</li>
+              <li><span className="icon">📍</span> <strong>Venue:</strong> CS/IT Block(3rd floor)</li>
             </ul>
           </div>
-          
-         <p className="event-description">
-            No prior coding experience? No worries! We will guide you right from scratch. Learn how to build strong logic and to tackle algorithmic problem
-            <br/><br/><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Exciting Prizes & Goodies for top performers! 🎁</span>
+
+          <p className="event-description">
+            Whether you're just starting out or looking to sharpen your skills, PC is the perfect place to learn Competitive Programming, improve logical thinking, and grow with an amazing coding community.
+            <br /><br /><span style={{ color: "#ff4d4d", fontWeight: "bold" }}>Ready to begin your  CP & DSA journey? Join us and let's grow together! </span>
           </p>
         </div>
       </Modal.Body>
-      
+
       <Modal.Footer className="modal-footer-custom">
         <Button variant="secondary" className="btn-close-custom" onClick={handleClose}>
           Maybe Later
         </Button>
         <Button className="btn-register-custom" onClick={handleRegister}>
-          Register Now 🚀
+          Apply Now 
         </Button>
       </Modal.Footer>
     </Modal>

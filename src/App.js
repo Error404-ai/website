@@ -8,7 +8,7 @@ import Members from "./components/Members/Members";
 import EditorialList from "./components/Editorials/EditorialList";
 import EditorialDetail from "./components/Editorials/EditorialDetail";
 import EventRegisteration from "./components/eventRegisteration"; 
-// import EventPopup from "./components/EventPopup";
+import EventPopup from "./components/EventPopup";
 
 import {
   BrowserRouter as Router,
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <Router>
-      {/* <EventPopup /> */}
+      <EventPopup />
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
@@ -46,7 +46,7 @@ function App() {
           <Route path="/editorials" element={<EditorialList />} />
           <Route path="/editorials/:slug" element={<EditorialDetail />} />
           <Route path="/members" element={<Members />} />
-          {/* <Route path="/register" element={<EventRegisteration />} /> */}
+          <Route path="/register" element={<EventRegisteration />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
