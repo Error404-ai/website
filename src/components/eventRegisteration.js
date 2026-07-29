@@ -160,7 +160,11 @@ function EventRegisterationForm() {
       setLoading(false);
       setIsError(true);
       const errorMsg = error.response?.data?.message || "Server Error.";
-      if (errorMsg.includes("duplicate") || errorMsg.includes("already exists")) {
+      
+      if (error.response?.data?.fieldErrors) {
+        setErrors(error.response.data.fieldErrors);
+        setMessage("Please fix the errors highlighted in red.");
+      } else if (errorMsg.includes("duplicate") || errorMsg.includes("already exists")) {
         setMessage("User already registered with this Email/Roll No!");
       } else if (errorMsg.includes("captcha") || errorMsg.includes("reCAPTCHA")) {
         setMessage("Captcha verification failed. Please try again.");
