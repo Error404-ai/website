@@ -66,28 +66,25 @@ function EventRegisterationForm() {
     if (!formData.gender) tempErrors.gender = "Please select your Gender.";
     if (!formData.otherSkills) tempErrors.otherSkills = "Please select an option.";
 
-    // Strict URL Validation to prevent injection
-    const hrRegex = /^https?:\/\/(www\.)?hackerrank\.com\/[a-zA-Z0-9_.-]+(\/)?$/;
-    const lcRegex = /^https?:\/\/(www\.)?leetcode\.com\/[a-zA-Z0-9_.-]+(\/)?$/;
-    const cfRegex = /^https?:\/\/(www\.)?codeforces\.com\/profile\/[a-zA-Z0-9_.-]+(\/)?$/;
-    const ccRegex = /^https?:\/\/(www\.)?codechef\.com\/(users\/)?[a-zA-Z0-9_.-]+(\/)?$/;
+    // Username validation: alphanumeric, dash, dot, underscore
+    const usernameRegex = /^[a-zA-Z0-9_.-]+$/;
 
     if (!hackerrankProfile.trim()) {
-      tempErrors.hackerrankProfile = "HackerRank Profile is required.";
-    } else if (!hrRegex.test(hackerrankProfile)) {
-      tempErrors.hackerrankProfile = "Must be a valid HackerRank URL (e.g. https://hackerrank.com/username).";
+      tempErrors.hackerrankProfile = "HackerRank Username is required.";
+    } else if (!usernameRegex.test(hackerrankProfile)) {
+      tempErrors.hackerrankProfile = "Must be a valid HackerRank username.";
     }
 
-    if (leetcodeProfile.trim() && !lcRegex.test(leetcodeProfile)) {
-      tempErrors.leetcodeProfile = "Must be a valid LeetCode URL (e.g. https://leetcode.com/username).";
+    if (leetcodeProfile.trim() && !usernameRegex.test(leetcodeProfile)) {
+      tempErrors.leetcodeProfile = "Must be a valid LeetCode username.";
     }
 
-    if (codeforcesProfile.trim() && !cfRegex.test(codeforcesProfile)) {
-      tempErrors.codeforcesProfile = "Must be a valid Codeforces URL (e.g. https://codeforces.com/profile/username).";
+    if (codeforcesProfile.trim() && !usernameRegex.test(codeforcesProfile)) {
+      tempErrors.codeforcesProfile = "Must be a valid Codeforces username.";
     }
 
-    if (codechefProfile.trim() && !ccRegex.test(codechefProfile)) {
-      tempErrors.codechefProfile = "Must be a valid CodeChef URL (e.g. https://www.codechef.com/users/username).";
+    if (codechefProfile.trim() && !usernameRegex.test(codechefProfile)) {
+      tempErrors.codechefProfile = "Must be a valid CodeChef username.";
     }
 
     setErrors(tempErrors);
@@ -307,37 +304,37 @@ function EventRegisterationForm() {
         </div>
         <div className="formGrid">
           <div className="formGroup">
-            <label className="label">HackerRank Profile <span>*</span></label>
+            <label className="label">HackerRank Username <span>*</span></label>
             <div className="inputWrapper">
               <FaCode className="inputIcon" />
-              <input type="text" name="hackerrankProfile" value={formData.hackerrankProfile} onChange={handleChange} className={`input ${errors.hackerrankProfile ? "input-error" : ""}`} placeholder="https://hackerrank.com/username" maxLength={100} />
+              <input type="text" name="hackerrankProfile" value={formData.hackerrankProfile} onChange={handleChange} className={`input ${errors.hackerrankProfile ? "input-error" : ""}`} placeholder="Enter HackerRank username" maxLength={100} />
             </div>
             {errors.hackerrankProfile && <span className="error-msg">{errors.hackerrankProfile}</span>}
           </div>
 
           <div className="formGroup">
-            <label className="label">LeetCode Profile <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
+            <label className="label">LeetCode Username <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
             <div className="inputWrapper">
               <SiLeetcode className="inputIcon" />
-              <input type="text" name="leetcodeProfile" value={formData.leetcodeProfile} onChange={handleChange} className={`input ${errors.leetcodeProfile ? "input-error" : ""}`} placeholder="https://leetcode.com/username" maxLength={100} />
+              <input type="text" name="leetcodeProfile" value={formData.leetcodeProfile} onChange={handleChange} className={`input ${errors.leetcodeProfile ? "input-error" : ""}`} placeholder="Enter LeetCode username" maxLength={100} />
             </div>
             {errors.leetcodeProfile && <span className="error-msg">{errors.leetcodeProfile}</span>}
           </div>
 
           <div className="formGroup">
-            <label className="label">Codeforces Profile <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
+            <label className="label">Codeforces Username <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
             <div className="inputWrapper">
               <SiCodeforces className="inputIcon" />
-              <input type="text" name="codeforcesProfile" value={formData.codeforcesProfile} onChange={handleChange} className={`input ${errors.codeforcesProfile ? "input-error" : ""}`} placeholder="https://codeforces.com/profile/username" maxLength={100} />
+              <input type="text" name="codeforcesProfile" value={formData.codeforcesProfile} onChange={handleChange} className={`input ${errors.codeforcesProfile ? "input-error" : ""}`} placeholder="Enter Codeforces username" maxLength={100} />
             </div>
             {errors.codeforcesProfile && <span className="error-msg">{errors.codeforcesProfile}</span>}
           </div>
 
           <div className="formGroup">
-            <label className="label">CodeChef Profile <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
+            <label className="label">CodeChef Username <span className="optionalText" style={{ fontSize: '0.8rem', color: '#707070' }}>(Optional)</span></label>
             <div className="inputWrapper">
               <SiCodechef className="inputIcon" />
-              <input type="text" name="codechefProfile" value={formData.codechefProfile} onChange={handleChange} className={`input ${errors.codechefProfile ? "input-error" : ""}`} placeholder="https://www.codechef.com/users/username" maxLength={100} />
+              <input type="text" name="codechefProfile" value={formData.codechefProfile} onChange={handleChange} className={`input ${errors.codechefProfile ? "input-error" : ""}`} placeholder="Enter CodeChef username" maxLength={100} />
             </div>
             {errors.codechefProfile && <span className="error-msg">{errors.codechefProfile}</span>}
           </div>
