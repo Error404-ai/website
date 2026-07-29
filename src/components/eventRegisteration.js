@@ -64,6 +64,7 @@ function EventRegisterationForm() {
     if (!branch) tempErrors.branch = "Please select your Branch.";
     if (hosteller === "") tempErrors.hosteller = "Please select Residence status.";
     if (!formData.gender) tempErrors.gender = "Please select your Gender.";
+    if (!formData.otherSkills) tempErrors.otherSkills = "Please select an option.";
 
     // Strict URL Validation to prevent injection
     const hrRegex = /^https?:\/\/(www\.)?hackerrank\.com\/[a-zA-Z0-9_.-]+(\/)?$/;
