@@ -27,7 +27,7 @@ function EventRegisterationForm() {
     hackerrankProfile: "", leetcodeProfile: "",
     codeforcesProfile: "", codechefProfile: "",
     branch: "", gender: "", hosteller: "",
-    studentNumber: "", rollNumber: "", website: "", otherSkills: "",
+    studentNumber: "", rollNumber: "", otherSkills: "", botCheck: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -106,7 +106,7 @@ function EventRegisterationForm() {
     setMessage("");
     setIsError(false);
 
-    if (formData.website !== "") {
+    if (formData.botCheck !== "") {
       setMessage("Registration successful!");
       setIsError(false);
       return;
@@ -153,7 +153,7 @@ function EventRegisterationForm() {
         hackerrankProfile: "", leetcodeProfile: "",
         codeforcesProfile: "", codechefProfile: "",
         branch: "", gender: "", hosteller: "",
-        studentNumber: "", rollNumber: "", website: "", otherSkills: ""
+        studentNumber: "", rollNumber: "", otherSkills: "", botCheck: ""
       });
 
     } catch (error) {
@@ -196,7 +196,7 @@ function EventRegisterationForm() {
 
       <form onSubmit={handleSubmit} className="form">
         <input
-          type="text" name="website" value={formData.website}
+          type="text" name="botCheck" value={formData.botCheck}
           onChange={handleChange} style={{ opacity: 0, position: 'absolute', left: '-9999px' }}
           tabIndex="-1" autoComplete="off" maxLength={50}
         />
