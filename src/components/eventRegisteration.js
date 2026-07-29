@@ -27,7 +27,7 @@ function EventRegisterationForm() {
     hackerrankProfile: "", leetcodeProfile: "",
     codeforcesProfile: "", codechefProfile: "",
     branch: "", gender: "", hosteller: "",
-    studentNumber: "", rollNumber: "", otherSkills: "", botCheck: "",
+    studentNumber: "", rollNumber: "", otherSkills: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -106,12 +106,6 @@ function EventRegisterationForm() {
     setMessage("");
     setIsError(false);
 
-    if (formData.botCheck !== "") {
-      setMessage("Registration successful!");
-      setIsError(false);
-      return;
-    }
-
     const isValid = validateForm();
     if (!isValid) {
       setMessage("Please fix the errors highlighted in red.");
@@ -153,7 +147,7 @@ function EventRegisterationForm() {
         hackerrankProfile: "", leetcodeProfile: "",
         codeforcesProfile: "", codechefProfile: "",
         branch: "", gender: "", hosteller: "",
-        studentNumber: "", rollNumber: "", otherSkills: "", botCheck: ""
+        studentNumber: "", rollNumber: "", otherSkills: ""
       });
 
     } catch (error) {
@@ -195,11 +189,6 @@ function EventRegisterationForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="form">
-        <input
-          type="text" name="botCheck" value={formData.botCheck}
-          onChange={handleChange} style={{ opacity: 0, position: 'absolute', left: '-9999px' }}
-          tabIndex="-1" autoComplete="off" maxLength={50}
-        />
 
         {/* SECTION 1: PERSONAL DETAILS */}
         <div className="sectionHeader">
