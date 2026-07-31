@@ -66,8 +66,8 @@ function EventRegisterationForm() {
     if (!formData.gender) tempErrors.gender = "Please select your Gender.";
     if (!formData.otherSkills) tempErrors.otherSkills = "Please select an option.";
 
-    // Username validation: alphanumeric, dash, dot, underscore
-    const usernameRegex = /^[a-zA-Z0-9_.-]+$/;
+    // Username validation: alphanumeric, dash, dot, underscore, and optional spaces at both ends
+    const usernameRegex = /^\s*[a-zA-Z0-9_.-]+\s*$/;
 
     if (!hackerrankProfile.trim()) {
       tempErrors.hackerrankProfile = "HackerRank Username is required.";
@@ -134,6 +134,12 @@ function EventRegisterationForm() {
     }
 
     const { otherSkills, ...apiPayloadData } = formData;
+    
+    apiPayloadData.hackerrankProfile = apiPayloadData.hackerrankProfile.trim();
+    apiPayloadData.leetcodeProfile = apiPayloadData.leetcodeProfile.trim();
+    apiPayloadData.codeforcesProfile = apiPayloadData.codeforcesProfile.trim();
+    apiPayloadData.codechefProfile = apiPayloadData.codechefProfile.trim();
+
     const payload = { ...apiPayloadData, otherThanCp: otherSkills, captchaToken };
 
     try {
