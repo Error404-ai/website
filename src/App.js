@@ -34,7 +34,7 @@ function App() {
 
   return (
     <Router>
-      <EventPopup />
+      {false && <EventPopup />}
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />

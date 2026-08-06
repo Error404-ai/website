@@ -184,16 +184,18 @@ function EventRegisterationForm() {
           <span style={{ color: '#a0a0a0', margin: '0 10px' }}>&gt;&gt;</span>
           PC REGISTRATION
         </h2>
-        <p className="description">
-          Got the logic? Got the passion for code? Join the CP & DSA family!
+        <p className="description" style={{ fontSize: '1.2rem', marginTop: '20px' }}>
+          Registrations are now closed. Thank you for your interest!
         </p>
         <div className="pill-container">
           <div className="line-fade line-left"></div>
-          <div className="pill">Open for 2nd Year Students Only</div>
+          <div className="pill">Registrations Closed</div>
           <div className="line-fade line-right"></div>
         </div>
       </div>
 
+      {/* The registration form has been hidden/commented out as registrations are closed. */}
+      {false && (
       <form onSubmit={handleSubmit} className="form">
 
         {/* SECTION 1: PERSONAL DETAILS */}
@@ -372,6 +374,7 @@ function EventRegisterationForm() {
         {message && <p className={`message ${isError ? "error" : "success"}`}>{message}</p>}
 
       </form>
+      )}
     </div>
   );
 }

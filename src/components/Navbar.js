@@ -98,6 +98,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {false && (
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -107,6 +108,7 @@ function NavBar() {
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Register
               </Nav.Link>
             </Nav.Item>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
